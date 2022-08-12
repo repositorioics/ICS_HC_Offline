@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:background="@android:color/transparent"
+        tools:context=".DatosPreClinicos$PlaceholderFragment"
+        android:fillViewport="false">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent">
+
+            <TextView
+                android:id="@+id/txtvTituloPreClinicos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:textAppearance="@style/TextoTituloEstilo"
+                android:text="@string/title_titulopreclinicos"
+                />
+
+            <TextView
+                android:id="@+id/txtvNombreApellido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtvTituloPreClinicos"
+                android:layout_marginTop="27dp"
+                android:text="@string/label_nombre_apellido" />
+
+            <EditText
+                android:id="@+id/edtxtNombreApellido"
+                style="@style/EditTextEstilo"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_below="@+id/txtvNombreApellido"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="text"
+                android:textCursorDrawable="@null" />
+
+            <TextView
+                android:id="@+id/txtvCodigo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edtxtNombreApellido"
+                android:layout_marginTop="17dp"
+                android:text="@string/label_codigo" />
+
+            <EditText
+                android:id="@+id/edtxtCodigo"
+                style="@style/EditTextEstilo"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:layout_below="@+id/txtvCodigo"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:enabled="false"
+                android:textCursorDrawable="@null" />
+
+            <TextView
+                android:id="@+id/txtvFecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edtxtNombreApellido"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="17dp"
+                android:layout_toEndOf="@+id/edtxtCodigo"
+                android:text="@string/label_fecha" />
+
+            <EditText
+                android:id="@+id/edtxtFecha"
+                style="@style/EditTextEstilo"
+                android:layout_width="120dp"
+                android:layout_height="35dp"
+                android:layout_below="@id/txtvFecha"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/edtxtCodigo"
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="date"
+                android:textCursorDrawable="@null" />
+
+            <TextView
+                android:id="@+id/txtvHora"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edtxtNombreApellido"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="17dp"
+                android:layout_toEndOf="@+id/edtxtFecha"
+
+                android:text="@string/label_hora" />
+
+            <EditText
+                android:id="@+id/edtxtHora"
+                style="@style/EditTextEstilo"
+                android:layout_width="120dp"
+                android:layout_height="35dp"
+                android:layout_below="@id/txtvHora"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/edtxtFecha"
+                android:ems="10"
+                android:enabled="false"
+                android:textCursorDrawable="@null"
+                />
+
+            <TextView
+                android:id="@+id/txtvEdad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edtxtCodigo"
+                android:layout_marginTop="17dp"
+                android:text="@string/label_edad" />
+
+            <EditText
+                android:id="@+id/edtxtEdad"
+                style="@style/EditTextEstilo"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:layout_below="@id/txtvEdad"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:enabled="false"
+                android:textCursorDrawable="@null" />
+
+            <TextView
+                android:id="@+id/txtvSexo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edtxtCodigo"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="17dp"
+                android:layout_toEndOf="@+id/edtxtEdad"
+                android:text="@string/label_sexo" />
+
+            <EditText
+                android:id="@+id/edtxtSexo"
+                style="@style/EditTextEstilo"
+                android:layout_width="120dp"
+                android:layout_height="35dp"
+                android:layout_below="@+id/txtvSexo"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/edtxtEdad"
+                android:ems="10"
+                android:enabled="false"
+                android:textCursorDrawable="@null" />
+
+            <TextView
+                android:id="@+id/txtvExpediente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edtxtCodigo"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="17dp"
+                android:layout_toEndOf="@+id/edtxtSexo"
+                android:text="@string/label_expediente" />
+
+            <EditText
+                android:id="@+id/edtxtExpediente"
+                style="@style/EditTextEstilo"
+                android:layout_width="120dp"
+                android:layout_height="35dp"
+                android:layout_below="@+id/txtvExpediente"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/edtxtSexo"
+                android:ems="10"
+                android:enabled="false"
+                android:textCursorDrawable="@null" />
+
+            <TextView
+                android:id="@+id/txtvPeso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edtxtEdad"
+                android:layout_marginTop="17dp"
+                android:text="@string/label_peso"
+
+                />
+
+            <EditText
+                android:id="@+id/edtxtPeso"
+                style="@style/EditTextEstilo"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:layout_below="@id/txtvPeso"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:textCursorDrawable="@null" />
+
+            <TextView
+                android:id="@+id/txtvTalla"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edtxtEdad"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="17dp"
+                android:layout_toEndOf="@+id/edtxtPeso"
+                android:text="@string/label_talla" />
+
+            <EditText
+                android:id="@+id/edtxtTalla"
+                style="@style/EditTextEstilo"
+                android:layout_width="120dp"
+                android:layout_height="35dp"
+                android:layout_below="@+id/txtvTalla"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/edtxtPeso"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:textCursorDrawable="@null" />
+
+            <TextView
+                android:id="@+id/txtvTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edtxtEdad"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="17dp"
+                android:layout_toEndOf="@+id/edtxtTalla"
+                android:text="@string/label_temp" />
+
+            <EditText
+                android:id="@+id/edtxtTemp"
+                android:layout_width="120dp"
+                android:layout_height="35dp"
+                android:layout_toEndOf="@+id/edtxtTalla"
+                android:layout_below="@+id/txtvTemp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:textCursorDrawable="@null"
+                style="@style/EditTextEstilo"
+                />
+
+            <include
+                android:id="@+id/incBotonesPreclinicos"
+                layout="@layout/preclinicos_layout_parte1"
+                android:layout_width="510dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edtxtPeso"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp" />
+        </RelativeLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

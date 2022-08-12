@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/txtvPrincipalExamen"
+        android:layout_width="350dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:gravity="center"
+        android:background="@drawable/bg_textview_rectangulo"
+        android:text="@string/label_descripcion"
+        android:textAppearance="@style/LabelSintomasScreensEstilo"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/txtvSExamen"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_toEndOf="@+id/txtvPrincipalExamen"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="6dp"
+        android:gravity="center"
+        android:background="@drawable/bg_textview_rectangulo"
+        android:text="@string/label_s"
+        android:textAppearance="@style/LabelSintomasScreensEstilo"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/txtvNExamen"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_toEndOf="@+id/txtvSExamen"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center"
+        android:background="@drawable/bg_textview_rectangulo"
+        android:text="@string/label_n"
+        android:textAppearance="@style/LabelSintomasScreensEstilo"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/txtvBHC"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtvPrincipalExamen"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="35dp"
+        android:text="@string/label_bhc"
+        android:textAppearance="@style/LabelSintomasScreensEstilo" />
+    <CheckBox
+        android:id="@+id/chkbSBHCExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtvPrincipalExamen"
+        android:layout_toEndOf="@+id/txtvBHC"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="7dp" />
+    <CheckBox
+        android:id="@+id/chkbNBHCExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbSBHCExamen"
+        android:layout_below="@+id/txtvPrincipalExamen"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp" />
+    <TextView
+        android:id="@+id/txtvSerologiaDengue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_serologia_dengue"
+        android:textAppearance="@style/LabelSintomasScreensEstilo"
+        android:layout_alignBaseline="@+id/chkbSSerologiaDengueExamen"
+        android:layout_alignBottom="@+id/chkbSSerologiaDengueExamen"
+        android:layout_alignStart="@+id/txtvSerologiaChick" />
+    <CheckBox
+        android:id="@+id/chkbSSerologiaDengueExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chkbSBHCExamen"
+        android:layout_toEndOf="@+id/txtvBHC"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="7dp" />
+    <CheckBox
+        android:id="@+id/chkbNSerologiaDengueExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbSBHCExamen"
+        android:layout_below="@+id/chkbNBHCExamen"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="15dp" />
+    <TextView
+        android:id="@+id/txtvSerologiaChick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_serologia_chick"
+        android:textAppearance="@style/LabelSintomasScreensEstilo"
+        android:layout_alignBaseline="@+id/chkbSSerologiaChickExamen"
+        android:layout_alignBottom="@+id/chkbSSerologiaChickExamen"
+        android:layout_alignStart="@+id/txtvGotaGruesaExamen" />
+    <CheckBox
+        android:id="@+id/chkbSSerologiaChickExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chkbSSerologiaDengueExamen"
+        android:layout_toEndOf="@+id/txtvBHC"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="7dp" />
+    <CheckBox
+        android:id="@+id/chkbNSerologiaChickExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbSBHCExamen"
+        android:layout_below="@+id/chkbNSerologiaDengueExamen"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="15dp" />
+    <TextView
+        android:id="@+id/txtvGotaGruesaExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_gota_gruesa"
+        android:textAppearance="@style/LabelSintomasScreensEstilo"
+        android:layout_alignBaseline="@+id/chkbSGotaGruesaExamen"
+        android:layout_alignBottom="@+id/chkbSGotaGruesaExamen"
+        android:layout_alignStart="@+id/txtvExtendidoPeriferico" />
+    <CheckBox
+        android:id="@+id/chkbSGotaGruesaExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chkbSSerologiaChickExamen"
+        android:layout_toEndOf="@+id/txtvBHC"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="7dp" />
+
+    <CheckBox
+        android:id="@+id/chkbNGotaGruesaExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbSBHCExamen"
+        android:layout_below="@+id/chkbNSerologiaChickExamen"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="15dp" />
+
+    <TextView
+        android:id="@+id/txtvExtendidoPeriferico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_extendido_periferico"
+        android:textAppearance="@style/LabelSintomasScreensEstilo"
+        android:layout_alignBaseline="@+id/chkbSExtendidoPerExamen"
+        android:layout_alignBottom="@+id/chkbSExtendidoPerExamen"
+        android:layout_alignStart="@+id/txtvBHC" />
+    <CheckBox
+        android:id="@+id/chkbSExtendidoPerExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chkbSGotaGruesaExamen"
+        android:layout_toEndOf="@+id/txtvBHC"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="7dp" />
+    <CheckBox
+        android:id="@+id/chkbNExtendidoPerExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbSBHCExamen"
+        android:layout_below="@+id/chkbNGotaGruesaExamen"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="15dp" />
+</RelativeLayout>

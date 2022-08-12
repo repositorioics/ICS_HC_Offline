@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:focusable="true" android:focusableInTouchMode="true">
+
+        <TextView
+            android:id="@+id/txtvTituloConsulta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible"
+            android:textAppearance="@style/TextoTituloEstilo"
+            android:text="@string/title_tab_diagnostico_consulta" />
+
+        <ImageButton
+            android:id="@+id/ibtVisorDiagnostico"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+            android:background="@mipmap/pdf" />
+
+        <TextView
+            android:id="@+id/txtvNombreApellido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvTituloConsulta"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/label_nombre_apellido"
+            android:textColor="@android:color/black"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/edtxNombrePaciente"
+            style="@style/EditTextEstilo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvTituloConsulta"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="7dp"
+            android:layout_toEndOf="@+id/txtvNombreApellido"
+            android:ems="10"
+            android:enabled="false"
+            android:paddingStart="14dp"
+            android:textColor="@color/color_texto_deshabilitado"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/txtvEstudiosParticipante"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvNombreApellido"
+            android:layout_marginTop="34dp"
+            android:layout_marginStart="20dp"
+            android:text="@string/label_estudio_participante"
+            android:textSize="17sp"
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:id="@+id/edtxEstudioParticipante"
+            style="@style/EditTextEstilo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtxNombrePaciente"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="7dp"
+            android:layout_toEndOf="@+id/txtvEstudiosParticipante"
+            android:ems="10"
+            android:enabled="false"
+            android:paddingStart="14dp"
+            android:textColor="@color/color_texto_deshabilitado"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/txtvCodigoExamenes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvEstudiosParticipante"
+            android:layout_marginTop="33dp"
+            android:layout_marginStart="20dp"
+            android:text="@string/label_codigo"
+            android:textSize="17sp"
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:id="@+id/edtxCodigoExamenes"
+            style="@style/EditTextEstilo"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvEstudiosParticipante"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="7dp"
+            android:layout_toEndOf="@+id/txtvCodigoExamenes"
+            android:ems="10"
+            android:enabled="false"
+            android:paddingStart="14dp"
+            android:textColor="@color/color_texto_deshabilitado"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/txtvFechaExamen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvEstudiosParticipante"
+            android:layout_toEndOf="@+id/edtxCodigoExamenes"
+            android:layout_marginTop="33dp"
+            android:layout_marginStart="17dp"
+            android:text="@string/label_fecha"
+            android:textSize="17sp"
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:id="@+id/edtxtFechaExamen"
+            style="@style/EditTextEstilo"
+            android:layout_width="138dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvEstudiosParticipante"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="36dp"
+            android:layout_toEndOf="@+id/txtvFechaExamen"
+            android:ems="10"
+            android:enabled="false"
+            android:inputType="date"
+            android:paddingStart="14dp"
+            android:textColor="@color/color_texto_deshabilitado"
+            android:textSize="16sp"
+            tools:ignore="RtlSymmetry" />
+        <TextView
+            android:id="@+id/txtvHoraExamen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvEstudiosParticipante"
+            android:layout_toEndOf="@+id/edtxtFechaExamen"
+            android:layout_marginTop="33dp"
+            android:layout_marginStart="11dp"
+            android:text="@string/label_hora"
+            android:textSize="17sp"
+            android:textColor="@android:color/black" />
+        <EditText
+            android:id="@+id/edtxtHoraExamen"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/txtvHoraExamen"
+            android:layout_below="@+id/txtvEstudiosParticipante"
+            android:layout_marginTop="36dp"
+            android:layout_marginStart="7dp"
+            android:paddingStart="4dp"
+            style="@style/EditTextEstilo"
+            android:inputType="date"
+            android:enabled="false"
+            android:ems="10"
+            android:textColor="@color/color_texto_deshabilitado"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/txtvExpendienteExamen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvCodigoExamenes"
+            android:layout_marginTop="33dp"
+            android:layout_marginStart="20dp"
+            android:text="@string/label_expediente"
+            android:textSize="17sp"
+            android:textColor="@android:color/black" />
+        <EditText
+            android:id="@+id/edtxtExpedienteExamen"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/txtvExpendienteExamen"
+            android:layout_below="@+id/edtxCodigoExamenes"
+            android:layout_marginTop="28dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="7dp"
+            android:paddingStart="12dp"
+            style="@style/EditTextEstilo"
+            android:inputType="date"
+            android:enabled="false"
+            android:ems="10"
+            android:textColor="@color/color_texto_deshabilitado"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/txtvEdadExamen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/edtxtExpedienteExamen"
+            android:layout_below="@+id/txtvFechaExamen"
+            android:layout_marginTop="33dp"
+            android:layout_marginStart="20dp"
+            android:text="@string/label_edad"
+            android:textSize="17sp"
+            android:textColor="@android:color/black" />
+        <EditText
+            android:id="@+id/edtxtEdadExamen"
+            android:layout_width="98dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/txtvEdadExamen"
+            android:layout_below="@+id/edtxtFechaExamen"
+            android:layout_marginTop="28dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:paddingStart="14dp"
+            style="@style/EditTextEstilo"
+            android:inputType="date"
+            android:enabled="false"
+            android:ems="10"
+            android:textColor="@color/color_texto_deshabilitado"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/txtvSexoExamen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvHoraExamen"
+            android:layout_toEndOf="@+id/edtxtEdadExamen"
+            android:layout_marginTop="33dp"
+            android:layout_marginStart="20dp"
+            android:text="@string/label_sexo"
+            android:textSize="17sp"
+            android:textColor="@android:color/black" />
+        <EditText
+            android:id="@+id/edtxtSexoExamen"
+            android:layout_width="98dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/txtvSexoExamen"
+            android:layout_below="@+id/edtxtHoraExamen"
+            android:layout_marginTop="28dp"
+            android:layout_marginStart="8dp"
+            android:paddingStart="25dp"
+            style="@style/EditTextEstilo"
+            android:inputType="date"
+            android:enabled="false"
+            android:ems="10"
+            android:textColor="@color/color_texto_deshabilitado"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/txtvPesoKgExamen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvEdadExamen"
+            android:layout_marginTop="33dp"
+            android:layout_marginStart="23dp"
+            android:text="@string/label_peso"
+            android:textSize="17sp"
+            android:textColor="@android:color/black" />
+        <EditText
+            android:id="@+id/edtxtPesoKgExamen"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/txtvPesoKgExamen"
+            android:layout_below="@+id/edtxtEdadExamen"
+            android:layout_marginTop="29dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="7dp"
+            android:paddingStart="14dp"
+            style="@style/EditTextEstilo"
+            android:inputType="date"
+            android:enabled="false"
+            android:ems="10"
+            android:textColor="@color/color_texto_deshabilitado"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/txtvTallaCmExamen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/edtxtPesoKgExamen"
+            android:layout_below="@+id/txtvSexoExamen"
+            android:layout_marginTop="33dp"
+            android:layout_marginStart="14dp"
+            android:text="@string/label_talla"
+            android:textSize="17sp"
+            android:textColor="@android:color/black" />
+        <EditText
+            android:id="@+id/edtxtTallaCmExamen"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/txtvTallaCmExamen"
+            android:layout_below="@+id/edtxtSexoExamen"
+            android:layout_marginTop="29dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="7dp"
+            android:paddingStart="14dp"
+            style="@style/EditTextEstilo"
+            android:inputType="date"
+            android:enabled="false"
+            android:ems="10"
+            android:textColor="@color/color_texto_deshabilitado"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/txtvTempCExamen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvSexoExamen"
+            android:layout_toEndOf="@+id/edtxtTallaCmExamen"
+            android:layout_marginTop="33dp"
+            android:layout_marginStart="12dp"
+            android:text="@string/label_temp"
+            android:textSize="17sp"
+            android:textColor="@android:color/black" />
+        <EditText
+            android:id="@+id/edtxtTempCExamen"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/txtvTempCExamen"
+            android:layout_below="@+id/edtxtSexoExamen"
+            android:layout_marginTop="29dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="7dp"
+            android:paddingStart="14dp"
+            style="@style/EditTextEstilo"
+            android:inputType="date"
+            android:enabled="false"
+            android:ems="10"
+            android:textColor="@color/color_texto_deshabilitado"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/txtvTituloExamen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:layout_below="@+id/txtvTempCExamen"
+            android:textAppearance="@style/TextoTituloEstilo"
+            android:text="@string/title_tab_examenes" />
+        <include
+            android:id="@+id/incExamenParte1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/txtvTituloExamen"
+            layout="@layout/descripcion_examenes_part1_layout"/>
+        <include
+            android:id="@+id/incExamenParte2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/incExamenParte1"
+            layout="@layout/descripcion_examenes_part2_layout"/>
+        <include
+            android:id="@+id/incExamenParte3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/incExamenParte2"
+            layout="@layout/descripcion_examenes_part3_layout"/>
+        <include
+            android:id="@+id/incResultadosExamenes"
+            android:layout_width="400dp"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/incExamenParte3"
+            layout="@layout/descripcion_examenes_resultados_layout"/>
+    </RelativeLayout>
+</ScrollView>

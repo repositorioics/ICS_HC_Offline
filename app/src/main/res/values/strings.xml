@@ -1,0 +1,859 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">ICS_HC_Offline</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Instituto de Ciencias Sostenibles</string>
+    <string name="nav_header_subtitle">Hoja Consulta</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Inicio</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <!--Menu Sistema-->
+    <string name="menu_enfermeria">Enfermeria</string>
+    <string name="menu_consulta">Consulta</string>
+    <string name="menu_expediente">Expediente</string>
+    <string name="menu_subir_datos">Subir datos</string>
+
+    <!---->
+    <!-- Titulos Strings -->
+
+    <string name="title_pantalla_inicio">Inicio</string>
+    <string name="title_titulopreclinicos">ENFERMERIA</string>
+    <string name="tilte_hoja_consulta">Hoja de Consulta</string>
+    <string name="tltle_emergencia_carga_hoja_consulta">CARGAR HOJA DE CONSULTA</string>
+    <string name="title_activity_hoja_consulta">HojaConsulta</string>
+    <string name="title_activity_inicio_consulta">inicio_consulta</string>
+    <string name="title_tab_sintomas">SINTOMAS</string>
+    <string name="title_tab_examenes">EXAMENES</string>
+    <string name="title_tab_diagnostico">DIAGNOSTICO</string>
+    <string name="title_tab_diagnostico_consulta">CONSULTA</string>
+    <string name="title_tab_cierre">CIERRE</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="title_obteniendo">Obteniendo...</string>
+    <string name="tittle_enviando">Enviando...</string>
+    <string name="tittle_cancelando">Cancelando...</string>
+    <string name="tittle_actualizando">Actualizando...</string>
+    <string name="title_limpiando">Limpiando...</string>
+    <string name="title_date_picker">Seleccione la fecha</string>
+    <string name="title_examenes_resultados">RESULTADOS</string>
+    <string name="tilte_malaria_resultados">RESULTADO MALARIA (Gota Gruesa)</string>
+    <string name="title_periferico_resultado">RESULTADO EXTENDIDO PERIFERICO</string>
+    <string name="title_egh_resultado">RESULTADO EGH</string>
+    <string name="title_ego_resultado">RESULTADO EGO</string>
+    <string name="title_estudio_sostenible">Instituto de Ciencias Sostenibles</string>
+    <string name="title_procesando">Procesando...</string>
+
+
+    <!-- etiquetas Strings -->
+
+    <string name="label_menu">MENU</string>
+    <string name="label_codigo">Código:</string>
+    <string name="label_fecha">Fecha:</string>
+    <string name="label_hora">Hora:</string>
+    <string name="label_expediente">Expediente:</string>
+    <string name="label_nombre_apellido">Nombre y Apellidos:</string>
+    <string name="label_peso">Peso(kg):</string>
+    <string name="label_talla">Talla(cm):</string>
+    <string name="label_edad">Edad:</string>
+    <string name="label_sexo">Sexo:</string>
+    <string name="label_pa">P/A:</string>
+    <string name="label_pas">PAS:</string>
+    <string name="label_pad">PAD:</string>
+    <string name="label_fcia_resp">Fcia Resp:</string>
+    <string name="label_fcia_card">Fcia Card:</string>
+    <string name="label_temp">Temp(ºC):</string>
+    <!-- etiquetas Strings nuewas -->
+    <string name="label_num_hoja_consulta">Nº Hoja Consulta:</string>
+    <string name="label_num_orden_llegada">Nº Orden de Llegada:</string>
+    <string name="label_medico_opcional">Médico (opcional):</string>
+    <string name="label_estado_nturicional">Estado Nutricional:</string>
+    <string name="label_medico">Médico</string>
+
+    <string name="label_separador">-</string>
+    <string name="label_codigo_expediente">Código del Participante:</string>
+    <string name="label_nombre_paciente">Nombre Paciente:</string>
+    <string name="label_busqueda">Busqueda</string>
+    <string name="label_Recargar">Recargar</string>
+    <string name="label_emergencia">EMERGENCIA</string>
+    <string name="label_bienvendio">Bienvenido</string>
+    <string name="label_estudio_participante">Estudios del Participante:</string>
+    <string name="label_lugar_atencion">Lugar de Atención:</string>
+    <string name="label_cssfv">CSSFV</string>
+    <string name="label_terreno">Terreno</string>
+    <string name="label_consulta">Consulta:</string>
+    <string name="label_inicial">Inicial</string>
+    <string name="label_seguimiento">Seguimiento</string>
+    <string name="label_seguimiento_influenza">Seguimiento Influenza</string>
+    <string name="label_seguimiento_zika">Seguimiento Casos A, B y D</string>
+    <string name="label_vigilancia_integrada">Vigilancia Integrada IRAG / ETI</string>
+    <string name="label_convaleciente">Convaleciente</string>
+    <string name="label_seguimiento_chick">Seguimiento CHICK:</string>
+    <string name="label_seguimiento_chick_1">1</string>
+    <string name="label_seguimiento_chick_2">2</string>
+    <string name="label_seguimiento_chick_3">3</string>
+    <string name="label_seguimiento_chick_4">4</string>
+    <string name="label_seguimiento_chick_5">5</string>
+    <string name="label_turno">Turno:</string>
+    <string name="label_turno_regular">Regular</string>
+    <string name="label_turno_noche">Noche</string>
+    <string name="label_turno_fin_semana">Fin Semana</string>
+    <string name="label_temp_med_c">Temp. Med (°C):</string>
+    <string name="label_fis">FIS:</string>
+    <string name="label_fif">FIF:</string>
+    <string name="label_ultimo_dia_fiebre">Ultimo Día Fiebre:</string>
+    <string name="label_am">AM</string>
+    <string name="label_pm">PM</string>
+    <string name="label_ultima_dosis_ant">Ultima Dosis Antipirético</string>
+    <string name="label_sintoma">Sintoma</string>
+    <string name="label_descripcion">Descripcion</string>
+    <string name="label_s">S</string>
+    <string name="label_n">N</string>
+    <string name="label_d">D</string>
+    <string name="label_no_aplica">NA</string>
+    <string name="label_fiebre">Fiebre</string>
+    <string name="label_astenia">Astenia</string>
+    <string name="label_anormalmente_somnoliento">Anormalmente Somnoliento</string>
+    <string name="label_mal_estado_general">Mal Estado General</string>
+    <string name="label_perdida_de_la_cons">Pérdida de la consciencia</string>
+    <string name="label_inquieto_irritable">Inquieto, Irritable</string>
+    <string name="label_convulsiones">Convulsiones</string>
+    <string name="label_hipotermia">Hipotermia</string>
+    <string name="label_letargia">Letargia</string>
+    <string name="label_poco_apetito">Poco apetito</string>
+    <string name="label_nausea">Náusea</string>
+    <string name="label_dificulta_alimentarse">Dificultad para alimentarse</string>
+    <string name="label_vomito_ultima_12_horas">Vómito # últimas 12 horas</string>
+    <string name="label_diarrea">Diarrea</string>
+    <string name="label_diarrea_sangre">Diarrea con Sangre</string>
+    <string name="label_estrenimiento">Estreñimiento</string>
+    <string name="label_dolor_abdominal_intermitente">Dolor abdominal intermitente</string>
+    <string name="label_dolor_abdominal_continuo">Dolor abdominal continuo</string>
+    <string name="label_epigastralgia">Epigastralgia</string>
+    <string name="label_intolerancia_via_oral">Intolerancia a al vía oral</string>
+    <string name="label_distension_abdominal">Distensión abdominal</string>
+    <string name="label_hepatomegalia_cm">Hepatomegalia (cm)</string>
+    <string name="label_artralgia">Artralgia</string>
+    <string name="label_mialgia">Mialgia</string>
+    <string name="label_lumbalgia">Lumbalgia</string>
+    <string name="label_dolor_cuello">Dolor en cuello</string>
+    <string name="label_tenosinovitis">Tenosinovitis</string>
+    <string name="label_artralgia_proximal">Artralgia Proximal</string>
+    <string name="label_artralgia_distal">Artralgia Distal</string>
+    <string name="label_conjutivitis">Conjutivitis</string>
+    <string name="label_edema_articular_munieca">Edema Articular en Muñecas</string>
+    <string name="label_edema_articular_codo">Edema Articular en Codos</string>
+    <string name="label_edema_articular_hombros">Edema Articular en Hombros</string>
+    <string name="label_edema_articular_rodillas">Edema Articular en Rodillas</string>
+    <string name="label_edema_articular_tobillos">Edema Articular en Tobillos</string>
+    <string name="label_cafalea">Cefalea</string>
+    <string name="label_rigidez_cuello">Rigidez de Cuello</string>
+    <string name="label_inyeccion_conjutival">Inyección conjuntival</string>
+    <string name="label_hemorragia_sunconjutival">Hemorragia Suconjutival</string>
+    <string name="label_dolor_retrooculuar">Dolor Retroocular</string>
+    <string name="label_fontanela_abombada">Fontanela Abombada</string>
+    <string name="label_ictericia_conuntival">Ictericia Conjuntival</string>
+    <string name="label_lengua_mucosas_secas">Lengua y mucosas secas</string>
+    <string name="label_pliegue_cutaneo">Pliegue cutáneo</string>
+    <string name="label_orina_reducida">Orina reducida</string>
+    <string name="label_bebe_avido_sed">Bebe ávido, con sed</string>
+    <string name="label_ojos_hundidos">Ojos hundidos</string>
+    <string name="label_fontanela_hundida">Fontanela hundida</string>
+    <string name="label_rahs_localizado">Rash localizado</string>
+    <string name="label_rahs_generalizado">Rash generalizado</string>
+    <string name="label_rash_eritematoso">Rash Eritematoso</string>
+    <string name="label_rash_macular">Rash macular</string>
+    <string name="label_rash_popular">Rash papular</string>
+    <string name="label_rash_moteada">Rash moteada</string>
+    <string name="label_robor_facial">Rubor facial</string>
+    <string name="label_equimosis">Equimosis</string>
+    <string name="label_cianosis_central">Cianosis central</string>
+    <string name="label_ictericia">Ictericia</string>
+    <string name="label_eritema">Eritema</string>
+    <string name="label_dolor_garganta">Dolor de garganta</string>
+    <string name="label_adenopatias_cervicales">Adenopatías cervicales</string>
+    <string name="label_exudado">Exudado</string>
+    <string name="label_petequias_mucosa">Petequias en mucosa</string>
+    <string name="label_sintomas_urinarios">Sintomas urinarios</string>
+    <string name="label_leucocituria_10_campo">Leucocituria >=10 x campo</string>
+    <string name="label_nitritos">Nitritos</string>
+    <string name="label_eritrocitos_6_campo">Eritrocitos >=6 x campo</string>
+    <string name="label_bilirrubinuria">Bilirrubinuria</string>
+    <string name="label_obeso">Obeso</string>
+    <string name="label_sobrepeso">Sobrepeso</string>
+    <string name="label_sospecha_problema">Sospecha de Problema</string>
+    <string name="label_normal">Normal</string>
+    <string name="label_bajo_peso">Bajo Peso</string>
+    <string name="label_bajo_peso_severo">Bajo Peso Severo</string>
+    <string name="label_tos">Tos</string>
+    <string name="label_rinorrea">Rinorrea</string>
+    <string name="label_congestion_nasal">Congestión Nasal</string>
+    <string name="label_secrecion_nasal">Secreción Nasal</string>
+    <string name="label_falta_apetito">Falta de Apetito</string>
+    <string name="label_dolor_cabeza">Dolor de Cabeza</string>
+    <string name="label_dolor_muscular">Dolor Muscular</string>
+    <string name="label_dolor_articular">Dolor Articular</string>
+    <string name="label_dolor_oido">Dolor de Oído</string>
+    <string name="label_dificultad_respirar">Dificultad al Respirar</string>
+    <string name="label_falta_escuela">Falta a la Escuela</string>
+    <string name="label_quedo_cama">Quedó en Cama</string>
+    <string name="label_otalgia">Otalgia</string>
+    <string name="label_aleteo_nasal">Aleteo Nasal</string>
+    <string name="label_apnea">Apnea</string>
+    <string name="label_respiracion_rapida">Respiración Rápida</string>
+    <string name="label_quejido_espiratorio">Quejido Espiratorio</string>
+    <string name="label_estridor_reposo">Estridor en Reposo</string>
+    <string name="label_tiraje_subcostal">Tiraje Subcostal</string>
+    <string name="label_sibilancias">Sibilancias</string>
+    <string name="label_crepitos">Crépitos</string>
+    <string name="label_roncos">Roncos</string>
+    <string name="label_otra_fif">Otra FIF</string>
+    <string name="label_nueva_fif">Nueva FIF</string>
+    <string name="label_interconsulta_pediatra">Interconsulta Pediatra</string>
+    <string name="label_referencia_hospital">Referencia a Hospital</string>
+    <string name="label_referencia_dengue">Referencia por Dengue</string>
+    <string name="label_referencia_irag">Referencia por IRAG</string>
+    <string name="label_referencia_chick">Referencia por CHIK</string>
+    <string name="label_eti">ETI</string>
+    <string name="label_irag">IRAG</string>
+    <string name="label_irag_inusitada">IRAG Inusitada</string>
+    <string name="label_neumonia">Neumonia</string>
+    <string name="label_lactancia_materna">Lactancia Materna</string>
+    <string name="label_vacunas_completas">Vacunas Completas</string>
+    <string name="label_vacuna_influenza">Vacuna Influenza</string>
+    <string name="label_fecha_vacuna">Fecha de Vacuna</string>
+    <string name="label_saturacion_o2">Saturación O2</string>
+    <string name="label_imc">IMC</string>
+    <string name="label_categoria">Categoría</string>
+    <string name="label_a">A</string>
+    <string name="label_b">B</string>
+    <string name="label_c">C</string>
+    <string name="label_na">NA</string>
+    <string name="label_si">SI</string>
+    <string name="label_no">NO</string>
+    <string name="label_cambio_categoria">Cambio Categoría</string>
+    <string name="label_manifestacion_hemorragica">Manifestación Hemorrágica</string>
+    <string name="label_prueba_tornique_positiva">Prueba torniquete positiva</string>
+    <string name="label_petequias_10_pt">Petequias >=10 en PT</string>
+    <string name="label_petequias_20_pt">Petequias >=20 en PT</string>
+    <string name="label_piel_extremidades_frias">Piel y extremidades frías</string>
+    <string name="label_palidez_extremidades">Palidez en extremidades</string>
+    <string name="label_epitaxis">Epitaxis</string>
+    <string name="label_gingivorragia">Gingivorragia</string>
+    <string name="label_petequias_espontaneas">Petequias espontáneas</string>
+    <string name="label_llenado_capilar">Llenado capilar >2 seg</string>
+    <string name="label_cianosis">Cianosis</string>
+    <string name="label_lifoncitos_atipicos">Linfocitos Atipicos</string>
+    <string name="label_fecha_categoria">Fecha</string>
+    <string name="label_porcentaje_signo">%</string>
+    <string name="label_hipermenorrea">Hipermenorrea</string>
+    <string name="label_hematemesis">Hematemesis</string>
+    <string name="label_melena">Melena</string>
+    <string name="label_hemoconcentracion">Hemoconcentración</string>
+    <string name="label_complete_a_b">Complete</string>
+    <string name="label_ha_sido_hospitalizado">Ha sido hospitalizado en el último año?</string>
+    <string name="label_recibio_transfuncion_sangre">Recibió Transfunsión de sangre en el último año?</string>
+    <string name="label_tomando_medicamento">Está tomando medicamento en este momento?</string>
+    <string name="label_toma_medicamento_distinto">Toma un medicamento distinto al mencionado en los últimos 6 meses?</string>
+    <string name="label_si_especifique">Si es SI especifique:</string>
+    <string name="label_titulo_expediente">EXPEDIENTE</string>
+    <string name="label_CodigoExp">Código Exp.:</string>
+    <string name="label_titulo1_Grid">No. Hoja Consulta</string>
+    <string name="label_titulo2_Grid">Fecha</string>
+    <string name="label_titulo3_Grid">Hora</string>
+    <string name="label_titulo4_Grid">Médico</string>
+    <string name="label_titulo5_Grid">Estado</string>
+    <string name="label_NumSeguimiento">No. Hoja Seguimiento:</string>
+    <string name="label_fecha_apertura">Fecha Apertura:</string>
+    <string name="label_sintomas">Síntomas</string>
+    <string name="label_dia1">Día 1</string>
+    <string name="label_dia2">Día 2</string>
+    <string name="label_dia3">Día 3</string>
+    <string name="label_dia4">Día 4</string>
+    <string name="label_dia5">Día 5</string>
+    <string name="label_dia6">Día 6</string>
+    <string name="label_dia7">Día 7</string>
+    <string name="label_dia8">Día 8</string>
+    <string name="label_dia9">Día 9</string>
+    <string name="label_dia10">Día 10</string>
+    <string name="label_dia11">Día 11</string>
+    <string name="label_dia12">Día 12</string>
+    <string name="label_dia13">Día 13</string>
+    <string name="label_dia14">Día 14</string>
+    <!--Nuevos dias Agregrados al seguimiento de influenza-->
+    <string name="label_dia15">Día 15</string>
+    <string name="label_dia16">Día 16</string>
+    <string name="label_dia17">Día 17</string>
+    <string name="label_dia18">Día 18</string>
+    <string name="label_dia19">Día 19</string>
+    <string name="label_dia20">Día 20</string>
+    <string name="label_dia21">Día 21</string>
+    <string name="label_dia22">Día 22</string>
+    <string name="label_dia23">Día 23</string>
+    <string name="label_dia24">Día 24</string>
+    <string name="label_dia25">Día 25</string>
+    <string name="label_dia26">Día 26</string>
+    <string name="label_dia27">Día 27</string>
+    <string name="label_dia28">Día 28</string>
+
+    <string name="label_consulta_inicial">Consulta Inicial</string>
+    <string name="title_expedientes">Búsqueda de Expediente</string>
+    <string name="title_seguimiento_influenza">CASOS DE SEGUIMIENTO PARA INFLUENZA</string>
+    <string name="title_seguimiento_zika">SEGUIMIENTO PARA CASOS A, B Y D</string>
+    <string name="title_vigilancia_integrada_irag_eti">FORMULARIO PARA LA VIGILANCIA INTEGRADA DE IRAG / ETI / IRAG Inusitada</string>
+    <string name="label_cargo">Cargo</string>
+    <string name="label_numero">Número</string>
+    <string name="label_nombre">Nombre</string>
+    <string name="label_fecha_cierre">Fecha</string>
+    <string name="label_hora_cierre">Hora</string>
+    <string name="label_cierre">Cierre</string>
+    <string name="label_cambio_turno">Cambio Turno</string>
+    <string name="label_fecha_seguimiento">Fecha Seguimiento</string>
+
+    <!-- Labels Strings Examen Malaria-->
+    <string name="label_descripcion_malaria">Descripción</string>
+    <string name="label_resultado_malaria">Resultado</string>
+    <string name="label_falciparum">P. Falciparum</string>
+    <string name="label_vivax">P. Vivax</string>
+    <string name="label_negativo_malaria">Negativo</string>
+
+    <!-- Labels Strings Examen Extendido Periferico-->
+    <string name="label_serie_roja">SERIE ROJA</string>
+    <string name="label_serie_blanca">SERIE BLANCA</string>
+    <string name="label_impresion_plaquetaria">IMPRESION PLAQUETEARIA</string>
+    <string name="label_anisocitosis">Anisocitosis</string>
+    <string name="label_anisocromia">Anisocromia</string>
+    <string name="label_poiquilocitosis">Poiquilocitosis</string>
+    <string name="label_linfositos_atipicos">Linfositos Atípicos</string>
+    <string name="label_observaciones_examenes">Observaciones</string>
+
+    <!-- Labels Strings Examen EGH-->
+    <string name="label_examen_fisico_qumico">Examen Físico Químico</string>
+    <string name="label_color">Color</string>
+    <string name="label_consistencia">Consistencia</string>
+    <string name="label_restos_alimenticios">Restos Alimenticios</string>
+    <string name="label_mucus">Mucus</string>
+    <string name="label_ph">PH</string>
+    <string name="label_sangre_oculta">Sangre Oculta</string>
+    <string name="label_bacterias">Bacterias</string>
+    <string name="label_levaduras">Levaduras</string>
+    <string name="label_leucocitos">Leucocitos</string>
+    <string name="label_eritrocitos">Eritrocitos</string>
+    <string name="label_filamentos_mucosos">Filamentos Mucosos</string>
+    <string name="label_examen_microscopico">Examen Microscópico/Parasítosis</string>
+    <string name="label_ecoli">E. Coli</string>
+    <string name="label_endolimax_nana">Endolimax Nana</string>
+    <string name="label_ehistolytica">E. Histolytica</string>
+    <string name="label_gardia_lambia">Gardia Lamblia</string>
+    <string name="label_trichuris_trichura">Trichuris Trichura</string>
+    <string name="label_hymenolepis_nana">Hymenolepis Nana</string>
+    <string name="label_strongyloide_stercolaris">Strongyloide Stercolaris</string>
+    <string name="label_unicinarias">Unicinarias</string>
+    <string name="label_enterovirus_vermiculares">Enterovirus Vermiculares</string>
+
+    <!-- Labels Strings Examen EGO-->
+    <string name="label_examen_microscopico_ego">Examen Microscópico</string>
+    <string name="label_aspecto">Aspecto</string>
+    <string name="label_sedimento">Sedimento</string>
+    <string name="label_examen_qumico">Examen Químico</string>
+    <string name="label_densidad">Densidad</string>
+    <string name="label_proteinas">Proteinas</string>
+    <string name="label_hemoglobinas">Hemoglobinas</string>
+    <string name="label_cuerpo_cetonico">Cuerpo Cetónico</string>
+    <string name="label_urobilinogeno">Urobilinógeno</string>
+    <string name="label_glucosa">Glucosa</string>
+    <string name="label_bilirubinas">Bilirrubinas</string>
+    <string name="label_celulas_epiteliales">Células Epiteliales</string>
+    <string name="label_cilindros">Cilindros</string>
+    <string name="label_cristales">Cristales</string>
+    <string name="label_hilos_mucosos">Hilos Mucosos</string>
+
+    <!-- Examenes Strings -->
+    <string name="label_bhc">BHC</string>
+    <string name="label_serologia_dengue">Serología para Dengue</string>
+    <string name="label_serologia_chick">Serología para CHICK</string>
+    <string name="label_gota_gruesa">Gota Gruesa</string>
+    <string name="label_extendido_periferico">Extendido Periférico</string>
+    <string name="label_ast_alt">AST/ALT</string>
+
+    <string name="label_ego">EGO</string>
+    <string name="label_egh">EGH</string>
+    <string name="label_citologia_fecal">Citología Fecal</string>
+    <string name="label_factor_reumatoide">Factor Reumatoideo</string>
+    <string name="label_albumina">Albumina</string>
+
+    <string name="label_bilirrubinas">Bilirrubinas</string>
+    <string name="label_cpk">CPK</string>
+    <string name="label_colesterol">Colesterol</string>
+    <string name="label_influenza">Influenza</string>
+    <string name="label_otro">Otros</string>
+
+    <string name="label_orden_lab">No. Orden Laboratorio:</string>
+
+    <string name="label_estudio_paciente">Estudios del Paciente:</string>
+    <string name="label_imprimir">Imprimir</string>
+    <string name="label_ver_pdf">Ver Pdf</string>
+    <string name="label_titulo_busqueda_escuela">Ingrese el colegio ó deje en blanco para cargar todas las escuelas</string>
+
+    <!-- Botones Strings -->
+
+    <string name="boton_enviar">Enviar</string>
+    <string name="boton_Cancel">Cancelar</string>
+    <string name="boton_no_atiente_llamado">No Atiende Llamado</string>
+    <string name="boton_orden_laboratorio">Guardar</string>
+    <string name="boton_guardar_hoja_consulta">Guardar</string>
+    <string name="boton_general_sintomas">Generales</string>
+    <string name="boton_estado_general_sintomas">Estado General</string>
+    <string name="boton_gastro_intestinal_sintomas">Gastrointestinal</string>
+    <string name="boton_osteomuscular_sintomas">Osteomuscular</string>
+    <string name="boton_cabez_sintomas">Cabeza</string>
+    <string name="boton_deshid_sintomas">Deshidratación</string>
+    <string name="boton_cutaneo_sintomas">Cutáneo</string>
+    <string name="boton_garganta_sintomas">Garganta</string>
+    <string name="boton_renal_sintomas">Renal</string>
+    <string name="boton_estado_nutri_sintomas">Estado Nutricional</string>
+    <string name="boton_respiratorio_sintomas">Respiratorio</string>
+    <string name="boton_referencia_sintomas">Referencia</string>
+    <string name="boton_vacunas_sintomas">Vacunas</string>
+    <string name="boton_catg_sat_imc_sintomas">Categorías, Saturación</string>
+    <string name="boton_diagnostico_HistoriaExamenFisico">Historial y Examen Físico</string>
+    <string name="boton_diagnostico_Tratamiento">Tratamiento y Planes</string>
+    <string name="boton_diagnostico_Planes">Planes</string>
+    <string name="boton_diagnostico_diagnostico">Diagnostico</string>
+    <string name="boton_diagnostico_proximacita">Próxima cita</string>
+    <string name="boton_seleccione_fecha">Fecha</string>
+    <string name="boton_ego">EGO</string>
+    <string name="boton_egh">EGH</string>
+    <string name="boton_serologia_chick">Serología para CHIK</string>
+    <string name="boton_serologia_dengue">Serología para Dengue</string>
+    <string name="boton_gota_gruesa">Gota Gruesa</string>
+    <string name="boton_extendido_periferico">Extendido Periférico</string>
+    <string name="boton_influenza">Influenza</string>
+    <string name="boton_actualizar_resultado">Actualizar Resultados</string>
+    <string name="boton_salir">Salir</string>
+    <string name="boton_agregar">Agregar</string>
+    <string name="boton_cerrar_seguimiento">Cierre</string>
+    <string name="boton_crear_hoja_seguimiento">Crear Hoja</string>
+    <string name="boton_buscar_hoja_seguimiento">Buscar Hoja</string>
+    <string name="boton_aceptar">Aceptar</string>
+    <string name="boton_cerrar_hoja">Cierre</string>
+    <string name="boton_cambio_turno_hoja">Cambio Turno</string>
+    <string name="boton_limpiar">Limpiar</string>
+    <string name="boton_buscar">Buscar</string>
+    <!-- Mensaje Nueva Lista Examenes -->
+    <string name="boton_bhc">BHC</string>
+    <string name="boton_factor_reumatoideo">Factor Reumatoídeo</string>
+    <string name="boton_albumina">Albumina</string>
+    <string name="boton_ast_alt">AST/ALT</string>
+    <string name="boton_bilirubinas">Bilirrubinas</string>
+    <string name="boton_cpk">CPK</string>
+    <string name="boton_colesterol">Colesterol</string>
+
+    <!-- Mensajes Strings -->
+
+    <string name="msj_completar_informacion">Debe completar información</string>
+    <string name="msj_casillas_sin_marcar">Faltan casillas sin marcar</string>
+    <string name="msj_otro_examen_sin_texto">Debe ingresar el nombre de otro examen.</string>
+    <string name="msj_rango_invalido">Se encuentra fuera del rango</string>
+    <string name="msj_no_se_encontro_codigo_paciente">Código no encontrado</string>
+    <string name="msj_servicio_no_dispon">El servicio web no se encuentra disponible, favor intente mas tarde.</string>
+    <string name="msj_error_no_controlado">Error no Controlado</string>
+    <string name="msj_validacion_sin_datos">Se deben enviar datos</string>
+    <string name="msj_servicio_no_envia_respuesta">El servicio no envía respuesta</string>
+    <string name="msj_paciente_no_atiende_llamado">Está seguro que Paciente no Atiende Llamado?</string>
+    <string name="msj_cierre_seguimiento_influenza">Está seguro que desea realizar el cierre?</string>
+    <string name="msj_esta_seguro_de_cancelar">Está seguro de Cancelar la Hoja de Consulta?</string>
+    <string name="msj_cambio_hoja_consulta">Se han modificado datos en hoja cerrada, desea confirmar el cambio?</string>
+    <string name="msj_esta_seguro_agregar_hoja">Desea agregar Hoja de Consulta para Observación?</string>
+    <string name="msj_espere_por_favor">Espere por favor.</string>
+    <string name="msj_no_tiene_conexion">No se encuentra con conexión a Internet, intente mas tarde.</string>
+    <string name="msj_tiempo_espera_servicio_agotado">Tiempo de respuesta del servico agotado</string>
+    <string name="msj_enviar_hoja_consulta">Está seguro de Enviar Hoja de Consulta?</string>
+    <string name="msj_aviso_control_cambios">Los campos %1s, son requeridos o están fuera de rango, desea continuar?</string>
+    <string name="msj_aviso_control_cambios1">Los campos %1s se encuentran fuera de rango</string>
+    <string name="msj_aviso_control_cambios2">El campo %1s se encuentra fuera de rango</string>
+    <string name="msj_aviso_requerido_dia_seguimiento">Todos Los datos de Día %1s deben ser completados.</string>
+    <string name="msj_aviso_requerido_motivo">El motivo de cancelación es requerido.</string>
+    <string name="msj_aviso_crear_hoja_consulta">Desea Crear Hoja de Consulta?</string>
+    <string name="msj_aviso_guardar_hoja_influenza">Desea Guardar el Seguimiento influenza?</string>
+    <string name="msj_mensaje_enviado">Se han enviado los datos correctamente!</string>
+    <string name="msj_mensaje_cancelar">Se ha cancelado la consulta</string>
+    <string name="msj_realizar_busqueda_para_guardar">Primeramente debe de realizar una busqueda para guardar</string>
+    <string name="msj_fecha_mayor_hoy">Fecha Seleccionada debe ser menor ó igual a la fecha de hoy.</string>
+    <string name="msj_fecha_menor_hoy">Fecha Seleccionada debe ser mayor ó igual a la fecha de hoy.</string>
+    <string name="msj_fecha_mayor_actual">Fecha Seleccionada debe ser mayor a la fecha de hoy.</string>
+    <string name="msj_fecha_seguimiento_menor_anterior">La Fecha de seguimiento debe ser mayor a la fecha de seguimineto del día anterior.</string>
+    <string name="msj_fecha_seguimiento_menor_fis">La Fecha de seguimiento debe ser mayor a la FIS.</string>
+    <string name="msj_hora_mayor_actual">Hora debe ser menor ó igual a la hora actual.</string>
+    <string name="msj_resultado_examen__aun_no_realizado">Examen a un no Realizado</string>
+    <string name="msj_muestra_tomada">La Muestra ya fue Tomada</string>
+    <string name="msj_completar_si_especifique">Pregunta se encuentra marcada como Si, favor especifique</string>
+    <string name="msj_cerrado_exitosamente">La Hoja de consulta se ha cerrado sin problemas.</string>
+    <string name="msj_exitosamente">Se ha realizado exitosamente!</string>
+    <string name="msj_cerrado_exitosamente_wrn">La Hoja de consulta se ha cerrado sin problemas, pero.</string>
+    <string name="msj_ingresar_codigo_paciente">Ingresar Código de Paciente</string>
+    <string name="msj_param_seguimiento_invalido">Ingrese un Código de Expediente o No de Seguimiento valido</string>
+    <string name="msj_crear_nueva_hoja_seguimiento">Desea crear nueva hoja de Seguimiento?</string>
+    <string name="msj_no_unica_fecha_seguimiento">La fecha ya se encuentra ingresada para otro día de este seguimiento, Favor validar.</string>
+    <string name="msj_confirmacion_atencion_consulta_paciente">Esta seguro de atender al paciente con nombre %1s?</string>
+    <string name="msj_el_paciente_seleccionado_se_encuentra_en">El paciente seleccionado se encuentra en %1s</string>
+    <string name="msj_paciente_ya_atendido">Este paciente ya esta siendo atendido por otro usuario</string>
+    <string name="msj_se_ejecuto_la_impresion">Favor revisar la impresion</string>
+    <string name="msj_sin_detalle_seg_influenza">Primero debe completar al menos 1 día de sintomas y luego guardar</string>
+    <string name="msj_esta_seguro_de_guardar_examenes">Esta seguro de Guardar?</string>
+    <string name="msj_aviso_fecha_cierre_seguimiento">Por favor cierre el seguimiento, ya han pasado %1s días</string>
+    <string name="msj_debe_ingresar_proxima_cita">Debe ingresar la proxima cita</string>
+    <string name="msj_debe_ingresar_nueva_fif">Debe ingresar la nueva FIF</string>
+    <string name="msj_debe_ingresar_fecha_vacuna">Debe ingresar la fecha de vacuna</string>
+    <string name="msj_la_fecha_menor_dos_meses">La proxima cita debe ser menor de dos meses</string>
+    <string name="msj_hora_vacia">Tiene ingresado Ultima Dosis Antipirético debe ingresar la hora.</string>
+    <string name="msj_cierre_campos_requeridos">Se debe de completar los campos requeridos para poder realizar el cierre de hoja.</string>
+
+    <string name="msj_debe_ingresar_hemoconcentracion">Debe ingresar la informacion en el campo Hemoconcentración</string>
+    <string name="msj_fecha_menor_fecha_nacimiento">Fecha no debe ser menor a la fecha de nacimiento del paciente</string>
+    <string name="action_example">Example action</string>
+    <string name="msg_change_yes">Cambiar a si todos los campos de %1s ?</string>
+    <string name="msg_change_no">Cambiar a no todos los campos de %1s ?</string>
+    <string name="msg_change_desc">Cambiar a desconocido todos los campos de %1s ?</string>
+    <string name="msg_change_yes_conditions">Cambiar a SI todas las %1s ?</string>
+    <string name="msg_change_yes_conditions_2">Condiciones Preexistentes</string>
+    <string name="msg_change_no_conditions">Cambiar a NO todas las %1s ?</string>
+    <string name="msg_change_ns_conditions">Cambiar a NS todas las %1s ?</string>
+
+
+    <string name="msg_change_yes2">Cambiar a Si todos los campos del día %1s del Seguimiento de Zika?</string>
+    <string name="msg_change_no2">Cambiar a No todos los campos del día %1s del Seguimiento de Zika?</string>
+    <string name="msg_change_desc2">Cambiar a Desconocido todos los campos del día %1s del Seguimiento de Zika?</string>
+
+    <string name="msg_change_flu_yes2">Cambiar a Si todos los campos del día %1s del Seguimiento de Influenza?</string>
+    <string name="msg_change_flu_no2">Cambiar a No todos los campos del día %1s del Seguimiento de Influenza?</string>
+    <string name="msg_change_flu_desc2">Cambiar a Desconocido todos los campos del día %1s del Seguimiento de Influenza?</string>
+    <string name="msg_change_flu_no_aplica2">Cambiar a No Aplica todos los campos del día %1s del Seguimiento de Influenza?</string>
+
+    <!--Diagnostico tratamiento !-->
+
+    <string name="label_Acetamenofen">Acetamenofén</string>
+    <string name="label_ASA">ASA</string>
+    <string name="label_ibuprofen">Ibuprofén</string>
+    <string name="label_penicilina">Penicilina</string>
+    <string name="label_Amoxicilina">Amoxicilina</string>
+    <string name="label_Dicloxacilina">Dicloxacilina</string>
+    <string name="label_otros">Otros</string>
+
+    <string name="label_Furazolidona">Furazolidona</string>
+    <string name="label_MetroTinidazol">Metronidazol/Tinidazol</string>
+    <string name="label_AlbendazolMebendazol">Albendazol/Mebendazol</string>
+    <string name="label_SulfatoFerroso">Sulfato Ferroso</string>
+    <string name="label_SueroOral">Suero Oral</string>
+    <string name="label_SulfatoZinc">Sulfato de Zinc</string>
+    <string name="label_LiquidosIV">Liquidos IV</string>
+    <string name="label_Prednisona">Prednisona</string>
+    <string name="label_Hidrocortisona">Hidrocortisona IV</string>
+    <string name="label_Salutamol">Salbutamol</string>
+    <string name="label_Oseltamivir">Oseltamivir</string>
+
+    <string name="label_otrosdiagnostico">Otro Diagnostico:</string>
+    <string name="label_TelefonoEmergencia">Teléfono Emergencia:</string>
+    <string name="label_proximacita">Próxima cita:</string>
+    <string name="label_Colegio">Colegio:</string>
+    <string name="label_HorarioClase">Horario de clase:</string>
+    <!-- FIn Diagnostico tratamiento !-->
+
+    <!-- String Array !-->
+
+    <string-array name="seguimiento_array">
+        <item>Seleccione</item>
+        <item>S</item>
+        <item>N</item>
+        <item>D</item>
+        <item>NA</item>
+    </string-array>
+
+    <string-array name="seguimiento_zika_array">
+        <item>Seleccione</item>
+        <item>S</item>
+        <item>N</item>
+        <item>D</item>
+    </string-array>
+
+    <string-array name="seguimiento_zika_array_cat">
+        <item>Seleccione</item>
+        <item>A</item>
+        <item>B</item>
+        <item>D</item>
+    </string-array>
+
+    <string-array name="seguimiento_di_no_array">
+        <item></item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <string-array name="seguimiento_zika_array_sintomas">
+        <item>Seleccione</item>
+        <item>Fiebre</item>
+        <item>Astenia</item>
+        <item>Mal estado general</item>
+        <item>Escalofrios</item>
+        <item>Convulsiones</item>
+        <item>Cefalea</item>
+        <item>Rigidez de cuello</item>
+        <item>Dolor retroocular</item>
+        <item>Poco apetito</item>
+        <item>Nauseas</item>
+        <item>Vomitos</item>
+        <item>Diarrea</item>
+        <item>Dolor Abdominal Continuo</item>
+        <item>Artralgia Proximal</item>
+        <item>Artralgia Distal</item>
+        <item>Mialgia</item>
+        <item>Conjuntivitis no purulenta</item>
+        <item>Edema articular Proximal en MS</item>
+        <item>Edema articular Distal en MS</item>
+        <item>Edema articular Proximal en MI</item>
+        <item>Edema articular Distal en MI</item>
+        <item>Edema Periauricular</item>
+        <item>Adenopatia Cervical Anterior</item>
+        <item>Adenopatia Cervical Posterior</item>
+        <item>Adenopatia RetroAuricular</item>
+        <item>Rash</item>
+        <item>Equimosis</item>
+        <item>Prueba de torniquete Positiva</item>
+        <item>Epistaxis</item>
+        <item>Gingivorragia</item>
+        <item>Petequias espontaneas</item>
+        <item>Hematemesis</item>
+        <item>Melena</item>
+        <item>Oftalmoplejia</item>
+        <item>Dificultad Respiratoria</item>
+        <item>Debilidad Muscular en MS</item>
+        <item>Debilidad Muscular en MI</item>
+        <item>Parestesia MS</item>
+        <item>Parestesia MI</item>
+        <item>Paralisis Muscular MS</item>
+        <item>Paralisis Muscular MI</item>
+        <item>Tos</item>
+        <item>Rinorrea</item>
+        <item>Dolor Garganta</item>
+        <item>Prurito</item>
+    </string-array>
+
+    <!-- sintomas hoja seguimiento zika -->
+    <string name="label_escalofrios">Escalofrios</string>
+    <string name="label_cefalea">Cefalea</string>
+    <string name="label_nauseas">Náuseas</string>
+    <string name="label_vomitos">Vómitos</string>
+    <string name="label_conjuntivitis_no_purulenta">Conjuntivitis no purulenta</string>
+    <string name="label_edema_art_prox_ms">Edema articular Proximal en MS</string>
+    <string name="label_edema_art_distal_ms">Edema articular Distal en MS</string>
+    <string name="label_edema_art_prox_mi">Edema articular Proximal en MI</string>
+    <string name="label_edema_art_distal_mi">Edema articular Distal en MI</string>
+    <string name="label_edema_periauricular">Edema periauricular</string>
+    <string name="label_adenopatia_cerv_ant">Adenopatia Cervical Anterior</string>
+    <string name="label_adenopatia_cerv_post">Adenopatia Cervical Posterior</string>
+    <string name="label_adenopatia_retroauricular">Adenopatia RetroAuricular</string>
+    <string name="label_rash">Rash</string>
+    <string name="label_epistaxis">Epistaxis</string>
+    <string name="label_oftalmoplejia">Oftalmoplejia</string>
+    <string name="label_dificultad_respiratoria">Dificultad Respiratoria</string>
+    <string name="label_debilidad_musc_ms">Debilidad muscular en MS</string>
+    <string name="label_debilidad_musc_mi">Debilidad muscular en MI</string>
+    <string name="label_parestesia_ms">Parestesia MS</string>
+    <string name="label_parestesia_mi">Parestesia MI</string>
+    <string name="label_paralisis_musc_ms">Paralisis Muscular MS</string>
+    <string name="label_paralisis_musc_mi">Paralisis Muscular MI</string>
+    <string name="label_prurito">Prurito</string>
+    <string name="label_sudoracion">Sudoración</string>
+    <string name="label_fotofobia">Fotofobia</string>
+    <string name="label_mareos">Mareos</string>
+    <string name="label_categoria1">Categoría:</string>
+    <string name="label_sintomas_iniciales">Sintomas Iniciales:  1</string>
+    <string name="btn_siguiente">Siguiente</string>
+    <string name="btn_atras">Atras</string>
+    <string name="msj_aviso_guardar_hoja_zika">Desea Guardar el Seguimiento zika?</string>
+    <string name="label_sintoma2">2</string>
+    <string name="label_sintoma3">3</string>
+    <string name="label_sintoma4">4</string>
+    <string name="label_supervisor">Supervisor</string>
+    <string name="msj_aviso_requerido_hoja_zika">Todos los datos de la hoja %1s deben ser completados.</string>
+    <string name="tiene_mas_caracteres">El texto tiene mas caracteres de lo permitido</string>
+    <string name="msj_completar_los_planes">Debe ingresar los planes</string>
+    <string name="temp_fuera_rango">La temperatura esta fuera de rango</string>
+    <string name="msj_aviso_requerido_dia_seguimiento_sin_completar">No puede dejar los datos del dia %1s sin completar.</string>
+
+    <!-- Formulario Vigilancia Integrada-->
+    <string name="label_NumHojaConsulta">No. Hoja Consulta:</string>
+    <string name="boton_crear_ficha_vigilancia_integrada_irag_eti">Crear Ficha</string>
+    <string name="boton_buscar_ficha_vigilancia_integrada_irag_eti">Buscar Ficha</string>
+    <string name="label_datos_Paciente">Datos del Paciente</string>
+    <string name="label_tutor">Madre, Padre o Tutor:</string>
+    <string name="label_departamento">Departamento de Procedencia:</string>
+    <string name="label_municipio">Municipio:</string>
+    <string name="label_barrio">Barrio: </string>
+    <string name="label_direccion">Dirección: </string>
+    <string name="label_telefono">Teléfono: </string>
+    <string name="label_urbano">Urbano</string>
+    <string name="label_rural">Rural</string>
+    <string name="label_captacion">Captación:</string>
+    <string name="label_captacion_emergencia">Emergencia</string>
+    <string name="label_captacion_sala">Sala</string>
+    <string name="label_captacion_uci">UCI</string>
+    <string name="label_caption_ambulatorio">Ambulatorio</string>
+    <string name="label_diagnostico">Diagnóstico: </string>
+    <string name="label_antecedentes_vacunacion">Antecedentes de Vacunación</string>
+    <string name="label_antecedentes_vacunacion_tarjeta">Presenta Tarjeta de vacunación: </string>
+    <string name="label_vacuna_si">SI</string>
+    <string name="label_vacuna_no">NO</string>
+    <string name="label_ns">NS</string>
+    <string name="label_vacuna_no_sabe">No sabe</string>
+    <string name="label_vacuna">Vacuna: </string>
+    <string name="label_vacuna_aplicada">Aplicada: </string>
+    <string name="label_vacuna_aplicada_cual">¿Cual?</string>
+    <string name="label_vacuna_aplicada_no_dosis">No de Dosis: </string>
+    <string name="label_vacuna_aplicada_fecha_ult_dosis">Fecha Última Dosis: </string>
+    <string name="label_aplicada">Aplicada: </string>
+    <string name="label_cual">¿Cuál?</string>
+    <string name="label_no_dosis">No de Dosis: </string>
+    <string name="label_fecha_ultima_dosis">F.Última Dosis: </string>
+    <string name="label_anti_hib">Anti Hib</string>
+    <string name="label_anti_meningococica">Anti Meningocócica</string>
+    <string name="label_anti_neumococica">Anti Neumococica</string>
+    <string name="label_anti_influenza">Anti Influenza</string>
+    <string name="label_pentavalente">Pentavalente</string>
+    <string name="label_conjugada">Conjugada</string>
+    <string name="label_polisacarida">Polisacarida</string>
+    <string name="label_heptavalente">Heptavalente</string>
+    <string name="label_23_polisacarida">23 Polisacarida</string>
+    <string name="label_13_valente">13 Valente</string>
+    <string name="label_estacional">Estacional</string>
+    <string name="label_h1n1p">H1N1p</string>
+    <string name="label_otra_vacuna_anti_influenza">Otra</string>
+    <string name="label_condiciones_preexistentes">Condiciones Preexistentes</string>
+    <string name="label_condicion">Condición</string>
+    <string name="label_cancer">Cáncer</string>
+    <string name="label_diabetes">Diábetes</string>
+    <string name="label_vih">VIH</string>
+    <string name="label_otra_inmunodeficiencia">Otra Inmunodeficiencia</string>
+    <string name="label_enf_neurologica_cronica">Enf. Neurologica Crónica</string>
+    <string name="label_enfermedad_cardiaca">Enfermedad Cardíaca</string>
+    <string name="label_asma">Asma</string>
+    <string name="label_epoc">EPOC</string>
+    <string name="label_otra_enf_pulmonar">Otra Enf. Pulmonar</string>
+    <string name="label_insuficiencia_renal_cronica">Insuficiencia Renal Crónica</string>
+    <string name="label_desnutricion">Desnutrición</string>
+    <string name="label_obesidad">Obesidad</string>
+    <string name="label_embarazo">Embarazo(Semanas): </string>
+    <string name="label_embarzo_2">)</string>
+    <string name="label_tx_con_corticosteroides">Tx con Corticosteroides</string>
+    <string name="label_otra">Otra: </string>
+    <string name="label_estornuddos">Estornudos</string>
+    <string name="label_otra_manifestacion_clinica">Otra Manifestación Clínica(Cual?)</string>
+    <string name="label_uso_otro_antibiotico">Uso de Antibiótico Durante la Última Semana: </string>
+    <string name="label_cuantos_antibioticos_le_dio">Cuantos Antibióticos le dio?</string>
+    <string name="label_cuales_antibioticos_le_dio">¿Cuáles Antibióticos le dio?</string>
+    <string name="label_cuantos_dias_le_dio_ult_antibiotico">Cuantos días le dio el Último Antibiotico: </string>
+    <string name="label_via">Via: </string>
+    <string name="label_via_oral">Oral</string>
+    <string name="label_via_parenteral">Parenteral</string>
+    <string name="label_via_ambas">Ambas</string>
+    <string name="label_antecedentes_uso_antivirales">Antecedentes de uso Antivirales: </string>
+    <string name="label_nombre_antiviral">Nombre del Antiviral: </string>
+    <string name="label_fecha_1ra_dosis">Fecha 1ra Dosis</string>
+    <string name="label_fecha_ultima_dosis_antivirales">Fecha Última Dosis</string>
+    <string name="label_no_dosis_adminstradas">No Dosis Administrada: </string>
+    <string name="label_sintomas_vigilancia_integrada">Sintoma Inicial: </string>
+    <string name="label_campo_requerido">Debe ingresar la información</string>
+    <string name="label_fecha_no_dosis">Debe de seleccionar la fecha de la ultima dosis</string>
+    <string name="msj_aviso_guardar_ficha_vigilancia">Desea Guardar la Ficha?</string>
+    <string name="msj_sin_detalle_ficha">Primero debe realizar la busqueda</string>
+    <string name="msj_telefono_no_valido">El número de teléfono no es valido</string>
+    <string name="msj_fecha_fif_mayor_hoy">Fecha Seleccionada no puede ser mayor a la fecha de hoy.</string>
+    <string name="msj_fif_menor_que_fis">La FIF no puede ser menor que la FIS</string>
+
+    <string name="msj_esta_seguro_cerrar_hoja">Hará Referencia por Dengue ó Referencia por otra causa ?</string>
+
+    <string name="label_leve">Leve</string>
+    <string name="label_moderada">Moderada</string>
+    <string name="label_moderado">Moderado</string>
+    <string name="label_severa">Severa</string>
+    <string name="label_severo">Severo</string>
+    <string name="mensaje_fiebre">Debe indicar la intesidad de la Fiebre</string>
+    <string name="mensaje_tos">Debe indicar la intesidad de la Tos</string>
+    <string name="mensaje_secrecion_nasal">Debe indicar la intesidad de la Secreción Nasal</string>
+    <string name="mensaje_dolor_garganta">Debe indicar la intesidad del Dolor de Garganta</string>
+    <string name="mensaje_dolor_cabeza">Debe indicar la intesidad del Dolor de Cabeza</string>
+    <string name="mensaje_dolor_muscular">Debe indicar la intesidad del Dolor Muscular</string>
+    <string name="mensaje_dolor_articular">Debe indicar la intesidad del Dolor Articular</string>
+
+    <string name="msj_usuario_logueado_diferente_a_usuario_medico">El Usuario Logueado no coincide con el Usuario Medico del Día %1s favor revisar.</string>
+
+    <!--Agregando la ficha epidemiologica para sindromes febriles fecha creaion 5/11/2019 SC -->
+    <string name="title_ficha_epi_sindromes_febriles">FICHA EPIDEMIOLOGICA PARA SINDROMES FEBRILES</string>
+    <string name="label_ficha_epi_sindromes_febriles">Ficha Epidemiologica Para Sindromes Febriles</string>
+
+    <!--Mensaje de Examen guardado y revision de impresora 11/12/2019  SC -->
+    <string name="mensaje_examen_guardado_y_revision_impresora">Los examenes se han guardado correctamente, si envió a realizar el exámen de Serología Dengue recuerde revisar la impresora</string>
+
+    <string name="label_uaf">UAF:</string>
+    <string name="descargar_apk">http://192.168.1.94:8081/estudioCohorte_CSSFV.apk</string>
+    <!--<string name="descargar_apk">http://192.168.1.26:8080/estudioCohorte_CSSFV.apk</string>-->
+    <string name="label_covid">CV</string>
+
+    <string name="btn_regresar_diagnostico">Regresar</string>
+
+    <!--Nuevos campos para la hoja de influenza-->
+    <string name="label_cuadro_confusional">Cuadro Confusional</string>
+    <string name="label_cuadro_neurologico">Cuadro Neurológico</string>
+    <string name="label_confuncion_mental">Confusión Mental</string>
+    <string name="label_anosmia">Anosmia</string>
+    <string name="label_ageusia">Ageusia</string>
+    <string name="label_mareo">Mareo</string>
+    <string name="label_ictus">Ictus</string>
+    <string name="label_sincope">Sincope</string>
+
+    <string name="label_flu_zika"></string>
+
+    <string name="msj_falta_marcar_otro_examen_lab">Debe de marcar Otro Examen</string>
+
+    <string name="msj_categoria_d_con_fif">Categoria D con FIF favor revisar</string>
+
+    <string name="label_consulta_respiratorio">Consultas en Respiratorio</string>
+
+    <string name="label_no_consultas_respiratorio_espera">Espera: </string>
+    <string name="label_no_consultas_respiratorio_consulta">Consulta: </string>
+    <string name="label_no_consultas_respiratorio_laboratorio">Lab: </string>
+    <string name="label_no_consultas_respiratorio_cerrado">Cerrado: </string>
+
+    <string name="es_consulta_respiratoria">Es consulta respiratoria ?:</string>
+    <string name="marcar_respiracion_rapida">Marcar respiracion rápida</string>
+
+    <!--Nuevos Strings para la aplicacion offline-->
+    <string name="errordb">Ha ocurrido un error, base de datos no existe!</string>
+
+    <string name="error">Ha ocurrido un error! <xliff:g id="desc_error">%1$s</xliff:g></string>
+    <string name="storage_error">Medio de almacenamiento no disponible!</string>
+    <string name="err_cancel">Ha cancelado el proceso!</string>
+    <string name="cancel">Cancelar</string>
+    <string name="loading">Cargando.....</string>
+    <string name="user">Usuario:</string>
+    <string name="add_consulta">Agregar Consulta</string>
+    <string name="datos_preclinicos">Datos preclinicos</string>
+    <string name="success">Operación exitosa!</string>
+    <string name="title_activity_tab">TabActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="msj_esta_seguro_de_salir">Está seguro de Salir de la aplicación?</string>
+    <string name="msj_esta_seguro_de_subir_datos">Está seguro de subir los datos?</string>
+    <string name="upload">Subir Datos</string>
+
+    <string name="PACIENTE_NO_PUEDE_SER_CATEGORIA_NA">Este paciente no puede ser categoria NA</string>
+    <string name="PACIENTE_CON_EST_DENGUE_FIF_Y_CATEGORIA_D">Paciente presenta FIF, no puede ser categoria D</string>
+    <string name="PACIENTE_NO_PUEDE_SER_CATEGORIA_ABCD">Este paciente no puede ser categoria A, B, C, D</string>
+</resources>

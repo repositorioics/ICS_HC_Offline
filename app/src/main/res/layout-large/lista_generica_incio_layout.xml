@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="95dp" android:layout_weight="1" android:minHeight="87dp"
+    android:background="@drawable/bg_lista_generica_item">
+
+    <TextView
+        android:id="@+id/txtvCodigoExpediente"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.09"
+        android:layout_gravity="left|center_vertical"
+        android:layout_marginLeft="12dp"
+        android:text="2204"
+        android:textColor="@android:color/black"
+        android:background="@color/white"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/txtvSeparador"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.02"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="2dp"
+        android:text="@string/label_separador"
+        android:background="@color/white"
+        android:textColor="@android:color/black"
+        android:textSize="21sp"/>
+
+    <LinearLayout android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.45"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/bg_lista_generica_item">
+        <TextView
+            android:id="@+id/txtvNomPaciente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Juan Carlos López Sánchez"
+            android:textColor="@android:color/black"
+            android:background="@color/white"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/txtvNomMedico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:background="@color/white"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtvEstado"
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="3dp"
+        android:background="@color/bg_user_icon_color"
+        android:text="Laboratorio"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"/>
+
+</LinearLayout>

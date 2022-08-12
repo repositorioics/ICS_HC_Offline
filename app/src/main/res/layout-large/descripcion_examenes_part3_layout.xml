@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/txtvBilirrubinas"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="35dp"
+        android:text="@string/label_bilirrubinas"
+        android:textAppearance="@style/LabelSintomasScreensEstilo" />
+    <CheckBox
+        android:id="@+id/chkbSBilirrubinasExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/txtvBilirrubinas"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="7dp" />
+    <CheckBox
+        android:id="@+id/chkbNBilirrubinasExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbSBilirrubinasExamen"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="15dp" />
+    <TextView
+        android:id="@+id/txtvCPK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_cpk"
+        android:textAppearance="@style/LabelSintomasScreensEstilo"
+        android:layout_alignTop="@+id/chkbSCPKExamen"
+        android:layout_alignStart="@+id/txtvBilirrubinas" />
+    <CheckBox
+        android:id="@+id/chkbSCPKExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chkbSBilirrubinasExamen"
+        android:layout_toEndOf="@+id/txtvBilirrubinas"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="7dp" />
+    <CheckBox
+        android:id="@+id/chkbNCPKExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbSCPKExamen"
+        android:layout_below="@+id/chkbNBilirrubinasExamen"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="15dp" />
+    <TextView
+        android:id="@+id/txtvColesterol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_colesterol"
+        android:textAppearance="@style/LabelSintomasScreensEstilo"
+        android:layout_alignTop="@+id/chkbSColesterolExamen"
+        android:layout_alignStart="@+id/txtvCPK" />
+    <CheckBox
+        android:id="@+id/chkbSColesterolExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chkbSCPKExamen"
+        android:layout_toEndOf="@+id/txtvBilirrubinas"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="7dp" />
+    <CheckBox
+        android:id="@+id/chkbNColesterolExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbSColesterolExamen"
+        android:layout_below="@+id/chkbNCPKExamen"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="15dp" />
+    <TextView
+        android:id="@+id/txtvInfluenza"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_influenza"
+        android:textAppearance="@style/LabelSintomasScreensEstilo"
+        android:layout_above="@+id/chkbSOtroExamen"
+        android:layout_alignStart="@+id/txtvColesterol" />
+    <CheckBox
+        android:id="@+id/chkbSInfluenzaExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chkbSColesterolExamen"
+        android:layout_toEndOf="@+id/txtvBilirrubinas"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="7dp" />
+    <CheckBox
+        android:id="@+id/chkbNInfluenzaExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbSInfluenzaExamen"
+        android:layout_below="@+id/chkbNColesterolExamen"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="15dp" />
+    <TextView
+        android:id="@+id/txtvOtro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_otro"
+        android:textAppearance="@style/LabelSintomasScreensEstilo"
+        android:layout_alignTop="@+id/chkbSOtroExamen"
+        android:layout_alignStart="@+id/txtvInfluenza" />
+    <CheckBox
+        android:id="@+id/chkbSOtroExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chkbSInfluenzaExamen"
+        android:layout_toEndOf="@+id/txtvBilirrubinas"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="7dp" />
+    <CheckBox
+        android:id="@+id/chkbNOtroExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbSOtroExamen"
+        android:layout_below="@+id/chkbNInfluenzaExamen"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp" />
+
+    <EditText
+        android:id="@+id/edtxtOtroExamenLab"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:background="@drawable/bg_underline_edittext"
+        android:textColor="@color/color_texto_deshabilitado"
+        android:textSize="19sp"
+        android:maxLength="32"
+        android:ems="10"
+        android:inputType="text"
+        android:singleLine="true"
+        android:imeOptions="actionSend"
+        android:layout_alignBaseline="@+id/txtvOtro"
+        android:layout_alignBottom="@+id/txtvOtro"
+        android:layout_toEndOf="@+id/txtvOtro"
+        />
+
+    <Button
+        android:id="@+id/btnEnviarOrdLab"
+        android:layout_width="220dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/txtvOtro"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg_button_na_llamado_selector"
+        android:text="@string/boton_orden_laboratorio"
+        android:textColor="@android:color/white"
+        />
+</RelativeLayout>

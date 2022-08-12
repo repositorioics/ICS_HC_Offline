@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.ics.ics_hc_offline.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <!--<fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.ics.ics_hc_offline.ui.gallery.GalleryFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_gallery" />-->
+
+    <fragment
+        android:id="@+id/nav_enfermeria"
+        android:name="com.ics.ics_hc_offline.enfermeria.ListaEnfermeria"
+        android:label="@string/menu_enfermeria"
+        tools:layout="@layout/fragment_lista_enfermeria" />
+
+    <fragment
+        android:id="@+id/nav_consulta"
+        android:name="com.ics.ics_hc_offline.consulta.ListaConsulta"
+        android:label="@string/menu_consulta"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/emergenciaCargaHojaConsultaFragment"
+        android:name="com.ics.ics_hc_offline.enfermeria.EmergenciaCargaHojaConsultaActivity"
+        android:label="@string/add_consulta"
+        tools:layout="@layout/fragment_emergencia_carga_hoja_consulta_layout"/>
+
+    <fragment
+        android:id="@+id/datosPreclinicosFragment"
+        android:name="com.ics.ics_hc_offline.enfermeria.DatosPreClinicos"
+        android:label="@string/datos_preclinicos"
+        tools:layout="@layout/preclinicos_layout" />
+
+    <fragment
+        android:id="@+id/nav_expediente"
+        android:name="com.ics.ics_hc_offline.expediente.Expediente"
+        android:label="@string/menu_expediente"
+        tools:layout="@layout/activity_expediente_busqueda" />
+
+</navigation>

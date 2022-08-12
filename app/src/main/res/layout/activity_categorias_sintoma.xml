@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".sintomasactivities.CategoriaSintomaActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+
+        <Button
+            android:id="@+id/btnBackCategoria"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="7dp"
+            android:drawableEnd="@mipmap/reducir"
+            android:text="@string/boton_catg_sat_imc_sintomas" />
+
+        <TextView
+            android:id="@+id/txtvSATENSintoma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnBackCategoria"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="24dp"
+            android:text="@string/label_saturacion_o2"
+            android:textAppearance="@style/LabelSintomasScreensEstilo"
+            />
+
+        <EditText
+            android:id="@+id/edtxtSaturacion"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:inputType="number"
+            android:maxLength="3"
+            android:layout_below="@+id/btnBackCategoria"
+            android:layout_toEndOf="@+id/txtvSATENSintoma"
+            android:layout_marginTop="33dp"
+            android:layout_marginStart="14dp"
+            android:ems="10"
+            android:textCursorDrawable="@null"
+            style="@style/EditTextEstilo" />
+
+        <TextView
+            android:id="@+id/txtvSimbPorc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnBackCategoria"
+            android:layout_toEndOf="@+id/edtxtSaturacion"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="1dp"
+            android:text="@string/label_porcentaje_signo"
+            android:textAppearance="@style/LabelSintomasScreensEstilo"
+            />
+
+        <include
+            android:id="@+id/incCategoriaSintomasPrat1"
+            layout="@layout/categoria_sintomas_part1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvSATENSintoma"
+            android:layout_marginTop="15dp" />
+
+        <include android:id="@+id/incCategoriaSintomasPrat2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/incCategoriaSintomasPrat1"
+            android:layout_marginTop="30dp"
+            layout="@layout/categoria_sintomas_part2"
+            />
+
+
+        <TextView
+            android:id="@+id/txtvCompleteCategoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/incCategoriaSintomasPrat2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="20dp"
+            android:text="@string/label_complete_a_b"
+            android:textSize="26sp"
+            android:textColor="@android:color/holo_blue_dark"/>
+
+        <include
+            android:id="@+id/incCategoriaPart1"
+            layout="@layout/categoria_part_1_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvCompleteCategoria"
+            android:layout_marginStart="20dp" />
+
+        <include
+            android:id="@+id/incCategoriaPart2"
+            layout="@layout/categoria_part_2_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/incCategoriaPart1"
+            android:layout_marginStart="20dp" />
+
+        <include
+            android:id="@+id/incCategoriaPart3"
+            layout="@layout/categoria_part_3_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/incCategoriaPart2"
+            android:layout_marginStart="20dp" />
+
+        <include android:id="@+id/incCategoriaPart4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/incCategoriaPart3"
+            android:layout_marginBottom="10dp"
+            layout="@layout/categoria_part_4_layout"
+            />
+
+        <Button
+            android:id="@+id/btnBackCategoria2"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_below="@+id/incCategoriaPart4"
+            android:layout_alignParentStart="true"
+            android:drawableEnd="@mipmap/reducir"
+            android:text="@string/boton_catg_sat_imc_sintomas" />
+
+    </RelativeLayout>
+</ScrollView>

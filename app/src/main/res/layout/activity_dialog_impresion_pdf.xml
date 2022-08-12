@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="200dp" android:layout_height="match_parent"
+        android:layout_gravity="center"
+        tools:ignore="UselessParent">
+        <ImageButton
+            android:id="@+id/imgBtnImprimir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/printer64"
+            android:background="@drawable/bg_button_print"
+            android:layout_marginBottom="4dp"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentStart="false"
+            android:layout_marginStart="30dp"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentRight="false"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/txtvImprimir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgBtnImprimir"
+            android:text="@string/label_imprimir"
+            android:layout_alignEnd="@+id/imgBtnImprimir"
+            android:layout_marginEnd="12dp" />
+
+        <ImageButton
+            android:id="@+id/imgBtnPdf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="14dp"
+            android:layout_toEndOf="@+id/imgBtnImprimir"
+            android:background="@null"
+            android:src="@drawable/pdf64" />
+        <TextView
+            android:id="@+id/txtvPdf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/txtvImprimir"
+            android:layout_below="@+id/imgBtnPdf"
+            android:layout_marginStart="16dp"
+            android:text="@string/label_ver_pdf"
+            android:layout_marginTop="4dp" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <TextView
+        android:id="@+id/txtvCATENSintoma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="24dp"
+        android:text="@string/label_categoria"
+        android:textAppearance="@style/LabelSintomasScreensEstilo"
+        />
+
+    <CheckBox
+        android:id="@+id/chkbCategoriaA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/txtvCATENSintoma"
+        android:layout_marginTop="42dp"
+        android:layout_marginStart="20dp"
+        />
+
+    <TextView
+        android:id="@+id/txtvCTAENSintoma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/txtvCATENSintoma"
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="30dp"
+        android:text="@string/label_a"
+        android:textAppearance="@style/LabelCabeceraCategoriaEstilo"
+        />
+
+    <CheckBox
+        android:id="@+id/chkbCategoriaB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbCategoriaA"
+        android:layout_marginTop="42dp"
+        android:layout_marginStart="20dp"
+        />
+
+    <TextView
+        android:id="@+id/txtvCTBENSintoma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbCategoriaA"
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="30dp"
+        android:text="@string/label_b"
+        android:textAppearance="@style/LabelCabeceraCategoriaEstilo"
+        />
+
+    <CheckBox
+        android:id="@+id/chkbCategoriaC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbCategoriaB"
+        android:layout_marginTop="42dp"
+        android:layout_marginStart="20dp"
+        />
+
+    <TextView
+        android:id="@+id/txtvCTCENSintoma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbCategoriaB"
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="30dp"
+        android:text="@string/label_c"
+        android:textAppearance="@style/LabelCabeceraCategoriaEstilo"
+        />
+
+    <CheckBox
+        android:id="@+id/chkbCategoriaD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="42dp"
+        android:layout_toEndOf="@+id/chkbCategoriaC" />
+
+    <TextView
+        android:id="@+id/txtvCTDENSintoma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbCategoriaC"
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="30dp"
+        android:text="@string/label_d"
+        android:textAppearance="@style/LabelCabeceraCategoriaEstilo"
+        />
+
+    <CheckBox
+        android:id="@+id/chkbCategoriaNA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbCategoriaD"
+        android:layout_marginTop="42dp"
+        android:layout_marginStart="24dp"
+        />
+
+    <TextView
+        android:id="@+id/txtvCNAENSintoma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/chkbCategoriaD"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="26dp"
+        android:text="@string/label_na"
+        android:textAppearance="@style/LabelCabeceraCategoriaEstilo"
+        />
+
+</RelativeLayout>

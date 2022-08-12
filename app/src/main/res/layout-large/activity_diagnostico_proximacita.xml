@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:focusable="true" android:focusableInTouchMode="true"
+    tools:context=".diagnostiscosactivities.DiagnosticoProximaCitaActivity">
+    <!-- Header aligned to top -->
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/color_border_edit_text_normal"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/btnProximaCita"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="7dp"
+            android:drawableEnd="@mipmap/reducir"
+            android:text="@string/boton_diagnostico_proximacita" />
+    </RelativeLayout>
+
+    <!-- Content below header and above footer -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="40dp"
+        android:text="@string/label_TelefonoEmergencia"
+        android:id="@+id/txtvTelEme"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/header"
+        android:textAppearance="@style/LabelDiagnosticocreensEstilo"
+        />
+
+    <EditText
+        android:id="@+id/edtxtTelEme"
+        style="@style/EditTextEstilo"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/header"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="35dp"
+        android:layout_toEndOf="@+id/txtvTelEme"
+        android:ems="10"
+        android:inputType="number"
+        android:maxLength="10"
+        android:textCursorDrawable="@null">
+
+    </EditText>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="40dp"
+        android:text="@string/label_proximacita"
+        android:id="@+id/txtvProximacita"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtvTelEme"
+        android:textAppearance="@style/LabelDiagnosticocreensEstilo"
+        />
+
+    <EditText
+        android:id="@+id/dpProximaCita"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:inputType="date"
+        android:layout_toEndOf="@+id/txtvProximacita"
+        android:layout_below="@+id/txtvTelEme"
+        android:layout_marginTop="42dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        style="@style/EditTextEstilo">
+
+    </EditText>
+
+    <!--android:textAppearance="@style/LabelSintomasScreensEstilo">-->
+    <ImageButton
+        android:id="@+id/ibtCalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="170dp"
+        android:layout_toEndOf="@+id/dpProximaCita"
+        android:background="@mipmap/calendar"
+        android:padding="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:text="@string/label_Colegio"
+        android:id="@+id/txtvColegio"
+
+        android:layout_below="@+id/txtvProximacita"
+        android:textAppearance="@style/LabelDiagnosticocreensEstilo"
+        />
+
+    <Spinner
+        android:id="@+id/spnColegio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtvProximacita"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="100dp"
+        android:layout_toEndOf="@+id/txtvColegio"
+        android:gravity="start|left"
+        android:textAlignment="gravity"
+        android:theme="@style/ThemeSpinner" />
+
+    <ImageButton
+        android:id="@+id/imgBusquedaColegio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtvProximacita"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="50dp"
+        android:background="@color/white"
+        android:src="@mipmap/ic_search" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="40dp"
+        android:text="@string/label_HorarioClase"
+        android:id="@+id/txtvHorarioClase"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtvColegio"
+        android:textAppearance="@style/LabelDiagnosticocreensEstilo"
+        />
+
+
+    <CheckBox
+        android:id="@+id/chkAM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtvColegio"
+        android:layout_marginTop="38dp"
+        android:layout_toEndOf="@+id/txtvHorarioClase"
+        android:height="20dp"
+        android:text="AM"
+        android:textAppearance="@style/LabelDiagnosticocreensEstilo" />
+
+    <CheckBox
+        android:id="@+id/chkPm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtvColegio"
+        android:layout_marginTop="38dp"
+        android:layout_toEndOf="@+id/chkAM"
+        android:text="PM"
+        android:textAppearance="@style/LabelDiagnosticocreensEstilo" />
+
+    <CheckBox
+        android:id="@+id/chkNA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtvColegio"
+        android:layout_marginTop="38dp"
+        android:layout_toEndOf="@+id/chkPm"
+        android:text="NA"
+        android:textAppearance="@style/LabelDiagnosticocreensEstilo" />
+
+</RelativeLayout>

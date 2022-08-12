@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtvCCTENSintoma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="@string/label_cambio_categoria"
+        android:textAppearance="@style/LabelSintomasScreensEstilo"
+        />
+
+    <CheckBox
+        android:id="@+id/chkbCambioCategoriaSi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/txtvCCTENSintoma"
+        android:layout_below="@+id/txtvCCSENSintoma"
+        android:layout_marginStart="24dp"
+        />
+
+    <TextView
+        android:id="@+id/txtvCCSENSintoma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/txtvCCTENSintoma"
+        android:layout_marginStart="30dp"
+        android:text="@string/label_si"
+        android:textAppearance="@style/LabelCabeceraCategoriaEstilo"
+        />
+
+    <CheckBox
+        android:id="@+id/chkbCambioCategoriaNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbCambioCategoriaSi"
+        android:layout_below="@+id/txtvCCNENSintoma"
+        android:layout_marginStart="24dp"
+        />
+
+    <TextView
+        android:id="@+id/txtvCCNENSintoma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbCambioCategoriaSi"
+        android:layout_marginStart="27dp"
+        android:text="@string/label_no"
+        android:textAppearance="@style/LabelCabeceraCategoriaEstilo"
+        />
+
+</RelativeLayout>

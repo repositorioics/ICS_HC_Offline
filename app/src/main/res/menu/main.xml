@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/action_add"
+        android:title="@string/boton_agregar"
+        android:orderInCategory="100"
+        android:icon="@mipmap/ic_add"
+        app:iconTint="@color/white"
+        app:showAsAction="always|withText"/>
+    <item android:id="@+id/action_upload"
+        android:title="@string/upload"
+        android:orderInCategory="100"
+        android:icon="@mipmap/upload"
+        app:iconTint="@color/white" />
+    <item android:id="@+id/action_logOut"
+        android:title="@string/boton_salir"
+        android:orderInCategory="100"
+        android:icon="@mipmap/ic_salir"
+        app:iconTint="@color/white" />
+</menu>

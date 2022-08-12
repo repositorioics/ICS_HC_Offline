@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtvEGO"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/label_ego"
+        android:textAppearance="@style/LabelSintomasScreensEstilo" />
+    <CheckBox
+        android:id="@+id/chkbSEGOExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/txtvEGO"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="7dp" />
+    <CheckBox
+        android:id="@+id/chkbNEGOExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbSEGOExamen"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="15dp" />
+    <TextView
+        android:id="@+id/txtvEGH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_egh"
+        android:textAppearance="@style/LabelSintomasScreensEstilo"
+        android:layout_above="@+id/chkbSCitologiaFecalExamen"
+        android:layout_alignStart="@+id/txtvEGO" />
+    <CheckBox
+        android:id="@+id/chkbSEGHExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chkbSEGOExamen"
+        android:layout_toEndOf="@+id/txtvEGO"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="7dp" />
+    <CheckBox
+        android:id="@+id/chkbNEGHExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbSEGHExamen"
+        android:layout_below="@+id/chkbNEGOExamen"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="15dp" />
+    <TextView
+        android:id="@+id/txtvCitologiaFecal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_citologia_fecal"
+        android:textAppearance="@style/LabelSintomasScreensEstilo"
+        android:layout_alignBaseline="@+id/chkbSCitologiaFecalExamen"
+        android:layout_alignBottom="@+id/chkbSCitologiaFecalExamen"
+        android:layout_alignStart="@+id/txtvEGH" />
+    <CheckBox
+        android:id="@+id/chkbSCitologiaFecalExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chkbSEGHExamen"
+        android:layout_toEndOf="@+id/txtvEGO"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="7dp" />
+    <CheckBox
+        android:id="@+id/chkbNCitologiaFecalExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbSCitologiaFecalExamen"
+        android:layout_below="@+id/chkbNEGHExamen"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="15dp" />
+    <TextView
+        android:id="@+id/txtvFactorReumatoideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_factor_reumatoide"
+        android:textAppearance="@style/LabelSintomasScreensEstilo"
+        android:layout_alignBaseline="@+id/chkbSFactorReuExamen"
+        android:layout_alignBottom="@+id/chkbSFactorReuExamen"
+        android:layout_alignStart="@+id/txtvCitologiaFecal" />
+    <CheckBox
+        android:id="@+id/chkbSFactorReuExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chkbSCitologiaFecalExamen"
+        android:layout_toEndOf="@+id/txtvEGO"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="7dp" />
+    <CheckBox
+        android:id="@+id/chkbNFactorReuExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbSCitologiaFecalExamen"
+        android:layout_below="@+id/chkbNCitologiaFecalExamen"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="15dp" />
+    <TextView
+        android:id="@+id/txtvAlbumina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_albumina"
+        android:textAppearance="@style/LabelSintomasScreensEstilo"
+        android:layout_alignBaseline="@+id/chkbSAlbuminaExamen"
+        android:layout_alignBottom="@+id/chkbSAlbuminaExamen"
+        android:layout_alignStart="@+id/txtvFactorReumatoideo" />
+    <CheckBox
+        android:id="@+id/chkbSAlbuminaExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chkbSFactorReuExamen"
+        android:layout_toEndOf="@+id/txtvEGO"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="7dp" />
+    <CheckBox
+        android:id="@+id/chkbNAlbuminaExamen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbSAlbuminaExamen"
+        android:layout_below="@+id/chkbNFactorReuExamen"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="15dp" />
+    <TextView
+        android:id="@+id/txtvAST"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_ast_alt"
+        android:textAppearance="@style/LabelSintomasScreensEstilo"
+        android:layout_alignBaseline="@+id/chkbSAST"
+        android:layout_alignBottom="@+id/chkbSAST"
+        android:layout_alignEnd="@+id/txtvAlbumina" />
+    <CheckBox
+        android:id="@+id/chkbSAST"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chkbSAlbuminaExamen"
+        android:layout_toEndOf="@+id/txtvEGO"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="7dp" />
+    <CheckBox
+        android:id="@+id/chkbNAST"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkbSAST"
+        android:layout_below="@+id/chkbNAlbuminaExamen"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="15dp" />
+</RelativeLayout>

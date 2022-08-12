@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:focusable="true" android:focusableInTouchMode="true">
+
+        <TextView
+            android:id="@+id/txtvTituloExamenResultado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textAppearance="@style/TextoTituloEstilo"
+            android:text="@string/title_examenes_resultados" />
+        <Button
+            android:id="@+id/btnActualizarResultados"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/txtvTituloExamenResultado"
+            android:background="@drawable/bg_button_enviar_selector"
+            android:text="@string/boton_actualizar_resultado" />
+        <TextView
+            android:id="@+id/txtvNumOrdenLaboratorio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_below="@+id/btnActualizarResultados"
+            android:text="@string/label_orden_lab"
+            android:textSize="22sp"
+            android:textColor="@android:color/black"
+            android:inputType="text"
+            android:visibility="invisible"
+            android:singleLine="true"
+            android:maxLength="32"
+            tools:ignore="TextViewEdits" />
+        <EditText
+            android:id="@+id/edtxNumOrenLaboratorio"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:layout_toEndOf="@+id/txtvNumOrdenLaboratorio"
+            android:layout_marginTop="26dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="7dp"
+            android:layout_below="@+id/btnActualizarResultados"
+            android:paddingStart="14dp"
+            android:background="@drawable/bg_underline_edittext"
+            android:textColor="@color/color_texto_deshabilitado"
+            android:textSize="17sp"
+            android:visibility="invisible"
+            android:enabled="false"
+            android:ems="10" />
+        <Button
+            android:id="@+id/btnSerologiaDengue"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="58dp"
+            android:layout_alignTop="@+id/edtxNumOrenLaboratorio"
+            android:text="@string/boton_serologia_dengue"
+            android:enabled="false"
+            android:gravity="left|center_vertical" />
+        <Button
+            android:id="@+id/btnSerologiChick"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="58dp"
+            android:layout_alignTop="@+id/btnSerologiaDengue"
+            android:text="@string/boton_serologia_chick"
+            android:enabled="false"
+            android:gravity="left|center_vertical" />
+        <Button
+            android:id="@+id/btnGotaGruesaResultado"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="58dp"
+            android:layout_alignTop="@+id/btnSerologiChick"
+            android:text="@string/boton_gota_gruesa"
+            android:enabled="false"
+            android:gravity="left|center_vertical" />
+        <Button
+            android:id="@+id/btnExtendidoPeriferico"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="58dp"
+            android:layout_alignTop="@+id/btnGotaGruesaResultado"
+            android:text="@string/boton_extendido_periferico"
+            android:enabled="false"
+            android:gravity="left|center_vertical" />
+        <Button
+            android:id="@+id/btnEGOResultado"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="58dp"
+            android:layout_alignTop="@+id/btnExtendidoPeriferico"
+            android:text="@string/boton_ego"
+            android:enabled="false"
+            android:gravity="left|center_vertical" />
+        <Button
+            android:id="@+id/btnEGHResultado"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="58dp"
+            android:layout_alignTop="@+id/btnEGOResultado"
+            android:text="@string/boton_egh"
+            android:enabled="false"
+            android:gravity="left|center_vertical" />
+        <Button
+            android:id="@+id/btnInfluenza"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="58dp"
+            android:layout_alignTop="@+id/btnEGHResultado"
+            android:text="@string/boton_influenza"
+            android:enabled="false"
+            android:gravity="left|center_vertical" />
+    </RelativeLayout>
+</ScrollView>

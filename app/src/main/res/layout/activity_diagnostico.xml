@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".diagnostiscosactivities.DiagnosticoActivity">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/color_border_edit_text_normal"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/btnDiagnostico"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="7dp"
+            android:drawableEnd="@mipmap/reducir"
+            android:text="@string/boton_diagnostico_diagnostico" />
+
+    </RelativeLayout>
+
+    <Spinner
+        android:id="@+id/spnDialogo1"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_below="@+id/header"
+        android:layout_marginTop="40dp"
+        android:gravity="start|left"
+        android:textAlignment="gravity"
+        android:theme="@style/ThemeSpinner" />
+
+    <Spinner
+        android:id="@+id/spnDialogo2"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_below="@+id/spnDialogo1"
+        android:layout_marginTop="10dp"
+        android:gravity="start|left"
+        android:theme="@style/ThemeSpinner"
+        android:textAlignment="gravity" />
+
+    <Spinner
+        android:layout_height="65dp"
+        android:layout_width="match_parent"
+        android:id="@+id/spnDialogo3"
+        android:layout_below="@+id/spnDialogo2"
+        android:gravity="start|left"
+        android:layout_marginTop="10dp"
+        android:theme="@style/ThemeSpinner"
+        android:textAlignment="gravity" />
+
+    <Spinner
+        android:id="@+id/spnDialogo4"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_below="@+id/spnDialogo3"
+        android:gravity="start|left"
+        android:layout_marginTop="10dp"
+        android:theme="@style/ThemeSpinner"
+        android:textAlignment="gravity" />
+
+    <TextView
+        android:id="@+id/txvotrosdiagnostico"
+        android:layout_width="wrap_content"
+        android:layout_height="63dp"
+        android:layout_below="@+id/spnDialogo4"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="5dp"
+        android:text="@string/label_otrosdiagnostico"
+        android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+    <EditText
+        android:id="@+id/edtxtOtrosDiagnostico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spnDialogo4"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@+id/txvotrosdiagnostico"
+        android:textAppearance="@style/LabelSintomasScreensEstilo"
+        android:textCursorDrawable="@null" />
+    <!-- Content below header and above footer -->
+
+    <Button android:id="@+id/btnSalirDiagnostico"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:text="@string/btn_regresar_diagnostico"
+        android:textStyle="bold"
+        android:layout_below="@+id/txvotrosdiagnostico"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/bg_button_login_selector"/>
+
+    <!-- Agregando una tabla para enviar mensaje de diagnosticos -->
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_below="@id/btnSalirDiagnostico">
+        <TableRow
+            android:background="#1F5271"
+            android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:text="Diagnóstico a seleccionar" />
+        </TableRow>
+        <TableRow
+            android:background="#E2E2E4"
+            android:padding="5dp">
+            <TextView
+                android:id="@+id/txvDiag1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#8B0000"
+                android:textStyle="bold"
+                android:layout_weight="1" />
+        </TableRow>
+        <TableRow
+            android:background="#E2E2E4"
+            android:padding="5dp">
+            <TextView
+                android:id="@+id/txvDiag2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#8B0000"
+                android:textStyle="bold"
+                android:layout_weight="1" />
+        </TableRow>
+        <TableRow
+            android:background="#E2E2E4"
+            android:padding="5dp">
+            <TextView
+                android:id="@+id/txvDiag3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#8B0000"
+                android:textStyle="bold"
+                android:layout_weight="1" />
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>

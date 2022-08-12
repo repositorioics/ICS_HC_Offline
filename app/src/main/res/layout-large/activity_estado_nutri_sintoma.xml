@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".sintomasactivities.EstadoNutriSintomasAcitvity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+
+        <Button
+            android:id="@+id/btnEstadoNutriGSintomas"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="7dp"
+            android:drawableEnd="@mipmap/reducir"
+            android:text="@string/boton_estado_nutri_sintomas" />
+
+        <TextView
+            android:id="@+id/txtvIMCENSintoma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnEstadoNutriGSintomas"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="24dp"
+            android:text="@string/label_imc"
+            android:textAppearance="@style/LabelSintomasScreensEstilo"
+            />
+
+        <EditText
+            android:id="@+id/edtxtimc"
+            style="@style/EditTextEstilo"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@+id/btnEstadoNutriGSintomas"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@+id/txtvIMCENSintoma"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="numberDecimal"
+            android:textCursorDrawable="@null" />
+
+        <TextView
+            android:id="@+id/txtvEstdoNutri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:layout_marginStart="24dp"
+            android:layout_below="@id/txtvIMCENSintoma"
+            android:text="@string/label_estado_nturicional"
+            android:textAppearance="@style/LabelSintomasScreensEstilo"
+            />
+
+        <Spinner
+            android:id="@+id/spnEstadoNutri"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/txtvIMCENSintoma"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="10dp"
+            android:layout_toEndOf="@+id/txtvEstdoNutri"
+            android:theme="@style/ThemeSpinner" />
+    </RelativeLayout>
+</ScrollView>

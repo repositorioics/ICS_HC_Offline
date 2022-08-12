@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btnEnviar"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg_button_enviar_selector"
+        android:text="@string/boton_orden_laboratorio"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toEndOf="@+id/btnEnviar"
+        android:background="@drawable/bg_button_cancel_selector"
+        android:text="@string/boton_salir"
+        android:textColor="@android:color/white" />
+    <!--<Button
+        android:id="@+id/btnNoAtiendeLlamado"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toEndOf="@+id/btnCancel"
+        android:background="@drawable/bg_button_na_llamado_selector"
+        android:text="@string/boton_no_atiente_llamado"
+        android:textColor="@android:color/white"
+        />-->
+</RelativeLayout>

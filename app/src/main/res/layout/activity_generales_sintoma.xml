@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".sintomasactivities.GeneralesSintomasActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+
+        <Button
+            android:id="@+id/btnGeneralesGSintomas"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="7dp"
+            android:drawableEnd="@mipmap/reducir"
+            android:text="@string/boton_general_sintomas" />
+
+        <TextView
+            android:id="@+id/txtvPASint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnGeneralesGSintomas"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/label_pas"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <EditText
+            android:id="@+id/edtxtPASint"
+            style="@style/EditTextEstilo"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/txtvPASint"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:inputType="number"
+            android:nextFocusDown="@+id/edtxtPADint"
+            android:textCursorDrawable="@null" />
+
+        <TextView
+            android:id="@+id/txtvPADint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnGeneralesGSintomas"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="30dp"
+            android:layout_toEndOf="@+id/edtxtPASint"
+            android:text="@string/label_pad"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <EditText
+            android:id="@+id/edtxtPADint"
+            style="@style/EditTextEstilo"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/txtvPADint"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/edtxtPASint"
+            android:ems="10"
+            android:inputType="number"
+            android:nextFocusDown="@+id/edtxtFciaRespGeneralesSint"
+            android:textCursorDrawable="@null" />
+
+        <TextView
+            android:id="@+id/txtvFciaRepGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtxtPASint"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/label_fcia_resp"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <EditText
+            android:id="@+id/edtxtFciaRespGeneralesSint"
+            style="@style/EditTextEstilo"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/txtvFciaRepGeneralesSint"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:inputType="number"
+            android:nextFocusDown="@+id/edtxtFciaCardGeneralesSint"
+            android:textCursorDrawable="@null" />
+
+        <TextView
+            android:id="@+id/txtvFciaCardGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtxtPADint"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/txtvFciaRepGeneralesSint"
+            android:text="@string/label_fcia_card"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <EditText
+            android:id="@+id/edtxtFciaCardGeneralesSint"
+            style="@style/EditTextEstilo"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/txtvFciaCardGeneralesSint"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/edtxtFciaRespGeneralesSint"
+            android:ems="10"
+            android:inputType="number"
+            android:textCursorDrawable="@null" />
+
+        <TextView
+            android:id="@+id/txtvLugAtencGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtxtFciaRespGeneralesSint"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/label_lugar_atencion"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <TextView
+            android:id="@+id/txtvCSSFVGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvLugAtencGeneralesSint"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/label_cssfv"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <CheckBox
+            android:id="@+id/chkbLugarAtenCSSFVGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvLugAtencGeneralesSint"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="18dp"
+            android:layout_toEndOf="@+id/txtvCSSFVGeneralesSint" />
+
+        <TextView
+            android:id="@+id/txtvTerrenoGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvLugAtencGeneralesSint"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/chkbLugarAtenCSSFVGeneralesSint"
+            android:text="@string/label_terreno"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <CheckBox
+            android:id="@+id/chkbLugarAtenTerrenoGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvLugAtencGeneralesSint"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="18dp"
+            android:layout_toEndOf="@+id/txtvTerrenoGeneralesSint" />
+
+        <TextView
+            android:id="@+id/txtvConsultaGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvCSSFVGeneralesSint"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/label_consulta"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <TextView
+            android:id="@+id/txtvInicialGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvConsultaGeneralesSint"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/label_inicial"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <CheckBox
+            android:id="@+id/chkbConsultaInicialGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/txtvInicialGeneralesSint"
+            android:layout_below="@+id/txtvConsultaGeneralesSint"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="8dp"
+            />
+
+        <TextView
+            android:id="@+id/txtvSeguimientoGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvInicialGeneralesSint"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/label_seguimiento"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <CheckBox
+            android:id="@+id/chkbConsultaSeguimGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvInicialGeneralesSint"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="18dp"
+            android:layout_toEndOf="@+id/txtvSeguimientoGeneralesSint" />
+
+        <TextView
+            android:id="@+id/txtvConvaleGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvSeguimientoGeneralesSint"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/label_convaleciente"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <CheckBox
+            android:id="@+id/chkbConsultaConvGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvSeguimientoGeneralesSint"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="18dp"
+            android:layout_toEndOf="@+id/txtvConvaleGeneralesSint" />
+
+        <TextView
+            android:id="@+id/txtvSegChkGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvConvaleGeneralesSint"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/label_seguimiento_chick"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <TextView
+            android:id="@+id/txtvSegChk1GeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvSegChkGeneralesSint"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/label_seguimiento_chick_1"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <CheckBox
+            android:id="@+id/chkbSegChk1GeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvSegChkGeneralesSint"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="18dp"
+            android:layout_toEndOf="@+id/txtvSegChk1GeneralesSint" />
+
+
+        <TextView
+            android:id="@+id/txtvSegChk2GeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvSegChkGeneralesSint"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/chkbSegChk1GeneralesSint"
+            android:text="@string/label_seguimiento_chick_2"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <CheckBox
+            android:id="@+id/chkbSegChk2GeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/txtvSegChk2GeneralesSint"
+            android:layout_below="@+id/txtvSegChkGeneralesSint"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="8dp"
+            />
+
+        <TextView
+            android:id="@+id/txtvSegChk3GeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/chkbSegChk2GeneralesSint"
+            android:layout_below="@+id/txtvSegChkGeneralesSint"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="18dp"
+            android:text="@string/label_seguimiento_chick_3"
+            android:textAppearance="@style/LabelSintomasScreensEstilo"/>
+
+        <CheckBox
+            android:id="@+id/chkbSegChk3GeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/txtvSegChk3GeneralesSint"
+            android:layout_below="@+id/txtvSegChkGeneralesSint"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="8dp"
+            />
+
+        <TextView
+            android:id="@+id/txtvSegChk4GeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/chkbSegChk3GeneralesSint"
+            android:layout_below="@+id/txtvSegChkGeneralesSint"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="18dp"
+            android:text="@string/label_seguimiento_chick_4"
+            android:textAppearance="@style/LabelSintomasScreensEstilo"/>
+
+        <CheckBox
+            android:id="@+id/chkbSegChk4GeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/txtvSegChk4GeneralesSint"
+            android:layout_below="@+id/txtvSegChkGeneralesSint"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="8dp"
+            />
+
+        <TextView
+            android:id="@+id/txtvSegChk5GeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/chkbSegChk4GeneralesSint"
+            android:layout_below="@+id/txtvSegChkGeneralesSint"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="18dp"
+            android:text="@string/label_seguimiento_chick_5"
+            android:textAppearance="@style/LabelSintomasScreensEstilo"/>
+
+        <CheckBox
+            android:id="@+id/chkbSegChk5GeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/txtvSegChk5GeneralesSint"
+            android:layout_below="@+id/txtvSegChkGeneralesSint"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="8dp"
+            />
+
+        <TextView
+            android:id="@+id/txtvTurnoGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvSegChk1GeneralesSint"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/label_turno"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <TextView
+            android:id="@+id/txtvRegularGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvTurnoGeneralesSint"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/label_turno_regular"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <CheckBox
+            android:id="@+id/chkbRegularGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/txtvRegularGeneralesSint"
+            android:layout_below="@+id/txtvTurnoGeneralesSint"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="8dp"
+            />
+
+        <TextView
+            android:id="@+id/txtvNocheGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvRegularGeneralesSint"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/label_turno_noche"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <CheckBox
+            android:id="@+id/chkbNocheGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/txtvNocheGeneralesSint"
+            android:layout_below="@+id/txtvRegularGeneralesSint"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="8dp"
+            />
+
+        <TextView
+            android:id="@+id/txtvFindeGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvNocheGeneralesSint"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/label_turno_fin_semana"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <CheckBox
+            android:id="@+id/chkbFindeGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/txtvFindeGeneralesSint"
+            android:layout_below="@+id/txtvNocheGeneralesSint"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="25dp"
+            />
+
+        <TextView
+            android:id="@+id/txtvTempMedGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvFindeGeneralesSint"
+            android:layout_marginTop="38dp"
+            android:layout_marginStart="14dp"
+            android:text="@string/label_temp_med_c"
+            android:textAppearance="@style/LabelSintomasScreensEstilo"
+            />
+
+        <EditText
+            android:id="@+id/edtxtTempMedGeneralesSint"
+            style="@style/EditTextEstilo"
+            android:layout_width="68dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/txtvFindeGeneralesSint"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="33dp"
+            android:layout_toEndOf="@+id/txtvTempMedGeneralesSint"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:textCursorDrawable="@null" />
+
+        <TextView
+            android:id="@+id/txtvFisGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvTempMedGeneralesSint"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/label_fis"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <EditText
+            android:id="@+id/dpFis"
+            style="@style/EditTextEstilo"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/edtxtTempMedGeneralesSint"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="33dp"
+            android:layout_toEndOf="@+id/txtvFisGeneralesSint"
+            android:drawableEnd="@mipmap/calendar"
+            android:editable="false"
+            android:ems="10"
+            android:inputType="date"
+            android:textCursorDrawable="@null" />
+
+        <TextView
+            android:id="@+id/txtvFifGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvFisGeneralesSint"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="38dp"
+            android:text="@string/label_fif"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <EditText
+            android:id="@+id/dpFif"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:inputType="date"
+            android:editable="false"
+            android:layout_toEndOf="@+id/txtvFifGeneralesSint"
+            android:layout_below="@+id/txtvFisGeneralesSint"
+            android:layout_marginTop="33dp"
+            android:layout_marginStart="8dp"
+            android:ems="10"
+            android:textCursorDrawable="@null"
+            android:drawableEnd="@mipmap/calendar"
+            style="@style/EditTextEstilo" />
+
+        <TextView
+            android:id="@+id/txtvUltmFebGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvFifGeneralesSint"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="45dp"
+            android:text="@string/label_ultimo_dia_fiebre"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <EditText
+            android:id="@+id/dpUltmFiebGeneralesSint"
+            style="@style/EditTextEstilo"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/txtvUltmFebGeneralesSint"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:drawableEnd="@mipmap/calendar"
+            android:editable="false"
+            android:ems="10"
+            android:inputType="date"
+            android:textCursorDrawable="@null" />
+
+        <TextView
+            android:id="@+id/txtvAMUltFGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvUltmFebGeneralesSint"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/dpUltmFiebGeneralesSint"
+            android:text="@string/label_am"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <CheckBox
+            android:id="@+id/chkbAMUltFGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvUltmFebGeneralesSint"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/txtvAMUltFGeneralesSint"
+
+            />
+
+        <TextView
+            android:id="@+id/txtvPMUltFGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvUltmFebGeneralesSint"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/chkbAMUltFGeneralesSint"
+            android:text="@string/label_pm"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <CheckBox
+            android:id="@+id/chkbPMUltFGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/txtvPMUltFGeneralesSint"
+            android:layout_below="@+id/txtvUltmFebGeneralesSint"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="8dp"
+
+            />
+
+        <TextView
+            android:id="@+id/txtvUltmDosisGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dpUltmFiebGeneralesSint"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="38dp"
+            android:text="@string/label_ultima_dosis_ant"
+            android:textAppearance="@style/LabelSintomasScreensEstilo" />
+
+        <EditText
+            android:id="@+id/dpUltmDosGeneralesSint"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:inputType="date"
+            android:editable="false"
+            android:layout_toEndOf="@+id/txtvUltmDosisGeneralesSint"
+            android:layout_below="@+id/dpUltmFiebGeneralesSint"
+            android:layout_marginTop="33dp"
+            android:layout_marginStart="8dp"
+            android:ems="10"
+            android:textCursorDrawable="@null"
+            android:drawableEnd="@mipmap/calendar"
+            style="@style/EditTextEstilo" />
+
+        <TextView
+            android:id="@+id/txtvHoraGeneralesSint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtvUltmDosisGeneralesSint"
+            android:layout_marginTop="38dp"
+            android:layout_marginStart="14dp"
+            android:text="@string/label_hora"
+            android:textAppearance="@style/LabelSintomasScreensEstilo"
+            />
+
+        <EditText
+            android:id="@+id/edtxtHoraGeneralesSint"
+            style="@style/EditTextEstilo"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/txtvUltmDosisGeneralesSint"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="33dp"
+            android:layout_toEndOf="@+id/txtvHoraGeneralesSint"
+            android:drawableEnd="@mipmap/timer"
+            android:ems="10"
+            android:inputType="time"
+            android:textCursorDrawable="@null" />
+    </RelativeLayout>
+</ScrollView>
