@@ -86,7 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="170dp"
         android:layout_toEndOf="@+id/dpProximaCita"
-        android:background="@mipmap/calendar"
+        android:background="@mipmap/calendar2"
         android:padding="5dp" />
 
     <TextView

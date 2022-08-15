@@ -457,7 +457,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="33dp"
             android:layout_toEndOf="@+id/txtvFisGeneralesSint"
-            android:drawableEnd="@mipmap/calendar"
+            android:drawableEnd="@mipmap/calendar2"
             android:editable="false"
             android:ems="10"
             android:inputType="date"
@@ -485,7 +485,7 @@
             android:layout_marginStart="8dp"
             android:ems="10"
             android:textCursorDrawable="@null"
-            android:drawableEnd="@mipmap/calendar"
+            android:drawableEnd="@mipmap/calendar2"
             style="@style/EditTextEstilo" />
 
         <TextView
@@ -506,7 +506,7 @@
             android:layout_below="@+id/txtvUltmFebGeneralesSint"
             android:layout_marginStart="8dp"
             android:layout_marginTop="10dp"
-            android:drawableEnd="@mipmap/calendar"
+            android:drawableEnd="@mipmap/calendar2"
             android:editable="false"
             android:ems="10"
             android:inputType="date"
@@ -578,7 +578,7 @@
             android:layout_marginStart="8dp"
             android:ems="10"
             android:textCursorDrawable="@null"
-            android:drawableEnd="@mipmap/calendar"
+            android:drawableEnd="@mipmap/calendar2"
             style="@style/EditTextEstilo" />
 
         <TextView
@@ -601,7 +601,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="33dp"
             android:layout_toEndOf="@+id/txtvHoraGeneralesSint"
-            android:drawableEnd="@mipmap/timer"
+            android:drawableEnd="@mipmap/clock"
             android:ems="10"
             android:inputType="time"
             android:textCursorDrawable="@null" />

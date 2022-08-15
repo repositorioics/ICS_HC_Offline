@@ -264,7 +264,7 @@
         android:layout_marginStart="13dp"
         android:layout_marginTop="28dp"
         android:layout_toEndOf="@+id/txtvFechaCategSintoma"
-        android:drawableEnd="@mipmap/calendar"
+        android:drawableEnd="@mipmap/calendar2"
         android:editable="false"
         android:ems="10"
         android:inputType="date"
