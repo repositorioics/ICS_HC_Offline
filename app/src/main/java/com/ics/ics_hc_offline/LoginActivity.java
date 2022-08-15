@@ -28,6 +28,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -103,7 +104,18 @@ public class LoginActivity extends Activity {
             }
         });
 
-        /*Boton para descargar datos*/
+
+        ImageButton imgBtnDataBaseDownload = (ImageButton) findViewById(R.id.imgBtnDataBaseDownload);
+        imgBtnDataBaseDownload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i;
+                i = new Intent(getApplicationContext(), DownloadBaseActivity.class);
+                startActivityForResult(i, UPDATE_EQUIPO);
+            }
+        });
+
+        /*Boton para descargar datos
         Button mDownload = (Button) findViewById(R.id.dowload_button);
         mDownload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,16 +123,16 @@ public class LoginActivity extends Activity {
                 Intent i;
                 i = new Intent(getApplicationContext(), DownloadBaseActivity.class);
                 startActivityForResult(i, UPDATE_EQUIPO);
-                /*mDbAdapter = new HojaConsultaDBAdapter(CONTEXT, false,false);
+                mDbAdapter = new HojaConsultaDBAdapter(CONTEXT, false,false);
                 mDbAdapter.open();
                 HOJACONSULTA = mDbAdapter.getHojaConsulta(MainDBConstants.secHojaConsulta  + "='" + 68272 + "'", null);
                 templatePDF = new TemplatePDF(CONTEXT.getApplicationContext());
                 templatePDF.openDocument();
                 templatePDF.generateHojaConsultaPdf(HOJACONSULTA);
                 templatePDF.closeDocument();
-                printPdf();*/
+                printPdf();
             }
-        });
+        });*/
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);

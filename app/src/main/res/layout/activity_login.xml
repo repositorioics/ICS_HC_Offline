@@ -74,12 +74,21 @@
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/bg_button_login_selector"/>
 
-                <Button android:id="@+id/dowload_button"
+                <!--<Button android:id="@+id/dowload_button"
                     android:layout_width="263dp" android:layout_height="wrap_content"
                     android:layout_marginTop="16dp" android:text="@string/download"
                     android:textStyle="bold" android:textColor="@android:color/white"
                     android:layout_gravity="center_horizontal"
-                    android:background="@drawable/bg_button_login_selector"/>
+                    android:background="@drawable/bg_button_login_selector"/>-->
+
+                <ImageButton
+                    android:id="@+id/imgBtnDataBaseDownload"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@mipmap/database_download" />
 
                 <TextView
                     android:layout_width="wrap_content"

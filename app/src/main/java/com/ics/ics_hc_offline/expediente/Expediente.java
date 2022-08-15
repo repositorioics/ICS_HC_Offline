@@ -125,12 +125,6 @@ public class Expediente extends Fragment implements AdapterView.OnItemClickListe
                 .setCancelable(false)
                 .setPositiveButton("Visualizar", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        PD = new ProgressDialog(VIEW.getContext());
-                        PD.setTitle(getResources().getString(R.string.title_procesando));
-                        PD.setMessage(getResources().getString(R.string.msj_espere_por_favor));
-                        PD.setCancelable(false);
-                        PD.setIndeterminate(true);
-                        PD.show();
                         onClickPDF(SEC_HOJA_CONSULTA);
                     }
                 })
@@ -148,6 +142,12 @@ public class Expediente extends Fragment implements AdapterView.OnItemClickListe
     }
 
     public void onClickPDF(Integer secHojaConsulta) {
+        PD = new ProgressDialog(VIEW.getContext());
+        PD.setTitle(getResources().getString(R.string.title_procesando));
+        PD.setMessage(getResources().getString(R.string.msj_espere_por_favor));
+        PD.setCancelable(false);
+        PD.setIndeterminate(true);
+        PD.show();
         ActivityCompat.requestPermissions((Activity) VIEW.getContext(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE}, 101);
         mDbAdapter = new HojaConsultaDBAdapter(VIEW.getContext(), false,false);
@@ -162,6 +162,7 @@ public class Expediente extends Fragment implements AdapterView.OnItemClickListe
                 public void onTick(long millisUntilFinished) {
                 }
                 public void onFinish() {
+                    PD.dismiss();
                     printPdf();
                 }
             }.start();
@@ -189,21 +190,12 @@ public class Expediente extends Fragment implements AdapterView.OnItemClickListe
                 //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); //error si se quita esto
                 try {
                     startActivity(intent);
-                    PD.dismiss();
                 } catch (ActivityNotFoundException e) {
-                    PD.dismiss();
                     Toast.makeText(VIEW.getContext(), "ERROR", Toast.LENGTH_LONG).show();
                 }
             }
         } catch (ActivityNotFoundException e) {
-            PD.dismiss();
             Log.e("appViewPdf", e.toString());
         }
-    }
-
-    private ArrayList<String[]> getClients() {
-        ArrayList<String[]> rows = new ArrayList<>();
-        rows.add(new String[]{"1","Santiago","Carballo"});
-        return rows;
     }
 }

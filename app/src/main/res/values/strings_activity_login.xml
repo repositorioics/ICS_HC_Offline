@@ -12,10 +12,10 @@
     <string name="action_sign_in_short">Sign in</string>
     <string name="action_update_apk">Actualizar Apk</string>
     <string name="error_invalid_user">Usuario inválido</string>
-    <string name="version">Versión 1.0.0</string><!--Correccion error de edad en enfermeria, mejora para la descarga del Apk -->
-    <string name="date_version">18 Mar 2022</string>
+    <string name="version">Versión 1.0.0</string>
+    <string name="date_version">12 Agosto 2022</string>
 
-    <string name="version_a_comparar">1.0.0</string><!--Se utiliza para realizar la comparacion de la version instalada-->
+    <string name="version_a_comparar">1.0.0</string>
 
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
