@@ -424,7 +424,7 @@ public class LoginActivity extends Activity {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog.setTitle(getResources().getString(R.string.title_estudio_sostenible));
         dialog.setIcon(R.drawable.ic_launcher);
-        dialog.setMessage("Inciar a descarga la app...");
+        dialog.setMessage("Inciar a descargar la app...");
         dialog.setPositiveButton(this.getString(R.string.yes),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,
