@@ -230,6 +230,10 @@ public class HojaConsultaOffLineDTO {
     //private String hojaImpresa; // 27/09/2021
 
     private String esConsultaTerreno;
+    private String statusSubmitted;
+
+    public HojaConsultaOffLineDTO() {
+    }
 
     public int getSecHojaConsulta() {
         return secHojaConsulta;
@@ -2021,5 +2025,13 @@ public class HojaConsultaOffLineDTO {
 
     public void setNoAtiendeLlamadoMedico(String noAtiendeLlamadoMedico) {
         this.noAtiendeLlamadoMedico = noAtiendeLlamadoMedico;
+    }
+
+    public String getStatusSubmitted() {
+        return statusSubmitted;
+    }
+
+    public void setStatusSubmitted(String statusSubmitted) {
+        this.statusSubmitted = statusSubmitted;
     }
 }

@@ -184,10 +184,10 @@ public class EmergenciaCargaHojaConsultaActivity extends Fragment {
         HojaConsultaDBAdapter mDbAdapter = new HojaConsultaDBAdapter(CONTEXT,false,false);
         mDbAdapter.open();
 
-        String filtro = MainDBConstants.codExpediente + "='" + COD_EXPEDIENTE + "'";
+        //String filtro = MainDBConstants.codExpediente + "='" + COD_EXPEDIENTE + "'";
         //String consulta = "Inicial";
         //String filtroConsulta = MainDBConstants.consulta + "='" + consulta + "'";00
-        boolean exisHojaConsulta = mDbAdapter.validarSiExisteUnaHojaActiva(filtro, null);
+        boolean exisHojaConsulta = mDbAdapter.validarSiExisteUnaHojaActiva(COD_EXPEDIENTE, null);
         if (exisHojaConsulta) {
             Toast toast = Toast.makeText(CONTEXT.getApplicationContext(), "Ya existe una hoja de consulta para ese codigo", Toast.LENGTH_LONG);
             toast.show();

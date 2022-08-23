@@ -14,9 +14,9 @@ public class UsuarioHelper {
     public static UsuarioDTO crearUsuario (Cursor cursorUsuario) {
         UsuarioDTO mUsuario = new UsuarioDTO();
         mUsuario.setId(cursorUsuario.getInt(cursorUsuario.getColumnIndex(MainDBConstants.id)));
-        mUsuario.setCodigoPersonal(cursorUsuario.getString(cursorUsuario.getColumnIndex(MainDBConstants.codigopersonal)));
-        mUsuario.setUsuario(cursorUsuario.getString(cursorUsuario.getColumnIndex(MainDBConstants.usuario)));
         mUsuario.setNombre(cursorUsuario.getString(cursorUsuario.getColumnIndex(MainDBConstants.nombre)));
+        mUsuario.setUsuario(cursorUsuario.getString(cursorUsuario.getColumnIndex(MainDBConstants.usuario)));
+        mUsuario.setCodigoPersonal(cursorUsuario.getString(cursorUsuario.getColumnIndex(MainDBConstants.codigopersonal)));
         mUsuario.setPass(cursorUsuario.getString(cursorUsuario.getColumnIndex(MainDBConstants.pass)));
         return mUsuario;
     }

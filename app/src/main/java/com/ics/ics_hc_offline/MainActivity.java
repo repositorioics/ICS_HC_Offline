@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 agregarConsulta();
                 return true;
             case R.id.action_upload:
-                //subirDatos();
+                subirDatos();
                 return true;
             case R.id.action_logOut:
                 logoutUser();

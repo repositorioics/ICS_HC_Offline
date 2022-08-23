@@ -251,6 +251,38 @@
                 style="@style/EditTextEstilo"
                 />
 
+            <!--<AutoCompleteTextView
+                android:id="@+id/actvEnfermeria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edtxtTemp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="20dp"
+                android:completionThreshold="1"
+                android:hint="@string/seleccionar_enfermero"
+                android:completionHint="@string/seleccionar_enfermero"/>-->
+
+            <Spinner
+                android:id="@+id/spnEnfermeria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edtxtPeso"
+                android:layout_marginTop="15dp"
+                android:gravity="start|left"
+                android:textAlignment="gravity"
+                android:theme="@style/ThemeSpinner" />
+
+            <ImageButton
+                android:id="@+id/imgBusquedaEnfermeria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtvTemp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="20dp"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/ic_search" />
+
             <include
                 android:id="@+id/incBotonesPreclinicos"
                 layout="@layout/preclinicos_layout_parte1"
@@ -258,7 +290,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/edtxtPeso"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="60dp" />
         </RelativeLayout>
 
     </ScrollView>

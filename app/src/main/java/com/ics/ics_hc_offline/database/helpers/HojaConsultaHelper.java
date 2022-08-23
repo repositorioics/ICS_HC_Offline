@@ -240,6 +240,7 @@ public class HojaConsultaHelper extends BindStatementHelper {
         mHojaConsulta.setNoAtiendeLlamadoEnfermeria(cursorHojaConsulta.getString(cursorHojaConsulta.getColumnIndex(MainDBConstants.noAtiendeLlamadoEnfermeria)));
         mHojaConsulta.setNoAtiendeLlamadoMedico(cursorHojaConsulta.getString(cursorHojaConsulta.getColumnIndex(MainDBConstants.noAtiendeLlamadoMedico)));
         mHojaConsulta.setMedicamentoEspecificar(cursorHojaConsulta.getString(cursorHojaConsulta.getColumnIndex(MainDBConstants.medicamentoEspecificar)));
+        mHojaConsulta.setStatusSubmitted(cursorHojaConsulta.getString(cursorHojaConsulta.getColumnIndex(MainDBConstants.statusSubmitted)));
         return mHojaConsulta;
     }
 
@@ -447,7 +448,7 @@ public class HojaConsultaHelper extends BindStatementHelper {
         bindString(stat, 201, String.valueOf(hojaConsultaDTO.getInfluenza()));
         bindString(stat, 202, hojaConsultaDTO.getOtroExamenLab());
         bindString(stat, 203, String.valueOf(hojaConsultaDTO.getOel()));
-        bindInteger(stat, 204, hojaConsultaDTO.getNumOrdenLaboratorio());
+        bindInteger(stat,204, hojaConsultaDTO.getNumOrdenLaboratorio());
         bindString(stat, 205, hojaConsultaDTO.getFechaOrdenLaboratorio());
         bindString(stat, 206, String.valueOf(hojaConsultaDTO.getDiagnostico1()));  //dato  de tipo short
         bindString(stat, 207, String.valueOf(hojaConsultaDTO.getDiagnostico2()));  //dato  de tipo short
@@ -468,6 +469,7 @@ public class HojaConsultaHelper extends BindStatementHelper {
         bindString(stat, 222, String.valueOf(hojaConsultaDTO.getHora()));
         bindString(stat, 223, String.valueOf(hojaConsultaDTO.getNoAtiendeLlamadoEnfermeria()));
         bindString(stat, 224, String.valueOf(hojaConsultaDTO.getNoAtiendeLlamadoMedico()));
+        bindString(stat, 225, hojaConsultaDTO.getStatusSubmitted());
     }
 
     @SuppressLint("Range")
@@ -753,6 +755,7 @@ public class HojaConsultaHelper extends BindStatementHelper {
         cv.put(MainDBConstants.hora, hojaConsultaOffLineDTO.getHora());
         cv.put(MainDBConstants.noAtiendeLlamadoEnfermeria, hojaConsultaOffLineDTO.getNoAtiendeLlamadoEnfermeria());
         cv.put(MainDBConstants.noAtiendeLlamadoMedico, hojaConsultaOffLineDTO.getNoAtiendeLlamadoMedico());
+        cv.put(MainDBConstants.statusSubmitted, hojaConsultaOffLineDTO.getStatusSubmitted());
         return cv;
     }
 }

@@ -80,15 +80,52 @@
                     android:textStyle="bold" android:textColor="@android:color/white"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/bg_button_login_selector"/>-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="30dp">
 
-                <ImageButton
+                    <ImageButton
+                        android:id="@+id/imgBtnDownloadAPK"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_alignParentStart="true"
+                        android:background="@mipmap/icon_downloa_apk" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgBtnDownloadAPK"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/actualizar_apk"
+                        android:textColor="@android:color/black"
+                        android:textSize="10sp" />
+
+                    <ImageButton
+                        android:id="@+id/imgBtnDataBaseDownload"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_alignParentEnd="true"
+                        android:background="@mipmap/database_download" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/descargar_datos"
+                        android:layout_below="@+id/imgBtnDownloadAPK"
+                        android:layout_alignParentEnd="true"
+                        android:textSize="10sp"
+                        android:textColor="@android:color/black" />
+                </RelativeLayout>
+
+                <!--<ImageButton
                     android:id="@+id/imgBtnDataBaseDownload"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_gravity="right"
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="30dp"
-                    android:background="@mipmap/database_download" />
+                    android:background="@mipmap/database_download" />-->
 
                 <TextView
                     android:layout_width="wrap_content"

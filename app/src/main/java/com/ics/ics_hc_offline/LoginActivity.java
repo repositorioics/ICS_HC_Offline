@@ -66,7 +66,8 @@ public class LoginActivity extends Activity {
     private SharedPreferences settings;
     TemplatePDF templatePDF;
     private HojaConsultaDBAdapter mDbAdapter;
-    private static HojaConsultaOffLineDTO HOJACONSULTA = null;
+    private static List<HojaConsultaOffLineDTO> HOJACONSULTA = null;
+    private AlertDialog alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,9 +110,25 @@ public class LoginActivity extends Activity {
         imgBtnDataBaseDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i;
-                i = new Intent(getApplicationContext(), DownloadBaseActivity.class);
-                startActivityForResult(i, UPDATE_EQUIPO);
+                mDbAdapter = new HojaConsultaDBAdapter(CONTEXT, false,false);
+                mDbAdapter.open();
+                HOJACONSULTA = mDbAdapter.getListHojasConsultas(MainDBConstants.statusSubmitted  + "='" + "N" + "'", null);
+                if (HOJACONSULTA.size() > 0) {
+                    createDialog();
+                } else {
+                    Intent i;
+                    i = new Intent(getApplicationContext(), DownloadBaseActivity.class);
+                    startActivityForResult(i, UPDATE_EQUIPO);
+                }
+
+            }
+        });
+
+        ImageButton imgBtnDownloadAPK = (ImageButton) findViewById(R.id.imgBtnDownloadAPK);
+        imgBtnDownloadAPK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertaDownloadAPK();
             }
         });
 
@@ -207,7 +224,7 @@ public class LoginActivity extends Activity {
             if (requestCode == 100) {
                 if (Build.VERSION.SDK_INT == Build.VERSION_CODES.R) {
                     if (Environment.isExternalStorageManager()) {
-                        Toast.makeText(this, "Permiso otorgado en android 11", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Permiso otorgados", Toast.LENGTH_SHORT).show();
                     } else {
                         takePermission();
                     }
@@ -223,7 +240,7 @@ public class LoginActivity extends Activity {
             if (requestCode == 101) {
                 boolean readExternalEstorage = grantResults[0] == PackageManager.PERMISSION_GRANTED;
                 if (readExternalEstorage) {
-                    Toast.makeText(this, "Permisod otorgados en Android 10 o inferior", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Permisod otorgados", Toast.LENGTH_SHORT).show();
                 } else {
                     takePermission();
                 }
@@ -376,5 +393,59 @@ public class LoginActivity extends Activity {
         finally{
             mDbAdapter.close();
         }
+    }
+
+    private void createDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(this.getString(R.string.nav_header_title));
+        builder.setIcon(R.drawable.ic_launcher);
+        builder.setMessage(this.getString(R.string.wipe_db_confirm));
+        builder.setPositiveButton(this.getString(R.string.yes), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                // Finish app
+                Intent i;
+                i = new Intent(getApplicationContext(), DownloadBaseActivity.class);
+                startActivityForResult(i, UPDATE_EQUIPO);
+                dialog.dismiss();
+            }
+        });
+        builder.setNegativeButton(this.getString(R.string.no), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Do nothing
+                dialog.dismiss();
+            }
+        });
+        alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    private void alertaDownloadAPK() {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle(getResources().getString(R.string.title_estudio_sostenible));
+        dialog.setIcon(R.drawable.ic_launcher);
+        dialog.setMessage("Inciar a descarga la app...");
+        dialog.setPositiveButton(this.getString(R.string.yes),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        descargarYActualizar();
+                    }
+                });
+        dialog.setNegativeButton(this.getString(R.string.no), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Do nothing
+                dialog.dismiss();
+            }
+        });
+        AlertDialog alertDialog=dialog.create();
+        alertDialog.show();
+    }
+
+    private void descargarYActualizar() {
+        Intent intent = new Intent(CONTEXT, DescargarApkActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.ics.ics_hc_offline.R;
 import com.ics.ics_hc_offline.listeners.UploadListener;
 import com.ics.ics_hc_offline.ui.task.UploadAllTask;
+import com.ics.ics_hc_offline.utils.Constants;
 import com.ics.ics_hc_offline.utils.FileUtils;
 
 @SuppressWarnings("deprecation")
@@ -69,10 +70,13 @@ public class UploadAllActivity extends Activity implements UploadListener {
         if (mProgressDialog != null) {
             mProgressDialog.dismiss();
         }
-        if(result!=null){
+        if(result!=null) {
             if (result.matches("Datos recibidos!")) {
                 setResult(RESULT_OK);
-            } else {
+            } else if (result.matches(Constants.NO_DATA)) {
+                setResult(Constants.RESULT_NO_DATA);
+            }
+            else {
                 Intent intent = new Intent();
                 intent.putExtra("resultado", result);
                 setResult(RESULT_CANCELED, intent);

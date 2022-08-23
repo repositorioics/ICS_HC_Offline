@@ -46,4 +46,10 @@ public class UsuarioDTO {
     public void setPass(String pass) {
         this.pass = pass;
     }
+
+    @Override
+    public String toString(){
+        return this.nombre;
+
+    }
 }

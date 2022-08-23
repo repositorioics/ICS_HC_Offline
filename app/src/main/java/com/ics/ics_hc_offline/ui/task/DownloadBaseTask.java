@@ -59,7 +59,7 @@ import com.ics.ics_hc_offline.wsclass.DataNodoItemArray;
 
 public class DownloadBaseTask extends DownloadTask {
     public static final String NAMESPACE = "http://webservice.estudiocohortecssfv.sts_ni.com/";
-    public static String URL = "http://192.168.1.90:8080/estudioCohorteCSSFVMovilWS/EstudioCohorteCSSFVMovilWSService?wsdl";
+    public static String URL = "http://192.168.1.97:8080/estudioCohorteCSSFVMovilWS/EstudioCohorteCSSFVMovilWSService?wsdl";
     private static int TIME_OUT = 200000;
     public ArrayList<HeaderProperty> HEADER_PROPERTY;
     private final Context mContext;
@@ -555,46 +555,13 @@ public class DownloadBaseTask extends DownloadTask {
         }
     }
 
-    /*private int calculateOffset(int page, int limit) {
-        if (page == 1) {
-            return 1;
-        } else {
-            return ((limit * page) - limit + 1);
-        }
-    }*/
-
     // Metodo para descargar las hojas de consultas
     protected String descargarHojasConsultas() throws Exception {
         try {
-
-            /*Integer cantidadHojas = descargarCantidadHojasConsulta();
-            Integer firstResult = 0;
-            Integer limitPerPage = 5000;
-            if (cantidadHojas != null && cantidadHojas > 0) {
-                Integer paginas = cantidadHojas / limitPerPage;
-                for (int j = 1; j < 6; j++) {
-                    firstResult = calculateOffset(j, limitPerPage);*/
-
-                    /*Integer value = 0;
-                    value = cantidadHojas - firstResult;
-                    if (value < limitPerPage) {
-                        firstResult = value;
-                    }*/
-                    /************************************************/
-
-                        //}
-                    //}
             SoapObject request = new SoapObject(NAMESPACE, METODO_HOJAS_CONSULTAS);
             SoapSerializationEnvelope sobre = new SoapSerializationEnvelope(SoapEnvelope.VER11);
             sobre.dotNet = false;
 
-                    /*PropertyInfo paramWS = new PropertyInfo();
-                    paramWS.setValue(firstResult);
-                    paramWS.setName("paramHojaConsulta");
-                    paramWS.setNamespace("");
-                    paramWS.setType(String.class);
-
-                    request.addProperty(paramWS);*/
             sobre.setOutputSoapObject(request);
 
             publishProgress("Solicitando hojas de consultas", HOJAS_CONSULTAS, TOTAL_TASK_GENERALES);
@@ -1101,6 +1068,7 @@ public class DownloadBaseTask extends DownloadTask {
                         if (!hojaConsultaJson.get("consultaRespiratorio").toString().equals("null"))
                             hojaConsultaOffLineDTO.setConsultaRespiratorio(hojaConsultaJson.getString("consultaRespiratorio"));
                         hojaConsultaOffLineDTO.setEsConsultaTerreno("N");
+                        hojaConsultaOffLineDTO.setStatusSubmitted("");
                         mHojasConsultas.add(hojaConsultaOffLineDTO);
                     }
                 }

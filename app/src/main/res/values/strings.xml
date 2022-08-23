@@ -852,8 +852,13 @@
     <string name="msj_esta_seguro_de_salir">Está seguro de Salir de la aplicación?</string>
     <string name="msj_esta_seguro_de_subir_datos">Está seguro de subir los datos?</string>
     <string name="upload">Subir Datos</string>
-
+    <string name="seleccionar_enfermero">Seleccione al enfermer@</string>
+    <string name="msj_seleccionar_enfermero">Debe seleccionar al enfermer@</string>
     <string name="PACIENTE_NO_PUEDE_SER_CATEGORIA_NA">Este paciente no puede ser categoria NA</string>
     <string name="PACIENTE_CON_EST_DENGUE_FIF_Y_CATEGORIA_D">Paciente presenta FIF, no puede ser categoria D</string>
     <string name="PACIENTE_NO_PUEDE_SER_CATEGORIA_ABCD">Este paciente no puede ser categoria A, B, C, D</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+    <string name="confirm">Confirmar</string>
+    <string name="wipe_db_confirm">Al seleccionar esta opción borrará la base de datos del equipo, los datos almacenados se borrarán si continúa. Aún desea marcar esta opción?</string>
 </resources>

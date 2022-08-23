@@ -29,10 +29,16 @@ import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.Barcode;
+import com.itextpdf.text.pdf.Barcode39;
+import com.itextpdf.text.pdf.BarcodeCodabar;
+import com.itextpdf.text.pdf.BarcodeEAN;
+import com.itextpdf.text.pdf.BarcodeQRCode;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.ColumnText;
 import com.itextpdf.text.pdf.PdfContentByte;
@@ -2921,6 +2927,22 @@ public class TemplatePDF {
             table2.setHorizontalAlignment(Element.ALIGN_CENTER);
             table2.setSpacingBefore(15);
             table2.setWidths(new float[]{1f, 10f});
+
+            if (hojaConsulta.getStatusSubmitted().equals("")) {
+                PdfContentByte cb = PDFWRITER.getDirectContent();
+                String numHoja = String.valueOf(hojaConsulta.getNumHojaConsulta());
+                Barcode39 barcode39 = new Barcode39();
+                barcode39.setStartStopText(false);
+                barcode39.setCode(numHoja);
+                Image code39Image = barcode39.createImageWithBarcode(cb, null, BaseColor.RED);
+                code39Image.setWidthPercentage(4);
+                table2.addCell(getCell("", Element.ALIGN_CENTER));
+                table2.addCell(getPdfCellImage(code39Image));
+            } else {
+                table2.addCell(getCell("", Element.ALIGN_CENTER));
+                table2.addCell(getCell("", Element.ALIGN_CENTER));
+            }
+
             table2.addCell(getCell("", Element.ALIGN_CENTER));
             table2.addCell(getCell("Revisión 16 Diciembre 2014 Versión 11", Element.ALIGN_RIGHT));
 
@@ -3624,7 +3646,11 @@ public class TemplatePDF {
                 mDbAdapter = new HojaConsultaDBAdapter(CONTEXT, false,false);
                 mDbAdapter.open();
                 usuario = mDbAdapter.getUsuario(MainDBConstants.id  + "='" + hojaConsulta.getUsuarioMedico() + "'", null);
-                table3.addCell(getCell4(usuario.getCodigoPersonal(), Element.ALIGN_CENTER));
+                if (usuario.getCodigoPersonal() != null && !usuario.getCodigoPersonal().equals("")) {
+                    table3.addCell(getCell4(usuario.getCodigoPersonal(), Element.ALIGN_CENTER));
+                } else {
+                    table3.addCell(getCell4("-----", Element.ALIGN_CENTER));
+                }
             } else {
                 table3.addCell(getCell4("-----", Element.ALIGN_CENTER));
             }
@@ -3670,7 +3696,11 @@ public class TemplatePDF {
                 mDbAdapter = new HojaConsultaDBAdapter(CONTEXT, false,false);
                 mDbAdapter.open();
                 usuario = mDbAdapter.getUsuario(MainDBConstants.id  + "='" + hojaConsulta.getUsuarioEnfermeria() + "'", null);
-                table3.addCell(getCell4(usuario.getCodigoPersonal(), Element.ALIGN_CENTER));
+                if (usuario.getCodigoPersonal() != null && !usuario.getCodigoPersonal().equals("")) {
+                    table3.addCell(getCell4(usuario.getCodigoPersonal(), Element.ALIGN_CENTER));
+                } else {
+                    table3.addCell(getCell4("-----", Element.ALIGN_CENTER));
+                }
             } else {
                 table3.addCell(getCell4("-----", Element.ALIGN_CENTER));
             }
@@ -3770,6 +3800,14 @@ public class TemplatePDF {
         PdfPCell cell = new PdfPCell(table);
         cell.setPadding(0);
         cell.setBorder(PdfPCell.NO_BORDER);
+        return cell;
+    }
+
+    public PdfPCell getPdfCellImage(Image image) {
+        PdfPCell cell = new PdfPCell(image);
+        cell.setPadding(0);
+        cell.setBorder(PdfPCell.NO_BORDER);
+        cell.setHorizontalAlignment(2);
         return cell;
     }
 

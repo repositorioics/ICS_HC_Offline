@@ -341,19 +341,21 @@
             android:layout_centerInParent="true"
             android:layout_below="@id/incExamenParte1"
             layout="@layout/descripcion_examenes_part2_layout"/>
+
         <include
             android:id="@+id/incExamenParte3"
+            layout="@layout/descripcion_examenes_part3_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_marginBottom="20dp"
             android:layout_below="@id/incExamenParte2"
-            layout="@layout/descripcion_examenes_part3_layout"/>
-        <include
+            android:layout_centerInParent="true" />
+        <!--<include
             android:id="@+id/incResultadosExamenes"
             android:layout_width="400dp"
             android:layout_centerInParent="true"
             android:layout_height="wrap_content"
             android:layout_below="@id/incExamenParte3"
-            layout="@layout/descripcion_examenes_resultados_layout"/>
+            layout="@layout/descripcion_examenes_resultados_layout"/>-->
     </RelativeLayout>
 </ScrollView>

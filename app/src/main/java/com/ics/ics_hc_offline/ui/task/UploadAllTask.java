@@ -37,8 +37,8 @@ public class UploadAllTask extends UploadTask {
     }
 
     public static final String NAMESPACE = "http://webservice.estudiocohortecssfv.sts_ni.com/";
-    public static String URL = "http://192.168.1.99:8080/estudioCohorteCSSFVMovilWS/EstudioCohorteCSSFVMovilWSService?wsdl";
-    private static int TIME_OUT = 90000;
+    public static String URL = "http://192.168.1.97:8080/estudioCohorteCSSFVMovilWS/EstudioCohorteCSSFVMovilWSService?wsdl";
+    private static int TIME_OUT = 200000;
 
     public ArrayList<HeaderProperty> HEADER_PROPERTY;
     private static final String METODO_GUARDAR_HOJAS_CONSULTAS = "guardarHojaConsultaOffline";
@@ -76,7 +76,8 @@ public class UploadAllTask extends UploadTask {
             hojaConsultaDBAdapter.open();
             String filtro = MainDBConstants.esConsultaTerreno + "='" + Constants.ES_CONSULTA_TERRENO + "'";
             String filtro2 = MainDBConstants.estado + "='" + 7 + "'";
-            mHojasConsultas = hojaConsultaDBAdapter.getListHojasConsultas(filtro + " AND " +filtro2, null);
+            String filtro3 = MainDBConstants.statusSubmitted + "='" + "N" + "'";
+            mHojasConsultas = hojaConsultaDBAdapter.getListHojasConsultas(filtro + " AND " +filtro2 + " AND " +filtro3, null);
 
             if (mHojasConsultas.size() <= 0) {
                 error = Constants.NO_DATA;
@@ -84,24 +85,24 @@ public class UploadAllTask extends UploadTask {
                 publishProgress("Datos completos!", "2", "2");
 
                 //Enviando datos
-                //actualizarBaseDatos(HOJAS_CONSULTAS);
                 error = cargarHojaConsulta();
                 if (error != null && !error.isEmpty()) {
                     JSONObject jObj = new JSONObject(error);
                     JSONObject mensaje = (JSONObject) jObj.get("mensaje");
                     if(mensaje.getInt("codigo") == 0) {
-                        //actualizarBaseDatos(HOJAS_CONSULTAS);
                         publishProgress("Los datos se enviaron correctamente", "0", "0");
-                        //Toast.makeText(mContext, "Los datos subieron correctamente", Toast.LENGTH_SHORT).show();
+                        actualizarBaseDatos(HOJAS_CONSULTAS);
                     } else {
                         publishProgress("ERROR al enviar los datos... Intente nuevamente", "0", "0");
-                        //Toast.makeText(mContext, "ERROR al enviar los datos... Intente nuevamente", Toast.LENGTH_SHORT).show();
                     }
                 }
                 /*if (!error.matches(Constants.DATOS_RECIBIDOS)) {
                     actualizarBaseDatos(HOJAS_CONSULTAS);
                     return error;
                 }*/
+            }
+            if (error.matches(Constants.NO_DATA)) {
+                publishProgress("No hay datos que enviar...", "0", "0");
             }
 
         } catch (Exception e1) {
@@ -113,20 +114,20 @@ public class UploadAllTask extends UploadTask {
         return error;
     }
 
-    /*private void actualizarBaseDatos(String opcion) {
+    private void actualizarBaseDatos(String opcion) {
         int c;
         if(opcion.equalsIgnoreCase(HOJAS_CONSULTAS)){
             c = mHojasConsultas.size();
             if(c>0){
                 for (HojaConsultaOffLineDTO hojaConsulta : mHojasConsultas) {
-                    //visita.setEstado(estado);
+                    hojaConsulta.setStatusSubmitted("S");
                     hojaConsultaDBAdapter.editarHojaConsulta(hojaConsulta);
-                    publishProgress("Actualizando visitas en base de datos local", Integer.valueOf(mHojasConsultas.indexOf(hojaConsulta)).toString(), Integer
+                    publishProgress("Actualizando hojas de consulta en la base de datos local", Integer.valueOf(mHojasConsultas.indexOf(hojaConsulta)).toString(), Integer
                             .valueOf(c).toString());
                 }
             }
         }
-    }*/
+    }
 
     // Hojas Consultas
     protected String cargarHojaConsulta() throws Exception {
@@ -404,8 +405,8 @@ public class UploadAllTask extends UploadTask {
                 String resultado = sobre.getResponse().toString();
 
                 return resultado;
-            } else{
-                return Constants.DATOS_RECIBIDOS;
+            } else {
+                return Constants.NO_DATA;
             }
         } catch (Exception e) {
             Log.e(TAG, e.getMessage(), e);

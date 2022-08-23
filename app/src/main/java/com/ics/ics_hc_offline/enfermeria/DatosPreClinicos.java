@@ -1,17 +1,23 @@
 package com.ics.ics_hc_offline.enfermeria;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,20 +27,27 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.common.base.Predicate;
+import com.google.common.collect.Collections2;
 import com.ics.ics_hc_offline.CssfvApp;
 import com.ics.ics_hc_offline.R;
 import com.ics.ics_hc_offline.consulta.ListaConsulta;
 import com.ics.ics_hc_offline.database.HojaConsultaDBAdapter;
 import com.ics.ics_hc_offline.database.constants.MainDBConstants;
 import com.ics.ics_hc_offline.databinding.FragmentHomeBinding;
+import com.ics.ics_hc_offline.dto.DiagnosticoDTO;
+import com.ics.ics_hc_offline.dto.EscuelaPacienteDTO;
 import com.ics.ics_hc_offline.dto.HojaConsultaOffLineDTO;
+import com.ics.ics_hc_offline.dto.UsuarioDTO;
 import com.ics.ics_hc_offline.helper.MensajesHelper;
 import com.ics.ics_hc_offline.utils.DateUtils;
 import com.ics.ics_hc_offline.utils.StringUtils;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
@@ -45,6 +58,9 @@ public class DatosPreClinicos extends Fragment {
     private int secHojaConsulta = 0;
     private HojaConsultaDBAdapter mDbAdapter;
     private static HojaConsultaOffLineDTO HOJACONSULTA = null;
+    //private static List<UsuarioDTO> USUARIOS = null;
+    private ArrayAdapter<UsuarioDTO> adapter;
+    private ArrayList<UsuarioDTO> mUsuarios;
     private View VIEW;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -98,9 +114,18 @@ public class DatosPreClinicos extends Fragment {
         String expedienteFisico = numExpFis.format(cal.getTime());
         ((EditText)view.findViewById(R.id.edtxtExpediente)).setText(expedienteFisico);
 
+        ImageButton imgBusquedaEnfermeria = (ImageButton) view.findViewById(R.id.imgBusquedaEnfermeria);
+        imgBusquedaEnfermeria.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                busquedaEnfermeria();
+            }
+        });
+
         /*if (Integer.parseInt(bundle.getString("usuarioEnfermeria")) > 0) {
             Toast.makeText(getActivity(), "Es una edicion", Toast.LENGTH_LONG).show();
         }*/
+        cargarEnfermeria();
         cargarDatosPreclinicos();
     }
 
@@ -142,6 +167,60 @@ public class DatosPreClinicos extends Fragment {
 
     }
 
+    public void busquedaEnfermeria() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(CONTEXT);
+        builder.setTitle("Buscar");
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+        View mView = inflater.inflate(R.layout.activity_dialog_buscar_generico, null, false);
+        final EditText search = (EditText) mView.findViewById(R.id.etxtBuscar);
+        builder.setView(mView)
+                .setPositiveButton(R.string.boton_aceptar, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // Send the positive button event back to the host activity
+                        Toast.makeText(CONTEXT, "Buscando enfermer@: " + search.getText(), Toast.LENGTH_LONG).show();
+                        String busqueda = (search.getText() != null) ? search.getText().toString() : null;
+                        filtrarSpinnerEnfermeria(busqueda);
+                    }
+                });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    public void filtrarSpinnerEnfermeria(final String busqueda) {
+        ArrayList<UsuarioDTO> resultadoBusqueda = this.mUsuarios;
+        if(!StringUtils.isNullOrEmpty(busqueda)) {
+            resultadoBusqueda = new ArrayList<>(Collections2.filter(this.mUsuarios, new Predicate<UsuarioDTO>() {
+                @Override
+                public boolean apply(UsuarioDTO usuario) {
+                    return usuario.getNombre().toLowerCase().contains(busqueda.toLowerCase());
+                }
+            }));
+        }
+
+        adapter = new ArrayAdapter<>(CONTEXT, R.layout.simple_spinner_dropdown_item,  resultadoBusqueda);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ((Spinner) VIEW.findViewById(R.id.spnEnfermeria)).setAdapter(adapter);
+    }
+
+    private void cargarEnfermeria() {
+        mDbAdapter = new HojaConsultaDBAdapter(CONTEXT,false,false);
+        mDbAdapter.open();
+        List<UsuarioDTO> USUARIOS = mDbAdapter.getUsuariosEnfermeria();
+        if (USUARIOS.size() > 0) {
+            UsuarioDTO usuario = new UsuarioDTO();
+            ArrayList<UsuarioDTO> lstUsuario = new ArrayList<>();
+            usuario.setId(0);
+            usuario.setNombre("Seleccione al enfermer@");
+            lstUsuario.add(usuario);
+            lstUsuario.addAll(USUARIOS);
+            Spinner spnEnfermeria = (Spinner) VIEW.findViewById(R.id.spnEnfermeria);
+            adapter = new ArrayAdapter<>(CONTEXT, R.layout.simple_spinner_dropdown_item,  lstUsuario);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spnEnfermeria.setAdapter(adapter);
+            this.mUsuarios = lstUsuario;
+        }
+    }
+
     /***
      * Metodo para ejecutar el mensaje de si esta seguro de enviar la hoja de consulta.
      */
@@ -176,7 +255,8 @@ public class DatosPreClinicos extends Fragment {
         if (secHojaConsulta > 0) {
 
             if (HOJACONSULTA != null) {
-                int IdUsuarioLogeado = ((CssfvApp) view.getContext().getApplicationContext()).getInfoSessionWSDTO().getUserId();
+                //int IdUsuarioLogeado = ((CssfvApp) view.getContext().getApplicationContext()).getInfoSessionWSDTO().getUserId();
+                int idUsuarioEnfermeria =  ((UsuarioDTO) ((Spinner)VIEW.findViewById(R.id.spnEnfermeria)).getSelectedItem()).getId();
 
                 EditText edtxtPeso = (EditText) view.findViewById(R.id.edtxtPeso);
                 EditText edtxtTalla = (EditText) view.findViewById(R.id.edtxtTalla);
@@ -189,7 +269,8 @@ public class DatosPreClinicos extends Fragment {
                 HOJACONSULTA.setTemperaturac(Double.valueOf(edtxtTemp.getText().toString()));
                 HOJACONSULTA.setExpedienteFisico(expedienteFisico.getText().toString());
                 HOJACONSULTA.setHorasv(horasV.getText().toString());
-                HOJACONSULTA.setUsuarioEnfermeria(IdUsuarioLogeado);
+                //HOJACONSULTA.setUsuarioEnfermeria(IdUsuarioLogeado);
+                HOJACONSULTA.setUsuarioEnfermeria(idUsuarioEnfermeria);
                 HOJACONSULTA.setEstado("2");
 
                 boolean resultado = mDbAdapter.editarHojaConsulta(HOJACONSULTA);
@@ -244,6 +325,18 @@ public class DatosPreClinicos extends Fragment {
             VIEW.findViewById(R.id.edtxtPeso).setEnabled(false);
             VIEW.findViewById(R.id.edtxtTalla).setEnabled(false);
             VIEW.findViewById(R.id.edtxtTemp).setEnabled(false);
+
+            if(!StringUtils.isNullOrEmpty(String.valueOf(HOJACONSULTA.getUsuarioEnfermeria()))) {
+                UsuarioDTO usuarioEncontrado = new UsuarioDTO();
+                for(int i = 0; i < adapter.getCount(); i++) {
+                    usuarioEncontrado = adapter.getItem(i);
+                    if(usuarioEncontrado.getId() ==  Integer.parseInt(String.valueOf(HOJACONSULTA.getUsuarioEnfermeria()))) {
+                        break;
+                    }
+                }
+                int posicion = adapter.getPosition(usuarioEncontrado);
+                ((Spinner) VIEW.findViewById(R.id.spnEnfermeria)).setSelection(posicion);
+            }
         }
     }
 
@@ -271,6 +364,14 @@ public class DatosPreClinicos extends Fragment {
             MensajesHelper.mostrarMensajeInfo(CONTEXT,
                     getResources().getString(
                             R.string.msj_completar_informacion), getResources().getString(
+                            R.string.title_estudio_sostenible), null);
+            return  false;
+        }
+        if(((Spinner) VIEW.findViewById(R.id.spnEnfermeria)).getSelectedItem() == null ||
+                ((UsuarioDTO)((Spinner) VIEW.findViewById(R.id.spnEnfermeria)).getSelectedItem()).getId() == 0) {
+            MensajesHelper.mostrarMensajeInfo(CONTEXT,
+                    getResources().getString(
+                            R.string.msj_seleccionar_enfermero), getResources().getString(
                             R.string.title_estudio_sostenible), null);
             return  false;
         }

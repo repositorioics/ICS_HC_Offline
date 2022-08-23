@@ -176,6 +176,40 @@ public class HojaConsultaDBAdapter {
         return mUser;
     }
 
+    public List<UsuarioDTO> getUsuariosEnfermeria() throws SQLException {
+        List<UsuarioDTO> mUser = new ArrayList<UsuarioDTO>();
+        String query = "SELECT a.id, a.nombre, a.usuario, a.codigopersonal, a.pass " +
+                "FROM usuario a " +
+                "INNER JOIN roles b ON a.usuario = b.usuario " +
+                "WHERE b.nombre = 'Enfermeria' " +
+                "GROUP BY a.nombre ORDER BY a.id ASC";
+        Cursor cursorUser = mDb.rawQuery(query, new String[]{});
+        if (cursorUser != null && cursorUser.getCount() > 0) {
+            cursorUser.moveToFirst();
+            mUser.clear();
+            do {
+                UsuarioDTO usuario = null;
+                usuario = UsuarioHelper.crearUsuario(cursorUser);
+                if (!usuario.getNombre().trim().equals("Administrador")
+                        && !usuario.getNombre().trim().equals("BRENDA LOPEZ")
+                        && !usuario.getNombre().trim().equals("JAIRO CAREY")
+                        && !usuario.getNombre().trim().equals("LILLIAM CASTILLO")
+                        && !usuario.getNombre().trim().equals("SANTIAGO CARBALLO")
+                        && !usuario.getNombre().trim().equals("ANZONY VANEGAS")
+                        && !usuario.getNombre().trim().equals("LIZANDRO SERRANO")
+                        && !usuario.getNombre().trim().equals("Miguel Salinas")
+                        && !usuario.getNombre().trim().contains("DR. PLAZAOLA")
+                        && !usuario.getNombre().trim().contains("DR. OJEDA")
+                        && !usuario.getNombre().trim().contains("DR. ROMERO")
+                        && !usuario.getNombre().trim().contains("DRA. KUAN")) {
+                    mUser.add(usuario);
+                }
+            } while (cursorUser.moveToNext());
+        }
+        if (!cursorUser.isClosed()) cursorUser.close();
+        return mUser;
+    }
+
     //Obtener la lista de diagnosticos de la base de datos
     public List<DiagnosticoDTO> getDiagnosticos(String filtro, String orden) throws SQLException {
         List<DiagnosticoDTO> mDiagnosticos = new ArrayList<DiagnosticoDTO>();
@@ -232,28 +266,6 @@ public class HojaConsultaDBAdapter {
         return mEscuela;
     }
 
-    /***
-     * Metodo para mostrar la lista de los pacientes que pertenecen al estado
-     * enfermeria
-     */
-    /*public ArrayList<InicioDTO> listaEnfermeria(String filtro, String orden) throws net.sqlcipher.SQLException {
-        ArrayList<InicioDTO> inicioEnfermeria = new ArrayList<InicioDTO>();
-        InicioDTO inicioDTO = new InicioDTO();
-        Cursor result = mDb.query(filtro);
-        while (result.moveToNext()) {
-            try {
-                inicioDTO.setCodExpediente(result.getColumnIndex(MainDBConstants.codExpediente));
-                //AUN ESTA PENDIENTE DE TERMINAR
-                inicioEnfermeria.add(inicioDTO);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        return inicioEnfermeria;
-    }*/
-
-
     //Obtener una Hoja de Consulta de la base de datos
     public HojaConsultaOffLineDTO getHojaConsulta(String filtro, String orden) throws SQLException {
         HojaConsultaOffLineDTO mHojaConsulta = null;
@@ -290,7 +302,6 @@ public class HojaConsultaDBAdapter {
 
         String numHojaConsulta = obtenerNumeroHojaConsulta();
 
-        //int IdUsuarioLogeado = ((CssfvApp) context.getApplicationContext()).getInfoSessionWSDTO().getUserId();
         HojaConsultaOffLineDTO hojaConsulta = new HojaConsultaOffLineDTO();
         hojaConsulta.setNumOrdenLlegada(0);
         hojaConsulta.setCodExpediente(filtro);
@@ -301,7 +312,6 @@ public class HojaConsultaDBAdapter {
         String strDate = formatter.format(date);
 
         hojaConsulta.setFechaConsulta(strDate);
-        //hojaConsulta.setUsuarioEnfermeria(IdUsuarioLogeado);
         hojaConsulta.setEstudiosParticipantes(estudios);
         hojaConsulta.setEstado("1");
         hojaConsulta.setEsConsultaTerreno("S");
@@ -309,6 +319,7 @@ public class HojaConsultaDBAdapter {
         hojaConsulta.setDiagnostico2((short) 0);
         hojaConsulta.setDiagnostico3((short) 0);
         hojaConsulta.setDiagnostico4((short) 0);
+        hojaConsulta.setStatusSubmitted("N");
         long resultado = crearNuevaHojaConsulta(hojaConsulta);
         if (resultado != -1) {
             //success
@@ -789,43 +800,28 @@ public class HojaConsultaDBAdapter {
         }
         return resultado;
     }
-
     /*
     * Metodo que obtiene todas las hojas de consulta por codigo expediente
     * Se realiza una comparacion entre la fecha de consulta y la fecha actual
     * Si existe una hoja de consulta con la fecha actual retorna un True
     * Si el valor es True no se podra crear la hoja de consulta para el codigo ingresado.
     * */
-    public boolean validarSiExisteUnaHojaActiva(String filtro, String orden) throws SQLException {
+    public boolean validarSiExisteUnaHojaActiva(int filtro, String orden) throws SQLException {
         boolean resultado = false;
-        Cursor cursorHojasConsultas = crearCursor(MainDBConstants.HOJACONSULTA_TABLE, filtro, null, orden);
+        String query = "SELECT * " +
+                "FROM hojaConsulta " +
+                "WHERE codExpediente = ? " +
+                "AND estado NOT IN('7', '8')";
+        Cursor cursorHojasConsultas = mDb.rawQuery(query, new String[]{ String.valueOf(filtro)});
+        HojaConsultaOffLineDTO mHojaConsulta = null;
         if (cursorHojasConsultas != null && cursorHojasConsultas.getCount() > 0) {
             cursorHojasConsultas.moveToFirst();
-            do {
-                HojaConsultaOffLineDTO mHojasConsulta = null;
-                mHojasConsulta = HojaConsultaHelper.crearHojaConsulta(cursorHojasConsultas);
-                String fechaConsulta = mHojasConsulta.getFechaConsulta();
-                try {
-                    DateFormat originalFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
-                    DateFormat targetFormat = new SimpleDateFormat("yyyyMMdd", Locale.ENGLISH);
-                    Date date = null;
-                    date = originalFormat.parse(fechaConsulta);
-                    String formattedDate = targetFormat.format(date);
-
-                    String currentDate = originalFormat.format(new Date());
-                    Date date2 = null;
-                    date2 = originalFormat.parse(currentDate);
-                    String formattedDate2 = targetFormat.format(date2);
-
-                    if (formattedDate.equals(formattedDate2)) {
-                        resultado = true;
-                    }
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-            } while (cursorHojasConsultas.moveToNext());
+            mHojaConsulta= HojaConsultaHelper.crearHojaConsulta(cursorHojasConsultas);
         }
         if (!cursorHojasConsultas.isClosed()) cursorHojasConsultas.close();
+        if (mHojaConsulta != null) {
+            resultado = true;
+        }
         return resultado;
     }
 }
