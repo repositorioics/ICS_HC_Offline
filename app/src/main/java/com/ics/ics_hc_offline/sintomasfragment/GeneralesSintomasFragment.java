@@ -54,6 +54,7 @@ public class GeneralesSintomasFragment extends Fragment {
     private String fechaConsulta;
     private HojaConsultaDBAdapter mDbAdapter;
     private static HojaConsultaOffLineDTO HOJACONSULTA = null;
+    private static HojaConsultaOffLineDTO HC = null;
 
     public GeneralesSintomasFragment() {
         // Required empty public constructor
@@ -89,11 +90,25 @@ public class GeneralesSintomasFragment extends Fragment {
                 vFueraRango = "";
                 try {
                     validarCampoRequerido();
-                    if (diffDayFConsultaAndFif()) {
+                    if (diffDayFConsultaAndFif() && verificarFisFifConsultaAnterior()) {
+                        alertDialogConsutaAnteriorYUltDiaFiebre();
+                    } else if (diffDayFConsultaAndFif()) {
                         alertDialogUltDiaFiebre();
+                    } else if (verificarFisFifConsultaAnterior()) {
+                        alertDialogConsutaAnterior();
                     } else {
                         guardarDatos();
                     }
+                     /*if (diffDayFConsultaAndFif()) {
+                        alertDialogUltDiaFiebre();
+                    }  else {
+                        guardarDatos();
+                    }*/
+                    /*if (diffDayFConsultaAndFif()) {
+                        alertDialogUltDiaFiebre();
+                    } else {
+
+                    }*/
                 } catch (Exception e) {
                     if(e.getMessage() != null && !e.getMessage().isEmpty()) {
                         MensajesHelper.mostrarMensajeInfo(VIEW.getContext(), e.getMessage(), getString(R.string.title_estudio_sostenible), null);
@@ -246,7 +261,54 @@ public class GeneralesSintomasFragment extends Fragment {
                 view);
     }
 
+    @SuppressLint("NonConstantResourceId")
     public void onChkboxClickedConsulta(View view) {
+        mDbAdapter = new HojaConsultaDBAdapter(CONTEXT, false,false);
+        mDbAdapter.open();
+        HC = mDbAdapter.getHojaConsulta(MainDBConstants.codExpediente  + "='" + HOJACONSULTA.getCodExpediente() + "'" + " AND estado = '7'", "fechaConsulta DESC LIMIT 1");
+        // Check which checkbox was clicked
+        boolean checked = ((CheckBox) view).isChecked();
+        String formattedDateFis = "";
+        String formattedDateFif = "";
+        switch (view.getId()) {
+            case R.id.chkbConsultaSeguimGeneralesSint:
+            case R.id.chkbConsultaConvGeneralesSint:
+                if (checked) {
+                    if (HC != null) {
+                        if (!StringUtils.isNullOrEmpty(HC.getFis())) {
+                            String fis = HC.getFis();
+                            try {
+                                DateFormat originalFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
+                                DateFormat targetFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+                                Date date = null;
+                                date = originalFormat.parse(fis);
+                                formattedDateFis = targetFormat.format(date);
+                                //((EditText) VIEW.findViewById(R.id.dpFis)).setText(formattedDateFis);
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        if (!StringUtils.isNullOrEmpty(HC.getFif())) {
+                            //((EditText) VIEW.findViewById(R.id.dpFif)).setText(String.valueOf(HOJACONSULTA.getFif()));
+                            String fif = HC.getFif();
+                            try {
+                                DateFormat originalFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
+                                DateFormat targetFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+                                Date date = null;
+                                date = originalFormat.parse(fif);
+                                formattedDateFif = targetFormat.format(date);
+                                //((EditText) VIEW.findViewById(R.id.dpFif)).setText(formattedDateFif);
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }
+                break;
+        }
+        if (!StringUtils.isNullOrEmpty(formattedDateFis) || !StringUtils.isNullOrEmpty(formattedDateFif)) {
+            asignarFisFifConsultaAnterior(formattedDateFis, formattedDateFif);
+        }
         AndroidUtils.controlarCheckBoxGroup(VIEW.findViewById(R.id.chkbConsultaInicialGeneralesSint),
                 VIEW.findViewById(R.id.chkbConsultaSeguimGeneralesSint),
                 VIEW.findViewById(R.id.chkbConsultaConvGeneralesSint), view);
@@ -622,10 +684,26 @@ public class GeneralesSintomasFragment extends Fragment {
             hojaConsulta.setUltDiaFiebre("");
         }
 
-        if(((CheckBox) VIEW.findViewById(R.id.chkbAMUltFGeneralesSint)).isChecked()) {
-            hojaConsulta.setAmPmUltDiaFiebre("AM");
-        } else if(((CheckBox) VIEW.findViewById(R.id.chkbPMUltFGeneralesSint)).isChecked()) {
-            hojaConsulta.setAmPmUltDiaFiebre("PM");
+        EditText dpUltmFiebGeneralesSint = (EditText) VIEW.findViewById(R.id.dpUltmFiebGeneralesSint);
+        String valorUltmFieb = dpUltmFiebGeneralesSint.getText().toString();
+        if (valorUltmFieb.trim().equals("")) {
+            ((CheckBox) VIEW.findViewById(R.id.chkbPMUltFGeneralesSint)).setChecked(false);
+            ((CheckBox) VIEW.findViewById(R.id.chkbAMUltFGeneralesSint)).setChecked(false);
+            hojaConsulta.setAmPmUltDiaFiebre("");
+            hojaConsulta.setAmPmUltDiaFiebre("");
+        } else {
+            if(!((CheckBox) VIEW.findViewById(R.id.chkbAMUltFGeneralesSint)).isChecked() &&
+                    !((CheckBox) VIEW.findViewById(R.id.chkbPMUltFGeneralesSint)).isChecked()) {
+                Toast.makeText(getActivity(), "Error, debe seleccionar AM ó PM", Toast.LENGTH_LONG).show();
+                PD.dismiss();
+                return;
+            } else {
+                if(((CheckBox) VIEW.findViewById(R.id.chkbAMUltFGeneralesSint)).isChecked()) {
+                    hojaConsulta.setAmPmUltDiaFiebre("AM");
+                } else if(((CheckBox) VIEW.findViewById(R.id.chkbPMUltFGeneralesSint)).isChecked()) {
+                    hojaConsulta.setAmPmUltDiaFiebre("PM");
+                }
+            }
         }
 
         if(!StringUtils.isNullOrEmpty(((EditText) VIEW.findViewById(R.id.dpUltmDosGeneralesSint)).getText().toString())) {
@@ -679,7 +757,7 @@ public class GeneralesSintomasFragment extends Fragment {
 
     /**
      * Meotod para verificar si el participante tiene mas de 4 días de FIF.
-     * Fecha: 07/05/2020 - SC
+     * Fecha: 07/05/2022 - SC
      * */
     public boolean diffDayFConsultaAndFif() {
         boolean esMayorA4Dias = false;
@@ -711,6 +789,46 @@ public class GeneralesSintomasFragment extends Fragment {
             e.printStackTrace();
         }
         return esMayorA4Dias;
+    }
+
+    /**
+     * Meotod para verificar la fis y fif de la consulta anterior coinciden con las que se
+     * acaban de ingresar.
+     * Fecha: 27/10/2022 - SC
+     * */
+    public boolean verificarFisFifConsultaAnterior() {
+        boolean valor = false;
+        try {
+            if (HC != null) {
+                SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+                String fif = ((EditText) VIEW.findViewById(R.id.dpFif)).getText().toString();
+                String fis = ((EditText) VIEW.findViewById(R.id.dpFis)).getText().toString();
+                if (!StringUtils.isNullOrEmpty(HC.getFis()) && !StringUtils.isNullOrEmpty(fis)) {
+                    String fisAnterior = HC.getFis();
+                    DateFormat originalFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+                    //DateFormat targetFormat = new SimpleDateFormat("yyyy-MM-dd ", Locale.ENGLISH);
+                    Date date = null;
+                    date = originalFormat.parse(fis);
+                    Date fecha2 = formato.parse(fisAnterior);
+                    if (!date.equals(fecha2)) {
+                        valor = true;
+                    }
+                }
+                if (!StringUtils.isNullOrEmpty(HC.getFif()) && !StringUtils.isNullOrEmpty(fif)) {
+                    String fifAnterior = HC.getFif();
+                    DateFormat originalFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+                    Date date = null;
+                    date = originalFormat.parse(fif);
+                    Date fecha2 = formato.parse(fifAnterior);
+                    if (!date.equals(fecha2)) {
+                        valor = true;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return valor;
     }
 
     public void cargarDatos() {
@@ -851,7 +969,7 @@ public class GeneralesSintomasFragment extends Fragment {
 
     /**
      * Metodo para mostrar la alerta para la fecha ultimo dia de fiebre
-     * Fecha: 07/05/2020 - SC
+     * Fecha: 07/05/2022 - SC
      * */
     private void alertDialogUltDiaFiebre() {
         AlertDialog.Builder dialog=new AlertDialog.Builder(CONTEXT);
@@ -869,6 +987,134 @@ public class GeneralesSintomasFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(CONTEXT,"Se a cancelado el guardado",Toast.LENGTH_LONG).show();
+            }
+        });
+        AlertDialog alertDialog=dialog.create();
+        alertDialog.show();
+    }
+
+    /**
+     * Metodo para mostrar la alerta cuando la consulta es de Seguimiento o Convaleciente
+     * Y las fis y fif no coincidan con la consulta anterior
+     * Fecha: 27/10/2022 - SC
+     * */
+    private void alertDialogConsutaAnterior() {
+        String formattedDateFif = "";
+        String formattedDateFis = "";
+        if (!StringUtils.isNullOrEmpty(HC.getFif())) {
+            String fif = HC.getFif();
+            try {
+                DateFormat originalFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
+                DateFormat targetFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+                Date date = null;
+                date = originalFormat.parse(fif);
+                formattedDateFif = targetFormat.format(date);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(!StringUtils.isNullOrEmpty(HC.getFis())) {
+            String fis = HC.getFis();
+            try {
+                DateFormat originalFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
+                DateFormat targetFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+                Date date = null;
+                date = originalFormat.parse(fis);
+                formattedDateFis = targetFormat.format(date);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        AlertDialog.Builder dialog=new AlertDialog.Builder(CONTEXT);
+        String mensaje = "";
+        if (!StringUtils.isNullOrEmpty(formattedDateFis) && !StringUtils.isNullOrEmpty(formattedDateFif)) {
+            mensaje = "FIS o FIF no coinciden con la consulta anterior, " +
+                    "FIS Consulta previa: " + formattedDateFis + " FIF Consulta previa: " + formattedDateFif;
+        }
+        if (!StringUtils.isNullOrEmpty(formattedDateFis) && StringUtils.isNullOrEmpty(formattedDateFif)) {
+            mensaje = "FIS no coincide con la consulta anterior, " +
+                    "FIS Consulta previa: " + formattedDateFis;
+        }
+        if (!StringUtils.isNullOrEmpty(formattedDateFif) && StringUtils.isNullOrEmpty(formattedDateFis)) {
+            mensaje = "FIF no coincide con la consulta anterior, " +
+                    "FIF Consulta previa: " + formattedDateFif;
+        }
+        dialog.setMessage(mensaje);
+        dialog.setTitle(getResources().getString(R.string.title_estudio_sostenible));
+        dialog.setPositiveButton("Continuar",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        //Toast.makeText(getApplicationContext(),"Yes is clicked",Toast.LENGTH_LONG).show();
+                        guardarDatos();
+                    }
+                });
+        dialog.setNegativeButton("Cancelar",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(CONTEXT,"Se a cancelado el guardado",Toast.LENGTH_LONG).show();
+            }
+        });
+        AlertDialog alertDialog=dialog.create();
+        alertDialog.show();
+    }
+
+    /**
+     * Metodo para mostrar la alerta cuando la consulta es de Seguimiento o Convaleciente
+     * Y las fis y fif no coincidan con la consulta anterior
+     * Fecha: 27/10/2022 - SC
+     * */
+    private void alertDialogConsutaAnteriorYUltDiaFiebre() {
+        AlertDialog.Builder dialog=new AlertDialog.Builder(CONTEXT);
+        dialog.setMessage("Recuerde llenar la fecha último día fiebre, " +
+                "FIS o FIF no coinciden con la consulta anterior ");
+        dialog.setTitle(getResources().getString(R.string.title_estudio_sostenible));
+        dialog.setPositiveButton("Continuar",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        //Toast.makeText(getApplicationContext(),"Yes is clicked",Toast.LENGTH_LONG).show();
+                        guardarDatos();
+                    }
+                });
+        dialog.setNegativeButton("Cancelar",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(CONTEXT,"Se a cancelado el guardado",Toast.LENGTH_LONG).show();
+            }
+        });
+        AlertDialog alertDialog=dialog.create();
+        alertDialog.show();
+    }
+
+    /**
+     * Metodo para mostrar la alerta cuando la consulta es de Seguimiento o Convaleciente
+     * Y las fis y fif no coincidan con la consulta anterior
+     * Fecha: 27/10/2022 - SC
+     * */
+    private void asignarFisFifConsultaAnterior(String fis, String fif) {
+        AlertDialog.Builder dialog=new AlertDialog.Builder(CONTEXT);
+        dialog.setMessage("Desea agregar la FIS y la FIF de la consulta anterior?");
+        dialog.setTitle(getResources().getString(R.string.title_estudio_sostenible));
+        dialog.setPositiveButton("Continuar",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        if (!StringUtils.isNullOrEmpty(fis)) {
+                            ((EditText) VIEW.findViewById(R.id.dpFis)).setText(fis);
+                        }
+                        if (!StringUtils.isNullOrEmpty(fif)) {
+                            ((EditText) VIEW.findViewById(R.id.dpFif)).setText(fif);
+                        }
+                    }
+                });
+        dialog.setNegativeButton("Cancelar",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                ((EditText) VIEW.findViewById(R.id.dpFif)).setText("");
+                ((EditText) VIEW.findViewById(R.id.dpFis)).setText("");
+                Toast.makeText(CONTEXT,"Se a cancelado la acción",Toast.LENGTH_LONG).show();
             }
         });
         AlertDialog alertDialog=dialog.create();

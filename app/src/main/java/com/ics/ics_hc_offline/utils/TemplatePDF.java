@@ -1469,8 +1469,8 @@ public class TemplatePDF {
                     table.addCell(new PdfPCell(new Phrase("", f)));
                     table.addCell(new PdfPCell(new Phrase("", f)));
                 } else if (hojaConsulta.getOrinaReducida().trim().equals("1")) {
-                    table.addCell(new PdfPCell(new Phrase("X", f)));
                     table.addCell(new PdfPCell(new Phrase("", f)));
+                    table.addCell(new PdfPCell(new Phrase("X", f)));
                     table.addCell(new PdfPCell(new Phrase("", f)));
                 } else {
                     table.addCell(new PdfPCell(new Phrase("", f)));

@@ -37,7 +37,8 @@ public class UploadAllTask extends UploadTask {
     }
 
     public static final String NAMESPACE = "http://webservice.estudiocohortecssfv.sts_ni.com/";
-    public static String URL = "http://192.168.1.97:8080/estudioCohorteCSSFVMovilWS/EstudioCohorteCSSFVMovilWSService?wsdl";
+    //public static String URL = "http://192.168.1.97:8080/estudioCohorteCSSFVMovilWS/EstudioCohorteCSSFVMovilWSService?wsdl";
+    public static String URL = "http://192.168.1.94:8081/estudioCohorteCSSFVMovilWS/EstudioCohorteCSSFVMovilWSService?wsdl";
     private static int TIME_OUT = 200000;
 
     public ArrayList<HeaderProperty> HEADER_PROPERTY;
@@ -228,12 +229,12 @@ public class UploadAllTask extends UploadTask {
                     objenvioHojaConsulta.put("fontanelaHundida", hojaConsulta.getFontanelaHundida());
                     objenvioHojaConsulta.put("sintomasUrinarios", hojaConsulta.getSintomasUrinarios());
                     objenvioHojaConsulta.put("leucocituria", hojaConsulta.getLeucocituria());
-                    objenvioHojaConsulta.put("nitritos", hojaConsulta.getLeucocituria());
-                    objenvioHojaConsulta.put("bilirrubinuria", hojaConsulta.getLeucocituria());
-                    objenvioHojaConsulta.put("altralgia", hojaConsulta.getLeucocituria());
-                    objenvioHojaConsulta.put("mialgia", hojaConsulta.getLeucocituria());
-                    objenvioHojaConsulta.put("lumbalgia", hojaConsulta.getLeucocituria());
-                    objenvioHojaConsulta.put("dolorCuello", hojaConsulta.getLeucocituria());
+                    objenvioHojaConsulta.put("nitritos", hojaConsulta.getNitritos());
+                    objenvioHojaConsulta.put("bilirrubinuria", hojaConsulta.getBilirrubinuria());
+                    objenvioHojaConsulta.put("altralgia", hojaConsulta.getAltralgia());
+                    objenvioHojaConsulta.put("mialgia", hojaConsulta.getMialgia());
+                    objenvioHojaConsulta.put("lumbalgia", hojaConsulta.getLumbalgia());
+                    objenvioHojaConsulta.put("dolorCuello", hojaConsulta.getDolorCuello());
                     objenvioHojaConsulta.put("tenosinovitis", hojaConsulta.getTenosinovitis());
                     objenvioHojaConsulta.put("artralgiaProximal", hojaConsulta.getArtralgiaProximal());
                     objenvioHojaConsulta.put("artralgiaDistal", hojaConsulta.getArtralgiaDistal());
@@ -286,10 +287,13 @@ public class UploadAllTask extends UploadTask {
                     objenvioHojaConsulta.put("petequiasEspontaneas", hojaConsulta.getPetequiasEspontaneas());
                     objenvioHojaConsulta.put("llenadoCapilar2seg", hojaConsulta.getLlenadoCapilar2seg());
                     objenvioHojaConsulta.put("cianosis", hojaConsulta.getCianosis());
-                    if(hojaConsulta.getLinfocitosaAtipicos() > 0)
-                        objenvioHojaConsulta.put("linfocitosaAtipicos", hojaConsulta.getLinfocitosaAtipicos());
-                    if(!StringUtils.isNullOrEmpty(hojaConsulta.getFechaLinfocitos()))
+                    //if(hojaConsulta.getLinfocitosaAtipicos() >= 0)
+                        //objenvioHojaConsulta.put("linfocitosaAtipicos", hojaConsulta.getLinfocitosaAtipicos());
+                    if(!StringUtils.isNullOrEmpty(hojaConsulta.getFechaLinfocitos())) {
                         objenvioHojaConsulta.put("fechaLinfocitos", hojaConsulta.getFechaLinfocitos());
+                        objenvioHojaConsulta.put("linfocitosaAtipicos", hojaConsulta.getLinfocitosaAtipicos());
+                    }
+                        //objenvioHojaConsulta.put("fechaLinfocitos", hojaConsulta.getFechaLinfocitos());
                     objenvioHojaConsulta.put("hipermenorrea", hojaConsulta.getHipermenorrea());
                     objenvioHojaConsulta.put("hematemesis", hojaConsulta.getHematemesis());
                     objenvioHojaConsulta.put("melena", hojaConsulta.getMelena());

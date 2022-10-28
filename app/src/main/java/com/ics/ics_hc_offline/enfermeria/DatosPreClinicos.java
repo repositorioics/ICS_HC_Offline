@@ -110,8 +110,11 @@ public class DatosPreClinicos extends Fragment {
         Calendar cal = Calendar.getInstance();
         cal.setTimeInMillis(milliSeconds);
         //Número de expediente fisico con la fecha de nacimiento
-        SimpleDateFormat numExpFis = new SimpleDateFormat("ddMMyy");
-        String expedienteFisico = numExpFis.format(cal.getTime());
+
+        String expedienteFisico = crearNumExpedienteFisico(milliSeconds, "ddMMyy");
+
+        /*SimpleDateFormat numExpFis = new SimpleDateFormat("ddMMyy");
+        String expedienteFisico = numExpFis.format(cal.getTime());*/
         ((EditText)view.findViewById(R.id.edtxtExpediente)).setText(expedienteFisico);
 
         ImageButton imgBusquedaEnfermeria = (ImageButton) view.findViewById(R.id.imgBusquedaEnfermeria);
@@ -404,5 +407,22 @@ public class DatosPreClinicos extends Fragment {
     private boolean estaEnRango(double min, double max, String valor) {
         double valorComparar = Double.parseDouble(valor);
         return (valorComparar >= min && valorComparar <= max) ? true : false;
+    }
+
+    /**
+     * Return date in specified format.
+     * @param milliSeconds Date in milliseconds
+     * @param dateFormat Date format
+     * @return String representing date in specified format
+     */
+    public static String crearNumExpedienteFisico(long milliSeconds, String dateFormat)
+    {
+        // Create a DateFormatter object for displaying date in specified format.
+        SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
+
+        // Create a calendar object that will convert the date and time value in milliseconds to date.
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(milliSeconds);
+        return formatter.format(calendar.getTime());
     }
 }

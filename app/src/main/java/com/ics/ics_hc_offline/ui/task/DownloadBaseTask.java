@@ -59,7 +59,8 @@ import com.ics.ics_hc_offline.wsclass.DataNodoItemArray;
 
 public class DownloadBaseTask extends DownloadTask {
     public static final String NAMESPACE = "http://webservice.estudiocohortecssfv.sts_ni.com/";
-    public static String URL = "http://192.168.1.97:8080/estudioCohorteCSSFVMovilWS/EstudioCohorteCSSFVMovilWSService?wsdl";
+    //public static String URL = "http://192.168.1.97:8080/estudioCohorteCSSFVMovilWS/EstudioCohorteCSSFVMovilWSService?wsdl";
+    public static String URL = "http://192.168.1.94:8081/estudioCohorteCSSFVMovilWS/EstudioCohorteCSSFVMovilWSService?wsdl";
     private static int TIME_OUT = 200000;
     public ArrayList<HeaderProperty> HEADER_PROPERTY;
     private final Context mContext;

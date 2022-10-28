@@ -189,7 +189,7 @@ public class LoginActivity extends Activity {
     }
 
     private boolean isPermissionGranted() {
-        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.R) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             //Para android 11
             return Environment.isExternalStorageManager();
         } else {
@@ -200,7 +200,7 @@ public class LoginActivity extends Activity {
     }
 
     private void takePermission() {
-        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.R) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             try {
                 Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
                 intent.addCategory("android.intent.category.DEFAULT");
@@ -222,7 +222,7 @@ public class LoginActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (requestCode == 100) {
-                if (Build.VERSION.SDK_INT == Build.VERSION_CODES.R) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                     if (Environment.isExternalStorageManager()) {
                         Toast.makeText(this, "Permiso otorgados", Toast.LENGTH_SHORT).show();
                     } else {

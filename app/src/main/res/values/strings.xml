@@ -802,7 +802,7 @@
     <string name="mensaje_examen_guardado_y_revision_impresora">Los examenes se han guardado correctamente, si envió a realizar el exámen de Serología Dengue recuerde revisar la impresora</string>
 
     <string name="label_uaf">UAF:</string>
-    <string name="descargar_apk">http://192.168.1.94:8081/estudioCohorte_CSSFV.apk</string>
+    <!--<string name="descargar_apk">http://192.168.1.94:8081/estudioCohorte_CSSFV.apk</string>-->
     <!--<string name="descargar_apk">http://192.168.1.26:8080/estudioCohorte_CSSFV.apk</string>-->
     <string name="label_covid">CV</string>
 
@@ -861,4 +861,5 @@
     <string name="no">No</string>
     <string name="confirm">Confirmar</string>
     <string name="wipe_db_confirm">Al seleccionar esta opción borrará la base de datos del equipo, los datos almacenados se borrarán si continúa. Aún desea marcar esta opción?</string>
+    <string name="existe_hc_current_date">Ya existe una hoja de consulta para la fecha de hoy, desea crear otra?</string>
 </resources>

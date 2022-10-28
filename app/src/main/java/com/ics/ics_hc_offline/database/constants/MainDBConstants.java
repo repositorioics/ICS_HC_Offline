@@ -3,7 +3,7 @@ package com.ics.ics_hc_offline.database.constants;
 public class MainDBConstants {
     //Base de datos y tablas
     public static final String DATABASE_NAME = "hojaconsultascryp.sqlite3";
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
 
     //Tabla Usuario
     public static final String USUARIO_TABLE = "usuario";
@@ -443,9 +443,10 @@ public class MainDBConstants {
             + tallaCm + " real, "
             + temperaturac + " real, "
             + usuarioEnfermeria + " integer, "
-            + expedienteFisico + " integer, "
+            + expedienteFisico + " text, "
             + historiaExamenFisico + " text, "
             + planes + " text, "
+
             + presion + " integer, "
             + pas + " integer, "
             + pad + " integer, "

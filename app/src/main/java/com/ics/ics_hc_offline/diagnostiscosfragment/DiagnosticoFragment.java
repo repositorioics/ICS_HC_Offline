@@ -91,7 +91,8 @@ public class DiagnosticoFragment extends Fragment {
     private void cargarDiagnoticos() {
         mDbAdapter = new HojaConsultaDBAdapter(CONTEXT,false,false);
         mDbAdapter.open();
-        List<DiagnosticoDTO> diagnostico = mDbAdapter.getDiagnosticos(null, null);
+        String order = MainDBConstants.diagnostico + " " + "ASC";
+        List<DiagnosticoDTO> diagnostico = mDbAdapter.getDiagnosticos(null, order);
         if (diagnostico.size() > 0) {
             DiagnosticoDTO diagTO=new DiagnosticoDTO();
             ArrayList<DiagnosticoDTO> diag1= new  ArrayList<DiagnosticoDTO>();
@@ -212,13 +213,14 @@ public class DiagnosticoFragment extends Fragment {
         Integer diagnosticoId4 =  ((DiagnosticoDTO) ((Spinner) VIEW.findViewById(R.id.spnDialogo4)).getSelectedItem()).getSecDiagnostico();
 
         if (hojaConsulta.getCategoria() != null) {
-            if (hojaConsulta.getCategoria().trim().equals("A")) {
+            /*if (hojaConsulta.getCategoria().trim().equals("A")) {
                 if (diagnosticoId1 == 57 || diagnosticoId2 == 57 || diagnosticoId3 == 57 || diagnosticoId4 == 57) {
                     throw new Exception("No coincide categoria con diagnostico, Categoria: " + hojaConsulta.getCategoria().trim() +
                             ", Diagnostico: SINDROME FEBRIL AGUDO SIN FOCO APARENTE");
                 }
-            }
-            if (hojaConsulta.getCategoria().trim().equals("B") || hojaConsulta.getCategoria().trim().equals("C")) {
+            }*/
+            //if (hojaConsulta.getCategoria().trim().equals("B") || hojaConsulta.getCategoria().trim().equals("C")) {
+            if (hojaConsulta.getCategoria().trim().equals("C")) {
                 if (diagnosticoId1 == 94 || diagnosticoId2 == 94 || diagnosticoId3 == 94 || diagnosticoId4 == 94) {
                     throw new Exception("No coincide categoria con diagnostico, Categoria: " + hojaConsulta.getCategoria().trim() +
                             ", Diagnostico: DENGUE SIN SIGNOS DE ALARMA");

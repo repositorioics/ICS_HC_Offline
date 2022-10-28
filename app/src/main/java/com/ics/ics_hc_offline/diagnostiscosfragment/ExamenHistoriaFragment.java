@@ -1,10 +1,14 @@
 package com.ics.ics_hc_offline.diagnostiscosfragment;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -20,6 +24,7 @@ import com.ics.ics_hc_offline.database.HojaConsultaDBAdapter;
 import com.ics.ics_hc_offline.database.constants.MainDBConstants;
 import com.ics.ics_hc_offline.dto.HojaConsultaOffLineDTO;
 import com.ics.ics_hc_offline.helper.MensajesHelper;
+import com.ics.ics_hc_offline.ui.activities.server.DownloadBaseActivity;
 import com.ics.ics_hc_offline.utils.StringUtils;
 
 public class ExamenHistoriaFragment extends Fragment {
@@ -65,6 +70,24 @@ public class ExamenHistoriaFragment extends Fragment {
                     }
                     e.printStackTrace();
                 }
+            }
+        });
+        // funcion para hacer el texto escroleable
+        EditText edtxtHistoricoExamen = (EditText) view.findViewById(R.id.edtxtHistoricoExamen);
+        /*edtxtPlanes.setVerticalScrollBarEnabled(true);
+        edtxtPlanes.setMovementMethod(new ScrollingMovementMethod());*/
+        edtxtHistoricoExamen.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (view.getId() == R.id.edtxtHistoricoExamen) {
+                    view.getParent().requestDisallowInterceptTouchEvent(true);
+                    switch (motionEvent.getAction() & MotionEvent.ACTION_MASK) {
+                        case MotionEvent.ACTION_UP:
+                            view.getParent().requestDisallowInterceptTouchEvent(false);
+                            break;
+                    }
+                }
+                return false;
             }
         });
         cargarDatos();

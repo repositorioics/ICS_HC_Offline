@@ -1334,7 +1334,7 @@ public class CategoriaSintomaFragment extends Fragment {
                 if (perteneceEstDengue && cat_NA) {
                     throw new Exception(getString(R.string.PACIENTE_NO_PUEDE_SER_CATEGORIA_NA));
                 }
-                if (perteneceEstDengue && cat_D && HOJACONSULTA.getFif() != null) {
+                if (perteneceEstDengue && cat_D && HOJACONSULTA.getFif() != null && !HOJACONSULTA.getFif().equals("")) {
                     throw new Exception(getString(R.string.PACIENTE_CON_EST_DENGUE_FIF_Y_CATEGORIA_D));
                 }
                 if ((!perteneceEstDengue && cat_A) ||

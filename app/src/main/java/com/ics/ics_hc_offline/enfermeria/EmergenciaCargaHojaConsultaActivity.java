@@ -3,6 +3,7 @@ package com.ics.ics_hc_offline.enfermeria;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -45,6 +46,8 @@ public class EmergenciaCargaHojaConsultaActivity extends Fragment {
     private FragmentHomeBinding binding;
     public int COD_EXPEDIENTE = 0;
     public Context CONTEXT;
+    private AlertDialog alertDialog;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -189,9 +192,7 @@ public class EmergenciaCargaHojaConsultaActivity extends Fragment {
         //String filtroConsulta = MainDBConstants.consulta + "='" + consulta + "'";00
         boolean exisHojaConsulta = mDbAdapter.validarSiExisteUnaHojaActiva(COD_EXPEDIENTE, null);
         if (exisHojaConsulta) {
-            Toast toast = Toast.makeText(CONTEXT.getApplicationContext(), "Ya existe una hoja de consulta para ese codigo", Toast.LENGTH_LONG);
-            toast.show();
-            PD.dismiss();
+            createDialog(mDbAdapter, PD);
         } else {
             boolean result = mDbAdapter.createNewHojaConsulta(COD_EXPEDIENTE, CONTEXT);
             if (result) {
@@ -207,5 +208,58 @@ public class EmergenciaCargaHojaConsultaActivity extends Fragment {
                 PD.dismiss();
             }
         }
+
+        /*if (exisHojaConsulta) {
+            Toast toast = Toast.makeText(CONTEXT.getApplicationContext(), "Ya existe una hoja de consulta para ese codigo", Toast.LENGTH_LONG);
+            toast.show();
+            PD.dismiss();
+        } else {
+        boolean result = mDbAdapter.createNewHojaConsulta(COD_EXPEDIENTE, CONTEXT);
+        if (result) {
+            Toast toast = Toast.makeText(CONTEXT.getApplicationContext(), R.string.success, Toast.LENGTH_LONG);
+            toast.show();
+            PD.dismiss();
+        } else {
+            Toast t = Toast.makeText(CONTEXT.getApplicationContext(),
+                    getString(R.string.error, "Al crear la hoja de consulta"),
+                    Toast.LENGTH_LONG);
+            t.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+            t.show();
+            PD.dismiss();
+        }*/
+        //}
+    }
+
+    private void createDialog(HojaConsultaDBAdapter mDbAdapter, ProgressDialog PD) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(CONTEXT);
+        builder.setTitle(this.getString(R.string.nav_header_title));
+        builder.setIcon(R.drawable.ic_launcher);
+        builder.setMessage(this.getString(R.string.existe_hc_current_date));
+        builder.setPositiveButton(this.getString(R.string.yes), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                boolean result = mDbAdapter.createNewHojaConsulta(COD_EXPEDIENTE, CONTEXT);
+                if (result) {
+                    Toast toast = Toast.makeText(CONTEXT.getApplicationContext(), R.string.success, Toast.LENGTH_LONG);
+                    toast.show();
+                    PD.dismiss();
+                } else {
+                    Toast t = Toast.makeText(CONTEXT.getApplicationContext(),
+                            getString(R.string.error, "Al crear la hoja de consulta"),
+                            Toast.LENGTH_LONG);
+                    t.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                    t.show();
+                    PD.dismiss();
+                }
+            }
+        });
+        builder.setNegativeButton(this.getString(R.string.no), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Do nothing
+                dialog.dismiss();
+            }
+        });
+        alertDialog = builder.create();
+        alertDialog.show();
     }
 }

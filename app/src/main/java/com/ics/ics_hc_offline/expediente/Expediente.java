@@ -130,7 +130,7 @@ public class Expediente extends Fragment implements AdapterView.OnItemClickListe
                 })
                 .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        PD.dismiss();
+                        //PD.dismiss();
                         dialog.cancel();
                     }
                 })

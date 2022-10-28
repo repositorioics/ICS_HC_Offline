@@ -198,7 +198,7 @@ public class DiagnosticoProximaCitaFragment extends Fragment {
     public void cargarListaEscuela() {
         mDbAdapter = new HojaConsultaDBAdapter(CONTEXT,false,false);
         mDbAdapter.open();
-        List<EscuelaPacienteDTO> paramLstEscuela = mDbAdapter.getEscuelas(null, null);
+        List<EscuelaPacienteDTO> paramLstEscuela = mDbAdapter.getEscuelas(null, MainDBConstants.descripcion + " ASC");
         if (paramLstEscuela.size() > 0) {
             EscuelaPacienteDTO escuelaPaciente = new EscuelaPacienteDTO();
             ArrayList<EscuelaPacienteDTO> lstEscuelas= new ArrayList<>();

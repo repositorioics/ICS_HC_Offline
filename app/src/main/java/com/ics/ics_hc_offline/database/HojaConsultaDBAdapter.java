@@ -83,6 +83,10 @@ public class HojaConsultaDBAdapter {
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             onCreate(db);
             if(oldVersion==0) return;
+            if(oldVersion==1) {
+                db.execSQL("Drop table " + MainDBConstants.HOJACONSULTA_TABLE);
+                db.execSQL(MainDBConstants.CREATE_HOJACONSULTA_TABLE);
+            }
         }
     }
 
@@ -182,7 +186,7 @@ public class HojaConsultaDBAdapter {
                 "FROM usuario a " +
                 "INNER JOIN roles b ON a.usuario = b.usuario " +
                 "WHERE b.nombre = 'Enfermeria' " +
-                "GROUP BY a.nombre ORDER BY a.id ASC";
+                "GROUP BY a.nombre ORDER BY a.nombre ASC";
         Cursor cursorUser = mDb.rawQuery(query, new String[]{});
         if (cursorUser != null && cursorUser.getCount() > 0) {
             cursorUser.moveToFirst();
@@ -811,6 +815,7 @@ public class HojaConsultaDBAdapter {
         String query = "SELECT * " +
                 "FROM hojaConsulta " +
                 "WHERE codExpediente = ? " +
+                "AND DATE(fechaConsulta) = CURRENT_DATE " +
                 "AND estado NOT IN('7', '8')";
         Cursor cursorHojasConsultas = mDb.rawQuery(query, new String[]{ String.valueOf(filtro)});
         HojaConsultaOffLineDTO mHojaConsulta = null;
