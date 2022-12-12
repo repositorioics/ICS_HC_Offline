@@ -29,6 +29,7 @@ import com.ics.ics_hc_offline.R;
 import com.ics.ics_hc_offline.database.HojaConsultaDBAdapter;
 import com.ics.ics_hc_offline.database.constants.MainDBConstants;
 import com.ics.ics_hc_offline.dto.HojaConsultaOffLineDTO;
+import com.ics.ics_hc_offline.dto.HojaConsultaPartsDTO;
 import com.ics.ics_hc_offline.helper.MensajesHelper;
 import com.ics.ics_hc_offline.tools.DecimalDigitsInputFilter;
 import com.ics.ics_hc_offline.utils.AndroidUtils;
@@ -54,7 +55,7 @@ public class GeneralesSintomasFragment extends Fragment {
     private String fechaConsulta;
     private HojaConsultaDBAdapter mDbAdapter;
     private static HojaConsultaOffLineDTO HOJACONSULTA = null;
-    private static HojaConsultaOffLineDTO HC = null;
+    private static HojaConsultaPartsDTO HC = null;
 
     public GeneralesSintomasFragment() {
         // Required empty public constructor
@@ -265,7 +266,7 @@ public class GeneralesSintomasFragment extends Fragment {
     public void onChkboxClickedConsulta(View view) {
         mDbAdapter = new HojaConsultaDBAdapter(CONTEXT, false,false);
         mDbAdapter.open();
-        HC = mDbAdapter.getHojaConsulta(MainDBConstants.codExpediente  + "='" + HOJACONSULTA.getCodExpediente() + "'" + " AND estado = '7'", "fechaConsulta DESC LIMIT 1");
+        HC = mDbAdapter.getPartesHojaConsulta(MainDBConstants.codExpediente  + "='" + HOJACONSULTA.getCodExpediente() + "'" + " AND estado = '7'", "fechaConsulta DESC LIMIT 1");
         // Check which checkbox was clicked
         boolean checked = ((CheckBox) view).isChecked();
         String formattedDateFis = "";

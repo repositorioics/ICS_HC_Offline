@@ -12,8 +12,8 @@
     <string name="action_sign_in_short">Sign in</string>
     <string name="action_update_apk">Actualizar Apk</string>
     <string name="error_invalid_user">Usuario inválido</string>
-    <string name="version">Versión 1.0.3</string>
-    <string name="date_version">21 Oct 2022</string>
+    <string name="version">Versión 1.0.5</string>
+    <string name="date_version">12 Dic 2022</string>
 
     <string name="version_a_comparar">1.0.0</string>
 

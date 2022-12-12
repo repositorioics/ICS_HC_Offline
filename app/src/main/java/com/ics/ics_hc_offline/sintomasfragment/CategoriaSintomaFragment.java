@@ -1316,9 +1316,12 @@ public class CategoriaSintomaFragment extends Fragment {
 
     public void validarCategoria() throws Exception {
         boolean perteneceEstDengue = false;
-        if (HOJACONSULTA != null) {
-            if (HOJACONSULTA.getEstudiosParticipantes() != null) {
-                String estudiosParticipantes = HOJACONSULTA.getEstudiosParticipantes();
+        mDbAdapter = new HojaConsultaDBAdapter(CONTEXT, false,false);
+        mDbAdapter.open();
+        HojaConsultaOffLineDTO hojaConsulta = mDbAdapter.getHojaConsulta(MainDBConstants.secHojaConsulta  + "='" + secHojaConsulta + "'", null);
+        if (hojaConsulta != null) {
+            if (hojaConsulta.getEstudiosParticipantes() != null) {
+                String estudiosParticipantes = hojaConsulta.getEstudiosParticipantes();
                 String[] estPart;
                 estPart = estudiosParticipantes.split(",");
                 for (int i = 0; i < estPart.length; i++) {
@@ -1334,7 +1337,7 @@ public class CategoriaSintomaFragment extends Fragment {
                 if (perteneceEstDengue && cat_NA) {
                     throw new Exception(getString(R.string.PACIENTE_NO_PUEDE_SER_CATEGORIA_NA));
                 }
-                if (perteneceEstDengue && cat_D && HOJACONSULTA.getFif() != null && !HOJACONSULTA.getFif().equals("")) {
+                if (perteneceEstDengue && cat_D && hojaConsulta.getFif() != null && hojaConsulta.getFif().equals("")) {
                     throw new Exception(getString(R.string.PACIENTE_CON_EST_DENGUE_FIF_Y_CATEGORIA_D));
                 }
                 if ((!perteneceEstDengue && cat_A) ||

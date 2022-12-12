@@ -14,6 +14,7 @@ import com.ics.ics_hc_offline.database.helpers.EscuelaHelper;
 import com.ics.ics_hc_offline.database.helpers.EstadosHojasHelper;
 import com.ics.ics_hc_offline.database.helpers.EstudiosHelper;
 import com.ics.ics_hc_offline.database.helpers.HojaConsultaHelper;
+import com.ics.ics_hc_offline.database.helpers.HojaConsultaPartsHelper;
 import com.ics.ics_hc_offline.database.helpers.ParticipanteHelper;
 import com.ics.ics_hc_offline.database.helpers.RolesHelper;
 import com.ics.ics_hc_offline.database.helpers.UsuarioHelper;
@@ -25,6 +26,7 @@ import com.ics.ics_hc_offline.dto.EstudioCatalogoDTO;
 import com.ics.ics_hc_offline.dto.ExpedienteDTO;
 import com.ics.ics_hc_offline.dto.GrillaCierreDTO;
 import com.ics.ics_hc_offline.dto.HojaConsultaOffLineDTO;
+import com.ics.ics_hc_offline.dto.HojaConsultaPartsDTO;
 import com.ics.ics_hc_offline.dto.InicioDTO;
 import com.ics.ics_hc_offline.dto.PacienteDTO;
 import com.ics.ics_hc_offline.dto.RolesDTO;
@@ -86,6 +88,9 @@ public class HojaConsultaDBAdapter {
             if(oldVersion==1) {
                 db.execSQL("Drop table " + MainDBConstants.HOJACONSULTA_TABLE);
                 db.execSQL(MainDBConstants.CREATE_HOJACONSULTA_TABLE);
+            }
+            if(oldVersion == 2) {
+                db.execSQL(MainDBConstants.CREATE_PARTES_HOJACONSULTA_TABLE);
             }
         }
     }
@@ -166,6 +171,11 @@ public class HojaConsultaDBAdapter {
     //Limpiar la tabla de hoja_consulta de la base de datos
     public boolean borrarHojaConsulta() {
         return mDb.delete(MainDBConstants.HOJACONSULTA_TABLE, null, null) > 0;
+    }
+
+    //Limpiar la tabla de hoja_consulta de la base de datos
+    public boolean borrarPartesHojaConsulta() {
+        return mDb.delete(MainDBConstants.PARTES_HOJACONSULTA_TABLE, null, null) > 0;
     }
 
     //Obtener un usuario de la base de datos local
@@ -330,6 +340,19 @@ public class HojaConsultaDBAdapter {
             result = true;
         }
         return result;
+    }
+
+
+    //Obtener una Hoja de Consulta de la base de datos
+    public HojaConsultaPartsDTO getPartesHojaConsulta(String filtro, String orden) throws SQLException {
+        HojaConsultaPartsDTO mHojaConsulta = null;
+        Cursor cursorHojaConsulta = crearCursor(MainDBConstants.PARTES_HOJACONSULTA_TABLE , filtro, null, orden);
+        if (cursorHojaConsulta != null && cursorHojaConsulta.getCount() > 0) {
+            cursorHojaConsulta.moveToFirst();
+            mHojaConsulta= HojaConsultaPartsHelper.crearHojaConsulta(cursorHojaConsulta);
+        }
+        if (!cursorHojaConsulta.isClosed()) cursorHojaConsulta.close();
+        return mHojaConsulta;
     }
 
     public GrillaCierreDTO getUsuarioGrillaCierre(String usuario, String valor) throws SQLException {
@@ -687,6 +710,34 @@ public class HojaConsultaDBAdapter {
             mDb.beginTransaction();
             for (HojaConsultaOffLineDTO remoteAppInfo : list) {
                 HojaConsultaHelper.fillHojaConsultaStatement(stat, remoteAppInfo);
+                long result = stat.executeInsert();
+                if (result < 0) return false;
+            }
+            mDb.setTransactionSuccessful();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        } finally {
+            try {
+                if (null != mDb) {
+                    mDb.endTransaction();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return true;
+    }
+
+    public boolean bulkInsertPartesHojasConsultasBySql(List<HojaConsultaPartsDTO> list) throws Exception {
+        if (null == list || list.size() <= 0) {
+            return false;
+        }
+        try {
+            SQLiteStatement stat = mDb.compileStatement(MainDBConstants.INSERT_PARTES_HOJACONSULTA_TABLE);
+            mDb.beginTransaction();
+            for (HojaConsultaPartsDTO remoteAppInfo : list) {
+                HojaConsultaPartsHelper.fillHojaConsultaStatement(stat, remoteAppInfo);
                 long result = stat.executeInsert();
                 if (result < 0) return false;
             }

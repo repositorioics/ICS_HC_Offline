@@ -49,6 +49,7 @@ import com.ics.ics_hc_offline.dto.EscuelaPacienteDTO;
 import com.ics.ics_hc_offline.dto.EstadosHojasDTO;
 import com.ics.ics_hc_offline.dto.EstudioCatalogoDTO;
 import com.ics.ics_hc_offline.dto.HojaConsultaOffLineDTO;
+import com.ics.ics_hc_offline.dto.HojaConsultaPartsDTO;
 import com.ics.ics_hc_offline.dto.PacienteDTO;
 import com.ics.ics_hc_offline.dto.RolesDTO;
 import com.ics.ics_hc_offline.dto.UsuarioDTO;
@@ -91,13 +92,14 @@ public class DownloadBaseTask extends DownloadTask {
 
     private List<UsuarioDTO> mUsuarios = new ArrayList<>();
     private List<RolesDTO> mRoles = new ArrayList<>();
-    private List<ConsEstudiosDTO> mConsEstudios  = new ArrayList<>();;
-    private List<DiagnosticoDTO> mDiagnosticos = new ArrayList<>();;
+    private List<ConsEstudiosDTO> mConsEstudios  = new ArrayList<>();
+    private List<DiagnosticoDTO> mDiagnosticos = new ArrayList<>();
     private List<EscuelaPacienteDTO> mEscuelas = new ArrayList<>();
-    private List<EstudioCatalogoDTO> mEstudios = new ArrayList<>();;
-    private List<HojaConsultaOffLineDTO> mHojasConsultas  = new ArrayList<>();;
+    private List<EstudioCatalogoDTO> mEstudios = new ArrayList<>();
+    private List<HojaConsultaOffLineDTO> mHojasConsultas  = new ArrayList<>();
     private List<PacienteDTO> mPacientes  = new ArrayList<>();
     private List<EstadosHojasDTO> mEstadosHojas  = new ArrayList<>();
+    private List<HojaConsultaPartsDTO> mHojasConsultasParts  = new ArrayList<>();
 
 
     public static final String USUARIOS = "1";
@@ -109,7 +111,8 @@ public class DownloadBaseTask extends DownloadTask {
     public static final String HOJAS_CONSULTAS = "7";
     public static final String PACIENTES = "8";
     public static final String ESTADOS_HOJAS = "9";
-    private static final String TOTAL_TASK_GENERALES = "10";
+    public static final String HOJAS_CONSULTAS_PARTS = "10";
+    private static final String TOTAL_TASK_GENERALES = "11";
 
     private static final String METODO_GET_USUARIOS = "getUsuariosOffline";
     private static final String ACCIONSOAP_GET_USUARIOS = NAMESPACE + METODO_GET_USUARIOS;
@@ -141,6 +144,9 @@ public class DownloadBaseTask extends DownloadTask {
     public static final String METODO_COUNT_HOJAS_CONSULTAS = "getCantidadHojasConsultas";
     public static final String ACCIOSOAP_COUNT_HOJAS_CONSULTAS = NAMESPACE + METODO_COUNT_HOJAS_CONSULTAS;
 
+    public static final String METODO_HOJAS_CONSULTAS_PARTS = "getPartesHojasConsultasOffline";
+    public static final String ACCIOSOAP_HOJAS_CONSULTAS_PARTS = NAMESPACE + METODO_HOJAS_CONSULTAS_PARTS;
+
     private String error = null;
 
     @Override
@@ -155,6 +161,7 @@ public class DownloadBaseTask extends DownloadTask {
             error = descargarEstadosHojas();
             error = descargarConsEstudios();
             error = descargarHojasConsultas();
+            error = descargarPartesHojasConsultas();
             if (error!=null) return error;
         } catch (Exception e) {
             // Regresa error al descargar
@@ -174,6 +181,7 @@ public class DownloadBaseTask extends DownloadTask {
         hojaConsultaAdapter.borrarHojaConsulta();
         hojaConsultaAdapter.borrarParticipantes();
         hojaConsultaAdapter.borrarEstadosHojas();
+        hojaConsultaAdapter.borrarPartesHojaConsulta();
         try {
             if (mUsuarios != null) {
                 publishProgress("Insertando usuarios", USUARIOS, TOTAL_TASK_GENERALES);
@@ -210,6 +218,10 @@ public class DownloadBaseTask extends DownloadTask {
             if (mHojasConsultas != null) {
                 publishProgress("Insertando hojas de consultas", HOJAS_CONSULTAS, TOTAL_TASK_GENERALES);
                 hojaConsultaAdapter.bulkInsertHojasConsultasBySql(mHojasConsultas);
+            }
+            if (mHojasConsultasParts != null) {
+                publishProgress("Insertando partes de la hojas de consultas", HOJAS_CONSULTAS_PARTS, TOTAL_TASK_GENERALES);
+                hojaConsultaAdapter.bulkInsertPartesHojasConsultasBySql(mHojasConsultasParts);
             }
         } catch (Exception e) {
             // Regresa error al insertar
@@ -1071,6 +1083,52 @@ public class DownloadBaseTask extends DownloadTask {
                         hojaConsultaOffLineDTO.setEsConsultaTerreno("N");
                         hojaConsultaOffLineDTO.setStatusSubmitted("");
                         mHojasConsultas.add(hojaConsultaOffLineDTO);
+                    }
+                }
+            }
+            return null;
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage(), e);
+            throw e;
+        }
+    }
+
+    // Metodo para descargar partes de las hojas de consultas
+    protected String descargarPartesHojasConsultas() throws Exception {
+        try {
+            SoapObject request = new SoapObject(NAMESPACE, METODO_HOJAS_CONSULTAS_PARTS);
+            SoapSerializationEnvelope sobre = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+            sobre.dotNet = false;
+
+            sobre.setOutputSoapObject(request);
+
+            publishProgress("Solicitando partes de la hojas de consultas", HOJAS_CONSULTAS_PARTS, TOTAL_TASK_GENERALES);
+            HttpTransportSE transporte = new HttpTransportSE(URL, this.TIME_OUT);
+            transporte.call(ACCIOSOAP_HOJAS_CONSULTAS_PARTS, sobre, this.HEADER_PROPERTY);
+            String resultado = sobre.getResponse().toString();
+
+            if(!StringUtils.isNullOrEmpty(resultado)) {
+                JSONObject jObject = new JSONObject(resultado);
+                JSONObject mensaje = (JSONObject) jObject.get("mensaje");
+                if (mensaje.getInt("codigo") == 0) {
+                    JSONArray inicioArrayJson = (JSONArray) jObject.get("resultado");
+                    for (int i = 0; i < inicioArrayJson.length(); i++) {
+                        JSONObject hojaConsultaJson = inicioArrayJson.getJSONObject(i);
+                        HojaConsultaPartsDTO hojaConsultaOffLineDTO = new HojaConsultaPartsDTO();
+                        hojaConsultaOffLineDTO.setSecHojaConsulta(hojaConsultaJson.getInt("secHojaConsulta"));
+                        hojaConsultaOffLineDTO.setCodExpediente(hojaConsultaJson.getInt("codExpediente"));
+                        hojaConsultaOffLineDTO.setNumHojaConsulta(hojaConsultaJson.getInt("numHojaConsulta"));
+                        hojaConsultaOffLineDTO.setEstado(hojaConsultaJson.getString("estado"));
+                        hojaConsultaOffLineDTO.setFechaConsulta(hojaConsultaJson.getString("fechaConsulta"));
+                        if (!hojaConsultaJson.get("usuarioEnfermeria").toString().equals("null"))
+                            hojaConsultaOffLineDTO.setUsuarioEnfermeria(hojaConsultaJson.getInt("usuarioEnfermeria"));
+                        if (!hojaConsultaJson.get("usuarioMedico").toString().equals("null"))
+                            hojaConsultaOffLineDTO.setUsuarioMedico(hojaConsultaJson.getInt("usuarioMedico"));
+                        if (!hojaConsultaJson.get("fis").toString().equals("null"))
+                            hojaConsultaOffLineDTO.setFis(hojaConsultaJson.getString("fis"));
+                        if (!hojaConsultaJson.get("fif").toString().equals("null"))
+                            hojaConsultaOffLineDTO.setFif(hojaConsultaJson.getString("fif"));
+                        mHojasConsultasParts.add(hojaConsultaOffLineDTO);
                     }
                 }
             }

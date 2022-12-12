@@ -3,7 +3,7 @@ package com.ics.ics_hc_offline.database.constants;
 public class MainDBConstants {
     //Base de datos y tablas
     public static final String DATABASE_NAME = "hojaconsultascryp.sqlite3";
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 3;
 
     //Tabla Usuario
     public static final String USUARIO_TABLE = "usuario";
@@ -894,4 +894,33 @@ public class MainDBConstants {
             "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?," +
             "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?," +
             "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+    //Tabla HojaConsulta Dto
+    public static final String PARTES_HOJACONSULTA_TABLE = "hojaConsultaDto";
+
+    //Crear tabla HojaConsulta Dto
+    public static final String CREATE_PARTES_HOJACONSULTA_TABLE = "create table if not exists "
+            + PARTES_HOJACONSULTA_TABLE + " ("
+            + secHojaConsulta + " integer not null, "
+            + codExpediente + " integer not null, "
+            + numHojaConsulta + " integer not null, "
+            + estado + " integer, "
+            + fechaConsulta + " text not null, "
+            + usuarioEnfermeria + " integer, "
+            + usuarioMedico + " integer, "
+            + fis + " date, "
+            + fif + " date, "
+            + "primary key (" + secHojaConsulta + "));";
+
+    public static final String INSERT_PARTES_HOJACONSULTA_TABLE = "insert into " + PARTES_HOJACONSULTA_TABLE + "("
+            + secHojaConsulta + ","
+            + codExpediente + ","
+            + numHojaConsulta + ","
+            + estado + ","
+            + fechaConsulta + ","
+            + usuarioEnfermeria + ","
+            + usuarioMedico + ","
+            + fis + ","
+            + fif
+            + ") " + "values(?,?,?,?,?,?,?,?,?)";
 }
